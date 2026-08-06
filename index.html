@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="A product of emergent.sh">
+  <title>#_4root | Cyber Community</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+
+  <!-- =========================================
+       GRAIN OVERLAY (visual effect)
+       ========================================= -->
+  <div class="grain-overlay"></div>
+
+  <!-- =========================================
+       NAVBAR
+       ========================================= -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span>#</span>
+        <span class="neon-bar neon-glow"></span>
+        <span>4root</span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="nav-link active" data-section="home">Home<span class="underline"></span></a></li>
+        <li><a href="#comunidade" class="nav-link" data-section="comunidade">Comunidade<span class="underline"></span></a></li>
+        <li><a href="#desafios" class="nav-link" data-section="desafios">Desafios<span class="underline"></span></a></li>
+        <li><a href="#recursos" class="nav-link" data-section="recursos">Recursos<span class="underline"></span></a></li>
+        <li><a href="#contato" class="nav-link" data-section="contato">Contato<span class="underline"></span></a></li>
+      </ul>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu">
+    <a href="#home" class="active" data-section="home">Home</a>
+    <a href="#comunidade" data-section="comunidade">Comunidade</a>
+    <a href="#desafios" data-section="desafios">Desafios</a>
+    <a href="#recursos" data-section="recursos">Recursos</a>
+    <a href="#contato" data-section="contato">Contato</a>
+  </div>
+
+  <main>
+
+    <!-- =========================================
+         HERO SECTION
+         ========================================= -->
+    <section id="home" class="hero-section scanlines">
+      <canvas id="particle-canvas"></canvas>
+      <div class="hero-gradient"></div>
+      <div class="hero-content">
+
+        <!-- Status line with typewriter -->
+        <div class="hero-status">
+          <span class="dot neon-glow caret-blink"></span>
+          <span id="typewriter"></span>
+        </div>
+
+        <!-- Title (with glitch effect) -->
+        <h1 class="hero-title glitch" data-text="acesso">
+          <span class="line">
+            <span class="line-inner" data-text="acesso">access</span>
+          </span>
+          <span class="line">
+            <span class="line2-inner" data-text="#_4root">
+              <span>#</span>
+              <span class="neon-text">_</span>
+              <span class="line-inner">4root</span>
+            </span>
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <div class="hero-subtitle-wrap" id="hero-subtitle-wrap">
+          <p class="hero-subtitle">Um coletivo underground de entusiastas de cibersegurança. Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento — sem ruído, só raiz.</p>
+          <p class="hero-proximity-text" aria-hidden="true">Um coletivo underground de entusiastas de cibersegurança. Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento — sem ruído, só raiz.</p>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="hero-ctas">
+          <a href="#desafios" class="cta-primary glitch" data-text="iniciar desafios">iniciar desafios</a>
+          <a href="#comunidade" class="cta-secondary">ler manifesto</a>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <a href="#comunidade" class="hero-scroll-indicator bounce-arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="m19 12-7 7-7-7"></path></svg>
+      </a>
+    </section>
+
+    <!-- =========================================
+         MARQUEE
+         ========================================= -->
+    <div class="marquee">
+      <div class="marquee-track animate-marquee">
+        <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">join the network</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">capture the flag</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">stay curious</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">root@4root:~#</span><span class="marquee-divider">/</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">join the network</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">capture the flag</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">stay curious</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">root@4root:~#</span><span class="marquee-divider">/</span>
+      </div>
+    </div>
+
+    <!-- =========================================
+         CONTATO SECTION
+         ========================================= -->
+    <section id="contato" class="section contato-section">
+      <div class="section-inner">
+
+        <div class="section-label animate-on-scroll">
+          <span class="label-bar"></span>
+          <span>// 01 — contato</span>
+        </div>
+        <h2 class="section-title animate-on-scroll text-glitch" data-text="Entre na rede">Entre na rede</h2>
+        <p class="section-desc animate-on-scroll">Toda conexão começa com um handshake. Escolha por onde falar com a gente e faça parte do coletivo.</p>
+
+        <div class="socials-grid">
+
+          <a href="#" class="social-card animate-on-scroll">
+            <div class="social-icon">
+              <!-- Discord icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3.54 5.61c-3.22.96-6.22.88-8.92 0-.5-.15-.83.42-.56.86a7.54 7.54 0 0 0 5.02 2.75 7.54 7.54 0 0 0 5.02-2.75c.27-.44-.06-1.01-.56-.86Z"></path><path d="M18.5 3h-13A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 3Z"></path></svg>
+            </div>
+            <div>
+              <p class="social-name">Discord</p>
+              <p class="social-handle">/_4root</p>
+            </div>
+          </a>
+
+          <a href="#" class="social-card animate-on-scroll">
+            <div class="social-icon">
+              <!-- Telegram (send) icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+            </div>
+            <div>
+              <p class="social-name">Telegram</p>
+              <p class="social-handle">@_4root</p>
+            </div>
+          </a>
+
+          <a href="#" class="social-card animate-on-scroll">
+            <div class="social-icon">
+              <!-- GitHub icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+            </div>
+            <div>
+              <p class="social-name">GitHub</p>
+              <p class="social-handle">/4root</p>
+            </div>
+          </a>
+
+          <a href="#" class="social-card animate-on-scroll">
+            <div class="social-icon">
+              <!-- Instagram icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            </div>
+            <div>
+              <p class="social-name">Instagram</p>
+              <p class="social-handle">@_4root</p>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         COMUNIDADE SECTION
+         ========================================= -->
+    <section id="comunidade" class="section comunidade-section">
+      <div class="section-inner">
+
+        <div class="section-label animate-on-scroll">
+          <span class="label-bar"></span>
+          <span>// 02 — comunidade</span>
+        </div>
+        <h2 class="section-title animate-on-scroll text-glitch" data-text="Manifesto da raiz">Manifesto da raiz</h2>
+        <p class="section-desc animate-on-scroll">Quatro princípios que definem quem somos. Sem hierarquia corporativa, só a busca crua por conhecimento.</p>
+
+        <div class="manifesto-grid">
+
+          <div class="manifesto-card animate-on-scroll">
+            <span class="manifesto-number">01</span>
+            <h3 class="manifesto-title"><span class="arrow">›</span> Acesso Root</h3>
+            <p class="manifesto-body">Não pedimos permissão para entender. Quebramos, remontamos e dominamos cada sistema até que ele não tenha mais segredos. Conhecimento é privilégio de quem cava fundo.</p>
+            <span class="neon-bottom-line"></span>
+          </div>
+
+          <div class="manifesto-card animate-on-scroll">
+            <span class="manifesto-number">02</span>
+            <h3 class="manifesto-title"><span class="arrow">›</span> Curiosidade Radical</h3>
+            <p class="manifesto-body">A pergunta 'como isso funciona?' é o nosso ponto de partida. Exploramos protocolos, binários e redes movidos por uma obsessão saudável de descobrir o que existe abaixo da superfície.</p>
+            <span class="neon-bottom-line"></span>
+          </div>
+
+          <div class="manifesto-card animate-on-scroll">
+            <span class="manifesto-number">03</span>
+            <h3 class="manifesto-title"><span class="arrow">›</span> Ética do Hacker</h3>
+            <p class="manifesto-body">Poder exige responsabilidade. Aprendemos a atacar para saber defender. Compartilhamos, documentamos e elevamos a comunidade — nunca a exploramos.</p>
+            <span class="neon-bottom-line"></span>
+          </div>
+
+          <div class="manifesto-card animate-on-scroll">
+            <span class="manifesto-number">04</span>
+            <h3 class="manifesto-title"><span class="arrow">›</span> Coletivo &gt; Ego</h3>
+            <p class="manifesto-body">Aqui ninguém cresce sozinho. Writeups abertos, mentorias e CTFs em grupo. A #_4root é uma rede: cada nó torna o próximo mais forte.</p>
+            <span class="neon-bottom-line"></span>
+          </div>
+
+        </div>
+
+        <p class="members-label animate-on-scroll">operadores ativos // 4 nós</p>
+        <div class="members-grid">
+
+          <div class="member-card animate-on-scroll">
+            <img src="local-assets/images/1666615435088-4865bf5ed3fd.jpg" alt="n0va">
+            <div class="overlay"></div>
+            <div class="info">
+              <p class="handle">@n0va</p>
+              <p class="role">Reverse Engineering</p>
+            </div>
+          </div>
+
+          <div class="member-card animate-on-scroll">
+            <img src="local-assets/images/1633265486064-086b219458ec.jpg" alt="byt3">
+            <div class="overlay"></div>
+            <div class="info">
+              <p class="handle">@byt3</p>
+              <p class="role">Web Exploitation</p>
+            </div>
+          </div>
+
+          <div class="member-card animate-on-scroll">
+            <img src="local-assets/images/1526374965328-7f61d4dc18c5.jpg" alt="gh0st">
+            <div class="overlay"></div>
+            <div class="info">
+              <p class="handle">@gh0st</p>
+              <p class="role">Network &amp; OSINT</p>
+            </div>
+          </div>
+
+          <div class="member-card animate-on-scroll">
+            <img src="local-assets/images/1550751827-4bd374c3f58b.jpg" alt="r00t">
+            <div class="overlay"></div>
+            <div class="info">
+              <p class="handle">@r00t</p>
+              <p class="role">Crypto &amp; Pwn</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         DESAFIOS SECTION
+         ========================================= -->
+    <section id="desafios" class="section desafios-section">
+      <div class="section-inner">
+
+        <div class="section-label animate-on-scroll">
+          <span class="label-bar"></span>
+          <span>// 03 — desafios</span>
+        </div>
+        <h2 class="section-title animate-on-scroll text-glitch" data-text="Capture the flag">Capture the flag</h2>
+        <p class="section-desc animate-on-scroll">Uma trilha de máquinas e desafios. Do overflow inicial à escalada root — cada flag vale pontos no ranking.</p>
+
+        <div class="challenges-grid">
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-001</span>
+              <span class="challenge-level level-facil">Fácil</span>
+            </div>
+            <h3 class="challenge-title">Buffer Overflow 101</h3>
+            <p class="challenge-desc">Sobrescreva o retorno e sequestre o fluxo de execução de um binário vulnerável.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Pwn</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                100 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-014</span>
+              <span class="challenge-level level-medio">Médio</span>
+            </div>
+            <h3 class="challenge-title">SQLi na Sombra</h3>
+            <p class="challenge-desc">Extraia credenciais de um login mal sanitizado usando injeção cega baseada em tempo.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Web</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                250 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-027</span>
+              <span class="challenge-level level-medio">Médio</span>
+            </div>
+            <h3 class="challenge-title">RSA Quebrado</h3>
+            <p class="challenge-desc">Fatore um módulo fraco e recupere a chave privada para decifrar a flag.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Crypto</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                300 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-039</span>
+              <span class="challenge-level level-facil">Fácil</span>
+            </div>
+            <h3 class="challenge-title">Pacote Fantasma</h3>
+            <p class="challenge-desc">Analise uma captura pcap e reconstrua o arquivo exfiltrado escondido no tráfego.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Network</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                150 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-051</span>
+              <span class="challenge-level level-root">Root</span>
+            </div>
+            <h3 class="challenge-title">Engenharia Reversa</h3>
+            <p class="challenge-desc">Desmonte um crackme com anti-debug e derrote a rotina de verificação de serial.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Reversing</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                500 pts
+              </span>
+            </div>
+          </div>
+
+          <div class="challenge-card animate-on-scroll">
+            <div class="challenge-header">
+              <span class="challenge-code">CTF-066</span>
+              <span class="challenge-level level-root">Root</span>
+            </div>
+            <h3 class="challenge-title">Escalada de Privilégio</h3>
+            <p class="challenge-desc">De usuário comum a root: explore um SUID mal configurado no servidor alvo.</p>
+            <div class="challenge-footer">
+              <span class="challenge-cat">Pwn</span>
+              <span class="challenge-pts">
+                <svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg>
+                500 pts
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         RECURSOS SECTION
+         ========================================= -->
+    <section id="recursos" class="section recursos-section">
+      <div class="section-inner">
+
+        <div class="section-label animate-on-scroll">
+          <span class="label-bar"></span>
+          <span>// 04 — recursos</span>
+        </div>
+        <h2 class="section-title animate-on-scroll text-glitch" data-text="Arsenal">Arsenal</h2>
+        <p class="section-desc animate-on-scroll">Ferramentas e wikis curados pela comunidade. O kit essencial para quem vive no terminal.</p>
+
+        <div class="tools-grid">
+
+          <a href="https://portswigger.net/burp" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Web Proxy</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">Burp Suite</span>
+          </a>
+
+          <a href="https://ghidra-sre.org" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Reverse Eng.</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">Ghidra</span>
+          </a>
+
+          <a href="https://www.wireshark.org" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Network</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">Wireshark</span>
+          </a>
+
+          <a href="https://github.com/pwndbg/pwndbg" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Debugging</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">pwndbg</span>
+          </a>
+
+          <a href="https://hashcat.net/hashcat" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Cracking</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">Hashcat</span>
+          </a>
+
+          <a href="https://nmap.org" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Recon</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">Nmap</span>
+          </a>
+
+          <a href="https://gchq.github.io/CyberChef" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Encoding</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">CyberChef</span>
+          </a>
+
+          <a href="https://book.hacktricks.xyz" class="tool-card animate-on-scroll">
+            <div class="tool-top">
+              <span class="tool-tag">Wiki</span>
+              <span class="tool-arrow"><svg viewBox="0 0 24 24"><path d="M7 17L17 7"></path><path d="M7 7h10v10"></path></svg></span>
+            </div>
+            <span class="tool-name">HackTricks</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================
+       FOOTER
+       ========================================= -->
+  <footer>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <span class="footer-copyright">&copy; 2026 #_4root — comunidade cyber</span>
+        <span class="footer-motto">break // learn // share</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+  <script src="static/script.js"></script>
+</body>
+</html>
