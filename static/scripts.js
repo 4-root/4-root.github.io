@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  /* ==============================================
+  /* ============================================== 
    PARTICLE NETWORK CYBER
    ============================================== */
 const canvas = document.getElementById("particle-canvas");
