@@ -1300,3 +1300,21 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   0%, 100% { opacity: 0.5; }
   50% { opacity: 1; }
 }
+
+
+/* Bloqueia seleção de texto */
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Mantém inputs e áreas de texto selecionáveis */
+input,
+textarea,
+[contenteditable="true"] {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    user-select: text;
+}
