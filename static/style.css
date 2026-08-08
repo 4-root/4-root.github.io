@@ -1,8 +1,9 @@
-
 /* Adicionando a fonte Ubuntu para os títulos Hero */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,10 +26,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-ul, ol { list-style: none; }
-button { background: none; border: none; cursor: pointer; color: inherit; font: inherit; }
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+}
 
 :root {
   --neon: #00ff41;
@@ -43,6 +62,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .grain-overlay {
   position: relative;
 }
+
 .grain-overlay::before {
   content: "";
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
@@ -55,15 +75,14 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .scanlines {
   position: relative;
 }
+
 .scanlines::after {
   content: "";
-  background: repeating-linear-gradient(
-    180deg,
-    rgba(0, 255, 65, 0.03) 0px,
-    rgba(0, 255, 65, 0.03) 1px,
-    transparent 1px,
-    transparent 3px
-  );
+  background: repeating-linear-gradient(180deg,
+      rgba(0, 255, 65, 0.03) 0px,
+      rgba(0, 255, 65, 0.03) 1px,
+      transparent 1px,
+      transparent 3px);
   pointer-events: none;
   position: absolute;
   inset: 0;
@@ -79,42 +98,77 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 .neon-glow {
   box-shadow: 0 0 6px rgba(0, 255, 65, 0.35),
-              0 0 20px rgba(0, 255, 65, 0.15),
-              inset 0 0 8px rgba(0, 255, 65, 0.08);
+    0 0 20px rgba(0, 255, 65, 0.15),
+    inset 0 0 8px rgba(0, 255, 65, 0.08);
 }
 
 @keyframes caret-blink {
-  0%, 49% { opacity: 1; }
-  50%, 100% { opacity: 0; }
+
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
 }
+
 .caret-blink {
   animation: caret-blink 1s step-end infinite;
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
+
 .animate-marquee {
   animation: marquee-scroll 32s linear infinite;
 }
 
 @keyframes bounce-arrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
 }
+
 .bounce-arrow {
   animation: bounce-arrow 1.8s ease-in-out infinite;
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .animate-on-scroll {
@@ -122,6 +176,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   transform: translateY(40px);
   transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
+
 .animate-on-scroll.visible {
   opacity: 1;
   transform: translateY(0);
@@ -136,6 +191,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
   background-color: transparent;
 }
+
 .navbar.scrolled {
   background-color: rgba(5, 5, 5, 0.85);
   backdrop-filter: blur(12px);
@@ -158,6 +214,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   font-size: 1.25rem;
   letter-spacing: -0.02em;
 }
+
 .nav-logo .neon-bar {
   display: inline-block;
   width: 0.5rem;
@@ -184,12 +241,16 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   transition: color 0.3s ease;
   border-radius: 2px;
 }
-.nav-link:hover, .nav-link.active {
+
+.nav-link:hover,
+.nav-link.active {
   color: var(--text);
 }
+
 .nav-link.active {
   color: var(--neon);
 }
+
 .nav-link .underline {
   position: absolute;
   bottom: -2px;
@@ -200,6 +261,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 .nav-link.active .underline {
   opacity: 1;
 }
@@ -225,10 +287,12 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
+
 .mobile-menu-overlay.open {
   opacity: 1;
   pointer-events: auto;
 }
+
 .mobile-menu-overlay a {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.1rem;
@@ -237,7 +301,9 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--muted);
   transition: color 0.3s ease;
 }
-.mobile-menu-overlay a:hover, .mobile-menu-overlay a.active {
+
+.mobile-menu-overlay a:hover,
+.mobile-menu-overlay a.active {
   color: var(--neon);
 }
 
@@ -249,6 +315,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   align-items: center;
   overflow: hidden;
 }
+
 .hero-section canvas {
   position: absolute;
   inset: 0;
@@ -256,20 +323,20 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   height: 100%;
   display: block;
 }
+
 .hero-gradient {
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(5, 5, 5, 0.3) 0%,
-    transparent 50%,
-    rgba(5, 5, 5, 1) 100%
-  );
-  opacity: 0; 
-  animation: fade-in 2s ease-in-out forwards; 
+  background: linear-gradient(to bottom,
+      rgba(5, 5, 5, 0.3) 0%,
+      transparent 50%,
+      rgba(5, 5, 5, 1) 100%);
+  opacity: 0;
+  animation: fade-in 2s ease-in-out forwards;
 }
+
 .hero-content {
   position: relative;
   z-index: 10;
@@ -277,7 +344,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   margin: 0 auto;
   width: 100%;
   padding: 0 1.5rem;
-  opacity: 0; 
+  opacity: 0;
   animation: fade-in 1.2s ease-out forwards;
 }
 
@@ -292,6 +359,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   letter-spacing: 0.25em;
   color: var(--muted);
 }
+
 .hero-status .dot {
   width: 0.5rem;
   height: 0.5rem;
@@ -314,11 +382,13 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   position: relative;
   animation: glitch-skew 8s steps(1) infinite;
 }
+
 .hero-title.glitch .line-inner,
 .hero-title.glitch .line2-inner {
   position: relative;
   font-family: 'Ubuntu', sans-serif;
 }
+
 .hero-title.glitch .line-inner::before,
 .hero-title.glitch .line-inner::after,
 .hero-title.glitch .line2-inner::before,
@@ -333,6 +403,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   pointer-events: none;
   font-family: 'Ubuntu', sans-serif;
 }
+
 .hero-title.glitch .line2-inner::before,
 .hero-title.glitch .line2-inner::after {
   content: '#_4root';
@@ -356,59 +427,234 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @keyframes glitch-before {
-  0%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  5%  { clip-path: inset(20% 0 40% 0); transform: translate(-3px, -1px); }
-  5.5%{ clip-path: inset(60% 0 10% 0); transform: translate(2px, 1px); }
-  6%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  30% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  31% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 0); }
-  32% { clip-path: inset(70% 0 5% 0);  transform: translate(3px, 1px); }
-  33%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  55% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  56% { clip-path: inset(40% 0 30% 0); transform: translate(-4px, -1px); }
-  56.5% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  80% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  81% { clip-path: inset(15% 0 50% 0); transform: translate(2px, 0); }
-  81.5% { clip-path: inset(65% 0 15% 0); transform: translate(-3px, 1px); }
-  82%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+  0%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  5% {
+    clip-path: inset(20% 0 40% 0);
+    transform: translate(-3px, -1px);
+  }
+
+  5.5% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(2px, 1px);
+  }
+
+  6%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  30% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  31% {
+    clip-path: inset(10% 0 60% 0);
+    transform: translate(-2px, 0);
+  }
+
+  32% {
+    clip-path: inset(70% 0 5% 0);
+    transform: translate(3px, 1px);
+  }
+
+  33%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  55% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  56% {
+    clip-path: inset(40% 0 30% 0);
+    transform: translate(-4px, -1px);
+  }
+
+  56.5% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  80% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  81% {
+    clip-path: inset(15% 0 50% 0);
+    transform: translate(2px, 0);
+  }
+
+  81.5% {
+    clip-path: inset(65% 0 15% 0);
+    transform: translate(-3px, 1px);
+  }
+
+  82%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
 }
+
 @keyframes glitch-after {
-  0%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  7%  { clip-path: inset(55% 0 15% 0); transform: translate(3px, 1px); }
-  7.5%{ clip-path: inset(5% 0 70% 0);  transform: translate(-2px, -1px); }
-  8%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  33% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  34% { clip-path: inset(75% 0 5% 0);  transform: translate(2px, 0); }
-  35% { clip-path: inset(20% 0 55% 0); transform: translate(-3px, 1px); }
-  36%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  58% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  59% { clip-path: inset(45% 0 25% 0); transform: translate(4px, -1px); }
-  59.5% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  83% { clip-path: inset(0 0 100% 0); transform: translate(0); }
-  84% { clip-path: inset(60% 0 10% 0); transform: translate(-2px, 1px); }
-  84.5% { clip-path: inset(10% 0 65% 0); transform: translate(3px, 0); }
-  85%, 100% { clip-path: inset(0 0 100% 0); transform: translate(0); }
+
+  0%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  7% {
+    clip-path: inset(55% 0 15% 0);
+    transform: translate(3px, 1px);
+  }
+
+  7.5% {
+    clip-path: inset(5% 0 70% 0);
+    transform: translate(-2px, -1px);
+  }
+
+  8%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  33% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  34% {
+    clip-path: inset(75% 0 5% 0);
+    transform: translate(2px, 0);
+  }
+
+  35% {
+    clip-path: inset(20% 0 55% 0);
+    transform: translate(-3px, 1px);
+  }
+
+  36%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  58% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  59% {
+    clip-path: inset(45% 0 25% 0);
+    transform: translate(4px, -1px);
+  }
+
+  59.5% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  83% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
+
+  84% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(-2px, 1px);
+  }
+
+  84.5% {
+    clip-path: inset(10% 0 65% 0);
+    transform: translate(3px, 0);
+  }
+
+  85%,
+  100% {
+    clip-path: inset(0 0 100% 0);
+    transform: translate(0);
+  }
 }
+
 @keyframes glitch-skew {
-  0%, 100% { transform: skew(0deg); }
-  5%  { transform: skew(0.8deg); }
-  6%  { transform: skew(-0.4deg); }
-  7%, 30% { transform: skew(0deg); }
-  33% { transform: skew(0.5deg); }
-  34% { transform: skew(-0.6deg); }
-  35%, 55% { transform: skew(0deg); }
-  58% { transform: skew(1deg); }
-  59% { transform: skew(-0.3deg); }
-  60%, 80% { transform: skew(0deg); }
-  83% { transform: skew(0.7deg); }
-  84% { transform: skew(-0.5deg); }
-  85%, 100% { transform: skew(0deg); }
+
+  0%,
+  100% {
+    transform: skew(0deg);
+  }
+
+  5% {
+    transform: skew(0.8deg);
+  }
+
+  6% {
+    transform: skew(-0.4deg);
+  }
+
+  7%,
+  30% {
+    transform: skew(0deg);
+  }
+
+  33% {
+    transform: skew(0.5deg);
+  }
+
+  34% {
+    transform: skew(-0.6deg);
+  }
+
+  35%,
+  55% {
+    transform: skew(0deg);
+  }
+
+  58% {
+    transform: skew(1deg);
+  }
+
+  59% {
+    transform: skew(-0.3deg);
+  }
+
+  60%,
+  80% {
+    transform: skew(0deg);
+  }
+
+  83% {
+    transform: skew(0.7deg);
+  }
+
+  84% {
+    transform: skew(-0.5deg);
+  }
+
+  85%,
+  100% {
+    transform: skew(0deg);
+  }
 }
 
 .hero-title .line {
   display: block;
   overflow: hidden;
 }
+
 .hero-title .line-inner {
   display: block;
   font-size: 3.75rem;
@@ -428,6 +674,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   margin-top: 2.5rem;
   max-width: 42rem;
 }
+
 .hero-subtitle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
@@ -454,9 +701,10 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  opacity: 0; 
-  animation: fade-in 1s ease-out 1s forwards; 
+  opacity: 0;
+  animation: fade-in 1s ease-out 1s forwards;
 }
+
 .cta-primary {
   display: inline-block;
   padding: 0.75rem 1.75rem;
@@ -468,7 +716,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   letter-spacing: 0.2em;
   color: #000;
   transition: box-shadow 0.3s ease;
-  position: relative; 
+  position: relative;
 }
 
 .cta-primary:hover {
@@ -489,7 +737,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .text-glitch::before {
@@ -517,12 +765,12 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--neon); 
-  color: #000; 
+  background: var(--neon);
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .cta-primary.glitch::before {
@@ -549,6 +797,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--text);
   transition: border-color 0.3s ease, color 0.3s ease;
 }
+
 .cta-secondary:hover {
   border-color: var(--neon);
   color: var(--neon);
@@ -563,6 +812,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--muted);
   transition: color 0.3s ease;
 }
+
 .hero-scroll-indicator:hover {
   color: var(--neon);
 }
@@ -576,10 +826,12 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--bg-alt);
   padding: 0.75rem 0;
 }
+
 .marquee-track {
   flex-shrink: 0;
   white-space: nowrap;
 }
+
 .marquee-item {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
@@ -588,6 +840,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--neon);
   padding: 0 1.5rem;
 }
+
 .marquee-divider {
   color: var(--line);
   padding: 0 0.5rem;
@@ -614,11 +867,13 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--muted);
   margin-bottom: 1.5rem;
 }
+
 .section-label .label-bar {
   width: 2rem;
   height: 1px;
   background: var(--neon);
 }
+
 .section-title {
   font-size: 2.25rem;
   font-weight: 700;
@@ -660,6 +915,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .manifesto-card:hover {
   background-color: #0d0d0d;
 }
+
 .manifesto-card .neon-bottom-line {
   position: absolute;
   bottom: 0;
@@ -669,9 +925,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--neon);
   transition: width 0.5s ease;
 }
+
 .manifesto-card:hover .neon-bottom-line {
   width: 100%;
 }
+
 .manifesto-number {
   position: absolute;
   right: 1.5rem;
@@ -703,6 +961,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   margin-right: 0.5rem;
   font-family: 'JetBrains Mono', monospace;
 }
+
 .manifesto-body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
@@ -721,6 +980,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   letter-spacing: 0.25em;
   color: var(--muted);
 }
+
 .members-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -734,6 +994,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-radius: 2px;
   border: 1px solid var(--line);
 }
+
 .member-card img {
   width: 100%;
   height: 100%;
@@ -746,11 +1007,13 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   transform: scale(1.05);
   filter: grayscale(0%) brightness(0.7) contrast(1.2);
 }
+
 .member-card .overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, var(--bg) 0%, rgba(5, 5, 5, 0.4) 50%, transparent 100%);
 }
+
 .member-card .info {
   position: absolute;
   bottom: 0;
@@ -758,11 +1021,13 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   right: 0;
   padding: 1rem;
 }
+
 .member-card .handle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.875rem;
   color: var(--neon);
 }
+
 .member-card .role {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.625rem;
@@ -775,6 +1040,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .desafios-section {
   background: var(--bg-alt);
 }
+
 .challenges-grid {
   display: grid;
   gap: 1rem;
@@ -798,12 +1064,14 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
     0 0 20px rgba(10, 213, 61, 0.104),
     0 0 40px rgba(10, 213, 61, 0.2);
 }
+
 .challenge-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
 }
+
 .challenge-code {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.625rem;
@@ -811,6 +1079,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   letter-spacing: 0.2em;
   color: var(--muted);
 }
+
 .challenge-level {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.625rem;
@@ -818,18 +1087,22 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-radius: 2px;
   border: 1px solid;
 }
+
 .level-facil {
   color: var(--neon);
   border-color: rgba(0, 255, 65, 0.4);
 }
+
 .level-medio {
   color: #fde047;
   border-color: rgba(253, 224, 71, 0.4);
 }
+
 .level-root {
   color: #f87171;
   border-color: rgba(248, 113, 113, 0.4);
 }
+
 .challenge-title {
   font-size: 1.125rem;
   font-weight: 600;
@@ -838,7 +1111,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 .challenge-card:hover .challenge-title {
-  color:  rgba(0, 255, 64, 0.704);
+  color: rgba(0, 255, 64, 0.704);
 }
 
 .challenge-desc {
@@ -849,6 +1122,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   margin-bottom: 1.5rem;
   flex: 1;
 }
+
 .challenge-footer {
   display: flex;
   align-items: center;
@@ -856,6 +1130,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-top: 1px solid var(--line);
   padding-top: 1rem;
 }
+
 .challenge-cat {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.625rem;
@@ -863,6 +1138,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   letter-spacing: 0.1em;
   color: var(--muted);
 }
+
 .challenge-pts {
   display: flex;
   align-items: center;
@@ -871,6 +1147,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   font-size: 0.75rem;
   color: var(--neon);
 }
+
 .challenge-pts svg {
   width: 14px;
   height: 14px;
@@ -884,6 +1161,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .desafios-cta {
   margin-top: 3rem;
 }
+
 .desafios-cta a {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.8rem;
@@ -892,6 +1170,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-bottom: 1px solid var(--line);
   padding-bottom: 2px;
 }
+
 .desafios-cta a:hover {
   color: var(--neon);
   border-color: var(--neon);
@@ -900,35 +1179,82 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .recursos-section {
   background: var(--bg);
 }
+
 .tools-grid {
   display: grid;
   gap: 1rem;
   margin-top: 3.5rem;
 }
 
+/* --- Tool Card com fundo verde inicial --- */
 .tool-card {
   position: relative;
   padding: 1.5rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(0, 255, 65, 0.2);
   border-radius: 2px;
-  background: var(--card);
-  transition: all 0.3s ease;
+  background: rgba(0, 255, 65, 0.04);
+  /* Fundo verde bem sutil logo de início */
+  transition: all 0.4s ease;
   display: block;
+  overflow: hidden;
 }
+
+/* Imagem de fundo em Preto e Branco inicialmente */
+.tool-bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%) brightness(0.25) contrast(1.2);
+  opacity: 0.2;
+  /* Visível de fundo em P&B */
+  transition: all 0.4s ease;
+  z-index: 1;
+}
+
+/* Garante que o conteúdo fique acima da imagem de fundo */
+.tool-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Estado de Hover: O verde intensifica e a logo ganha a cor/tom do tema */
 .tool-card:hover {
   border-color: var(--neon);
-  background: var(--neon);
+  background: rgba(0, 255, 64, 0.895);
+  /* Fundo verde mais forte no hover */
 }
-.tool-card:hover .tool-tag { color: #000; }
-.tool-card:hover .tool-name { color: #000; }
+
+.tool-card:hover .tool-bg-img {
+  filter: grayscale(0%) brightness(0.4) sepia(100%) hue-rotate(60deg) saturate(300%);
+  /* Transforma para o tom verde neon do tema */
+  opacity: 0.35;
+  /* Fica um pouco mais aparente no hover */
+}
+
+
+
+.tool-card:hover .tool-tag {
+  color: #000;
+}
+
+
+.tool-card:hover .tool-name {
+  color: #000;
+}
+
 .tool-card:hover .tool-arrow path,
-.tool-card:hover .tool-arrow line { stroke: #000; }
+.tool-card:hover .tool-arrow line {
+  stroke: #000;
+}
+
 .tool-top {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 1rem;
 }
+
 .tool-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.625rem;
@@ -937,11 +1263,13 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   color: var(--muted);
   transition: color 0.3s ease;
 }
+
 .tool-arrow {
   flex-shrink: 0;
   color: var(--muted);
   transition: color 0.3s ease;
 }
+
 .tool-arrow svg {
   width: 16px;
   height: 16px;
@@ -951,6 +1279,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
 .tool-name {
   font-size: 1.125rem;
   font-weight: 600;
@@ -979,9 +1308,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--card);
   transition: border-color 0.3s ease;
 }
+
 .social-card:hover {
   border-color: rgba(0, 255, 65, 0.2);
 }
+
 .social-card .social-icon {
   width: 40px;
   height: 40px;
@@ -990,6 +1321,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   justify-content: center;
   flex-shrink: 0;
 }
+
 .social-card .social-icon svg {
   width: 20px;
   height: 20px;
@@ -1000,14 +1332,17 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   stroke-linejoin: round;
   transition: stroke 0.3s ease;
 }
+
 .social-card:hover .social-icon svg {
   stroke: var(--neon);
 }
+
 .social-card .social-name {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--text);
 }
+
 .social-card .social-handle {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
@@ -1021,6 +1356,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-top: 1px solid var(--line);
   padding: 2rem 0;
 }
+
 .footer-giant-text {
   font-weight: 700;
   line-height: 1;
@@ -1030,6 +1366,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   display: flex;
   align-items: baseline;
 }
+
 .footer-giant-text .underscore {
   display: inline-block;
   height: 0.09em;
@@ -1041,6 +1378,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   border-top: 1px solid var(--line);
   padding: 1.5rem 0;
 }
+
 .footer-bottom-inner {
   max-width: 80rem;
   margin: 0 auto;
@@ -1056,6 +1394,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .footer-copyright {
   color: var(--muted);
 }
+
 .footer-motto {
   color: var(--text);
 }
@@ -1065,89 +1404,190 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 @media (min-width: 768px) {
-  .nav-inner { padding: 1rem 2.5rem; }
-  .nav-links { display: flex; }
-  .mobile-menu-btn { display: none; }
-  .hero-content { padding: 0 2.5rem; }
-  .section { padding: 9rem 0; }
-  .section-inner { padding: 0 2.5rem; }
-  .section-title { font-size: 3rem; }
-  .manifesto-grid { grid-template-columns: repeat(2, 1fr); }
-  .manifesto-card { padding: 3rem; }
+  .nav-inner {
+    padding: 1rem 2.5rem;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  .hero-content {
+    padding: 0 2.5rem;
+  }
+
+  .section {
+    padding: 9rem 0;
+  }
+
+  .section-inner {
+    padding: 0 2.5rem;
+  }
+
+  .section-title {
+    font-size: 3rem;
+  }
+
+  .manifesto-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .manifesto-card {
+    padding: 3rem;
+  }
+
   .manifesto-number {
     font-size: 6rem;
     right: 2rem;
     top: 1.5rem;
   }
-  .manifesto-title { font-size: 1.5rem; }
-  .members-grid { grid-template-columns: repeat(4, 1fr); }
-  .challenges-grid { grid-template-columns: repeat(2, 1fr); }
-  .tools-grid { grid-template-columns: repeat(2, 1fr); }
-  .contato-section { padding-top: 9rem; }
-  .socials-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-bottom-inner { padding: 0 2.5rem; }
+
+  .manifesto-title {
+    font-size: 1.5rem;
+  }
+
+  .members-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .challenges-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contato-section {
+    padding-top: 9rem;
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-bottom-inner {
+    padding: 0 2.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
-  .challenges-grid { grid-template-columns: repeat(3, 1fr); }
-  .tools-grid { grid-template-columns: repeat(4, 1fr); }
-  .socials-grid { grid-template-columns: repeat(4, 1fr); }
+  .challenges-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-@media (min-width: 640px) { 
-  .hero-title .line-inner { font-size: 4.5rem; } 
-  .hero-title .line2-inner { font-size: 4.5rem; } 
+@media (min-width: 640px) {
+  .hero-title .line-inner {
+    font-size: 4.5rem;
+  }
+
+  .hero-title .line2-inner {
+    font-size: 4.5rem;
+  }
 }
 
-@media (min-width: 768px) { 
-  .hero-title .line-inner { font-size: 6rem; } 
-  .hero-title .line2-inner { font-size: 6rem; } 
-  .hero-subtitle { font-size: 1rem; }
-  .hero-proximity-text { font-size: 1rem; }
+@media (min-width: 768px) {
+  .hero-title .line-inner {
+    font-size: 6rem;
+  }
+
+  .hero-title .line2-inner {
+    font-size: 6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-proximity-text {
+    font-size: 1rem;
+  }
 }
 
-@media (min-width: 1024px) { 
-  .hero-title .line-inner { font-size: 9rem; } 
-  .hero-title .line2-inner { font-size: 8.5rem; } 
+@media (min-width: 1024px) {
+  .hero-title .line-inner {
+    font-size: 9rem;
+  }
+
+  .hero-title .line2-inner {
+    font-size: 8.5rem;
+  }
 }
 
 @media (max-width: 767px) {
-  .section { padding: 4.5rem 0; }
-  .section-inner { padding: 0 1.25rem; }
-  .section-label { margin-bottom: 1.5rem; }
-  .section-title { font-size: 1.8rem; }
+  .section {
+    padding: 4.5rem 0;
+  }
+
+  .section-inner {
+    padding: 0 1.25rem;
+  }
+
+  .section-label {
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
 
   .hero-title {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem; 
+    gap: 0.5rem;
     letter-spacing: -0.08em;
     overflow: visible;
   }
-  .hero-title .line:first-child { overflow: visible; }
+
+  .hero-title .line:first-child {
+    overflow: visible;
+  }
+
   .hero-title .line:first-child .line-inner,
   .hero-title .line2-inner {
     font-size: clamp(2rem, 10vw, 3rem);
     display: flex;
     align-items: baseline;
   }
+
   .hero-title .line2-inner {
     letter-spacing: -0.05em;
     gap: 0.05em;
   }
-  .hero-title .line2-inner .line-inner { font-size: inherit; }
-  
+
+  .hero-title .line2-inner .line-inner {
+    font-size: inherit;
+  }
+
   .hero-title.glitch .line-inner::before,
   .hero-title.glitch .line-inner::after,
   .hero-title.glitch .line2-inner::before,
   .hero-title.glitch .line2-inner::after {
     white-space: nowrap;
   }
-  
-  .hero-subtitle-wrap { margin-top: 1.5rem; }
-  .hero-subtitle { font-size: 0.8rem; }
+
+  .hero-subtitle-wrap {
+    margin-top: 1.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.8rem;
+  }
 
   .hero-ctas {
     margin-top: 2rem;
@@ -1158,40 +1598,86 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
     width: 60%;
     gap: 0.75rem;
   }
-  .cta-primary, 
+
+  .cta-primary,
   .cta-secondary {
-    width: 100%; 
+    width: 100%;
     text-align: center;
-    padding: 1rem 1.5rem; 
+    padding: 1rem 1.5rem;
   }
 
-  .manifesto-card { padding: 1.5rem; }
-  .manifesto-number { font-size: 3rem; right: 1rem; top: 0.75rem; }
-  .challenge-card { padding: 1.25rem; }
+  .manifesto-card {
+    padding: 1.5rem;
+  }
 
-  .members-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-  .member-card .info { padding: 0.75rem; }
-  .member-card .handle { font-size: 0.75rem; }
+  .manifesto-number {
+    font-size: 3rem;
+    right: 1rem;
+    top: 0.75rem;
+  }
 
-  .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
-  .tool-card { padding: 1rem; }
-  .tool-name { font-size: 0.95rem; }
+  .challenge-card {
+    padding: 1.25rem;
+  }
 
-  .contato-section { padding-top: 5rem; }
-  .socials-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .member-card .info {
+    padding: 0.75rem;
+  }
+
+  .member-card .handle {
+    font-size: 0.75rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .tool-card {
+    padding: 1rem;
+  }
+
+  .tool-name {
+    font-size: 0.95rem;
+  }
+
+  .contato-section {
+    padding-top: 5rem;
+  }
+
+  .socials-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
   .social-card {
     padding: 1.25rem 0.5rem;
     gap: 0.75rem;
-    flex-direction: column; 
+    flex-direction: column;
     text-align: center;
     justify-content: center;
   }
-  .social-card .social-name { font-size: 0.85rem; }
-  .social-card .social-handle { font-size: 0.7rem; }
-  
-  .footer-giant { margin-top: 4rem; padding: 1.5rem 0; }
+
+  .social-card .social-name {
+    font-size: 0.85rem;
+  }
+
+  .social-card .social-handle {
+    font-size: 0.7rem;
+  }
+
+  .footer-giant {
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+  }
+
   .footer-bottom-inner {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 1rem;
     text-align: center;
     justify-content: center;
@@ -1210,7 +1696,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background-color: var(--bg); /* Usa o #050505 do seu CSS */
+  background-color: var(--bg);
+  /* Usa o #050505 do seu CSS */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1252,7 +1739,8 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   inset: 12px;
   border-radius: 50%;
   border: 2px dashed var(--muted);
-  border-right-color: var(--neon); /* Um toque de verde girando */
+  border-right-color: var(--neon);
+  /* Um toque de verde girando */
   animation: cyber-spin-reverse 3s linear infinite;
 }
 
@@ -1287,34 +1775,145 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 
 /* Animações dos anéis */
 @keyframes cyber-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes cyber-spin-reverse {
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 @keyframes fade-in-out {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
 
 /* Bloqueia seleção de texto */
 body {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* Mantém inputs e áreas de texto selecionáveis */
 input,
 textarea,
 [contenteditable="true"] {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Cursor Inteligente com Glitch Randômico e Fade de Inatividade --- */
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+#cyber-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 999999;
+  mix-blend-mode: difference;
+  will-change: transform;
+
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+/* Estado de inatividade (quando o mouse para por 2 segundos) */
+#cyber-cursor.inactive {
+  opacity: 0.15;
+}
+
+/* Estado oculto quando o mouse sai da janela */
+#cyber-cursor.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cursor-glitch-effect {
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0 L18 6 L10 9 L6 18 Z' fill='%2300ff41'/></svg>");
+  background-repeat: no-repeat;
+  background-position: top left;
+}
+
+/* O glitch só é disparado quando esta classe é injetada via JS */
+#cyber-cursor.glitch-active .cursor-glitch-effect {
+  animation: cursor-flicker 0.25s steps(1, start) forwards;
+}
+
+@keyframes cursor-flicker {
+  0% {
+    opacity: 1;
+    filter: none;
+  }
+
+  25% {
+    opacity: 0.7;
+    filter: drop-shadow(2px 0 #ff0040);
+  }
+
+  50% {
+    opacity: 0.9;
+    filter: drop-shadow(-2px 0 #00e5ff);
+  }
+
+  75% {
+    opacity: 0.5;
+    filter: drop-shadow(1px -1px #ff0040);
+  }
+
+  100% {
+    opacity: 1;
+    filter: none;
+  }
 }
