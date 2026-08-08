@@ -373,3 +373,17 @@ function drawLightning() {
     typewrite();
   }
 })();
+
+document.addEventListener('contextmenu', function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener('selectstart', function (event) {
+    if (
+        event.target.tagName !== 'INPUT' &&
+        event.target.tagName !== 'TEXTAREA' &&
+        !event.target.isContentEditable
+    ) {
+        event.preventDefault();
+    }
+});
