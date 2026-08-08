@@ -70,6 +70,9 @@
   src: url('local-assets/fonts/sora/Sora-800.ttf') format('truetype');
 }
 
+/* Adicionando a fonte Ubuntu para os títulos Hero */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -81,6 +84,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-feature-settings: normal;
   -webkit-tap-highlight-color: transparent;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -235,7 +239,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 }
 
 .nav-links {
- display: none;
+  display: none;
   align-items: center;
   gap: 0.25rem;
 }
@@ -366,14 +370,15 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--neon);
 }
 
+/* Aplicando a fonte Ubuntu nos títulos Hero */
 .hero-title {
+  font-family: 'Ubuntu', sans-serif;
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.2em;
   user-select: none;
   position: relative;
   pointer-events: none;
-
 }
 
 .hero-title.glitch {
@@ -383,6 +388,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .hero-title.glitch .line-inner,
 .hero-title.glitch .line2-inner {
   position: relative;
+  font-family: 'Ubuntu', sans-serif;
 }
 .hero-title.glitch .line-inner::before,
 .hero-title.glitch .line-inner::after,
@@ -396,6 +402,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   height: 100%;
   overflow: hidden;
   pointer-events: none;
+  font-family: 'Ubuntu', sans-serif;
 }
 .hero-title.glitch .line2-inner::before,
 .hero-title.glitch .line2-inner::after {
@@ -476,6 +483,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
 .hero-title .line-inner {
   display: block;
   font-size: 3.75rem;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .hero-title .line2-inner {
@@ -483,6 +491,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   align-items: baseline;
   font-size: 3.75rem;
   pointer-events: none;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .hero-subtitle-wrap {
@@ -599,9 +608,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   animation: glitch-after 8s steps(2, end) infinite;
 }
 
-.cta-primary:hover {
-  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
-}
 .cta-secondary {
   display: inline-block;
   padding: 0.75rem 1.75rem;
@@ -678,7 +684,6 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   font-size: 0.8rem;
   color: var(--muted);
   margin-bottom: 1.5rem;
-
 }
 .section-label .label-bar {
   width: 2rem;
@@ -799,13 +804,11 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   overflow: hidden;
   border-radius: 2px;
   border: 1px solid var(--line);
-  group: true;
 }
 .member-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
   filter: grayscale(100%) brightness(0.7) contrast(1.2);
   transition: transform .5s ease, filter .5s ease;
 }
@@ -856,8 +859,7 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   background: var(--card);
   display: flex;
   flex-direction: column;
-  transition: border-color 1.6s ease;
-  transition: box-shadow 0.6s ease;
+  transition: border-color 1.6s ease, box-shadow 0.6s ease;
 }
 
 .challenge-card:hover {
@@ -1133,130 +1135,58 @@ button { background: none; border: none; cursor: pointer; color: inherit; font: 
   font-family: 'JetBrains Mono', monospace;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
-
-
 @media (min-width: 768px) {
   .nav-inner { padding: 1rem 2.5rem; }
-}
-
-@media (min-width: 768px) {
   .nav-links { display: flex; }
-}
-
-@media (min-width: 768px) {
   .mobile-menu-btn { display: none; }
-}
-
-@media (min-width: 768px) {
   .hero-content { padding: 0 2.5rem; }
-}
-
-@media (min-width: 640px) { .hero-title .line-inner { font-size: 4.5rem; } }
-
-@media (min-width: 768px) { .hero-title .line-inner { font-size: 6rem; } }
-
-@media (min-width: 1024px) { .hero-title .line-inner { font-size: 9rem; } }
-
-@media (min-width: 640px) { .hero-title .line2-inner { font-size: 4.5rem; } }
-
-@media (min-width: 768px) { .hero-title .line2-inner { font-size: 6rem; } }
-
-@media (min-width: 1024px) { .hero-title .line2-inner { font-size: 8.5rem; } }
-
-@media (min-width: 768px) {
-  .hero-subtitle { font-size: 1rem; }
-}
-
-@media (min-width: 768px) {
-  .hero-proximity-text { font-size: 1rem; }
-}
-
-@media (min-width: 768px) {
   .section { padding: 9rem 0; }
-}
-
-@media (min-width: 768px) {
   .section-inner { padding: 0 2.5rem; }
-}
-
-@media (min-width: 768px) {
   .section-title { font-size: 3rem; }
-}
-
-@media (min-width: 768px) {
   .manifesto-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 768px) {
   .manifesto-card { padding: 3rem; }
-}
-
-@media (min-width: 768px) {
   .manifesto-number {
     font-size: 6rem;
     right: 2rem;
     top: 1.5rem;
   }
-}
-
-@media (min-width: 768px) {
   .manifesto-title { font-size: 1.5rem; }
-}
-
-@media (min-width: 768px) {
   .members-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-@media (min-width: 768px) {
   .challenges-grid { grid-template-columns: repeat(2, 1fr); }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .contato-section { padding-top: 9rem; }
+  .socials-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-bottom-inner { padding: 0 2.5rem; }
 }
 
 @media (min-width: 1024px) {
   .challenges-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 768px) {
-  .tools-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
   .tools-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-@media (min-width: 768px) {
-  .contato-section { padding-top: 9rem; }
-}
-
-@media (min-width: 768px) {
-  .socials-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 1024px) {
   .socials-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-@media (min-width: 768px) {
-  .footer-bottom-inner { padding: 0 2.5rem; }
+@media (min-width: 640px) { 
+  .hero-title .line-inner { font-size: 4.5rem; } 
+  .hero-title .line2-inner { font-size: 4.5rem; } 
 }
 
+@media (min-width: 768px) { 
+  .hero-title .line-inner { font-size: 6rem; } 
+  .hero-title .line2-inner { font-size: 6rem; } 
+  .hero-subtitle { font-size: 1rem; }
+  .hero-proximity-text { font-size: 1rem; }
+}
+
+@media (min-width: 1024px) { 
+  .hero-title .line-inner { font-size: 9rem; } 
+  .hero-title .line2-inner { font-size: 8.5rem; } 
+}
 
 @media (max-width: 767px) {
-  .section {
-    padding: 4.5rem 0; 
-  }
-  .section-inner {
-    padding: 0 1.25rem;
-  }
-  .section-label {
-    margin-bottom: 1.5rem;
-  }
-  .section-title {
-    font-size: 1.8rem; 
-  }
+  .section { padding: 4.5rem 0; }
+  .section-inner { padding: 0 1.25rem; }
+  .section-label { margin-bottom: 1.5rem; }
+  .section-title { font-size: 1.8rem; }
 
   .hero-title {
     display: flex;
@@ -1267,9 +1197,7 @@ html {
     letter-spacing: -0.08em;
     overflow: visible;
   }
-  .hero-title .line:first-child {
-    overflow: visible;
-  }
+  .hero-title .line:first-child { overflow: visible; }
   .hero-title .line:first-child .line-inner,
   .hero-title .line2-inner {
     font-size: clamp(2rem, 10vw, 3rem);
@@ -1280,9 +1208,7 @@ html {
     letter-spacing: -0.05em;
     gap: 0.05em;
   }
-  .hero-title .line2-inner .line-inner {
-    font-size: inherit;
-  }
+  .hero-title .line2-inner .line-inner { font-size: inherit; }
   
   .hero-title.glitch .line-inner::before,
   .hero-title.glitch .line-inner::after,
@@ -1291,21 +1217,17 @@ html {
     white-space: nowrap;
   }
   
-  .hero-subtitle-wrap {
-    margin-top: 1.5rem;
-  }
-  .hero-subtitle {
-    font-size: 0.8rem;
-  }
+  .hero-subtitle-wrap { margin-top: 1.5rem; }
+  .hero-subtitle { font-size: 0.8rem; }
 
   .hero-ctas {
-  margin-top: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  width: 60%;
-  gap: 0.75rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    gap: 0.75rem;
   }
   .cta-primary, 
   .cta-secondary {
@@ -1314,47 +1236,20 @@ html {
     padding: 1rem 1.5rem; 
   }
 
-  .manifesto-card {
-    padding: 1.5rem; 
-  }
-  .manifesto-number {
-    font-size: 3rem; 
-    right: 1rem;
-    top: 0.75rem;
-  }
-  .challenge-card {
-    padding: 1.25rem;
-  }
+  .manifesto-card { padding: 1.5rem; }
+  .manifesto-number { font-size: 3rem; right: 1rem; top: 0.75rem; }
+  .challenge-card { padding: 1.25rem; }
 
-  .members-grid {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.5rem;
-  }
-  .member-card .info {
-    padding: 0.75rem;
-  }
-  .member-card .handle {
-    font-size: 0.75rem;
-  }
+  .members-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .member-card .info { padding: 0.75rem; }
+  .member-card .handle { font-size: 0.75rem; }
 
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.5rem;
-  }
-  .tool-card {
-    padding: 1rem; 
-  }
-  .tool-name {
-    font-size: 0.95rem; 
-  }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+  .tool-card { padding: 1rem; }
+  .tool-name { font-size: 0.95rem; }
 
-  .contato-section {
-    padding-top: 5rem;
-  }
-  .socials-grid {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 0.5rem;
-  }
+  .contato-section { padding-top: 5rem; }
+  .socials-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
   .social-card {
     padding: 1.25rem 0.5rem;
     gap: 0.75rem;
@@ -1362,17 +1257,10 @@ html {
     text-align: center;
     justify-content: center;
   }
-  .social-card .social-name {
-    font-size: 0.85rem; 
-  }
-  .social-card .social-handle {
-    font-size: 0.7rem;
-  }
+  .social-card .social-name { font-size: 0.85rem; }
+  .social-card .social-handle { font-size: 0.7rem; }
   
-  .footer-giant {
-    margin-top: 4rem;
-    padding: 1.5rem 0;
-  }
+  .footer-giant { margin-top: 4rem; padding: 1.5rem 0; }
   .footer-bottom-inner {
     flex-direction: column; 
     gap: 1rem;
