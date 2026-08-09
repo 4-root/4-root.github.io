@@ -1852,6 +1852,24 @@ textarea,
   cursor: none !important;
 }
 
+/* Remove o cursor padrão apenas em desktops (dispositivos com mouse) */
+@media (pointer: fine) {
+
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
+}
+
+/* Garante que o cursor customizado suma completamente no mobile/touch */
+@media (pointer: coarse),
+(max-width: 768px) {
+  #cyber-cursor {
+    display: none !important;
+  }
+}
+
 #cyber-cursor {
   position: fixed;
   top: 0;
