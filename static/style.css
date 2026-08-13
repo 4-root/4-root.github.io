@@ -1,6 +1,34 @@
 /* Adicionando a fonte Ubuntu para os títulos Hero */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
+
+
+/* =========================================
+   FONTES LOCAIS
+   ========================================= */
+@font-face {
+  font-family: 'QB One';
+  src: url('../local-assets/qb-one-semi-bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sora Local';
+  src: url('../local-assets/Sora.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Classes utilitárias */
+.font-qb {
+  font-family: 'QB One', sans-serif !important;
+}
+
+.font-sora {
+  font-family: 'Sora Local', sans-serif !important;
+}
+
 *,
 *::before,
 *::after {
@@ -208,8 +236,8 @@ button {
 
 .nav-logo {
   display: flex;
-  align-items: center;
-  gap: 2px;
+  align-items: baseline;
+  gap: 0;
   font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: -0.02em;
@@ -324,6 +352,34 @@ button {
   display: block;
 }
 
+
+/* =========================================
+   HERO MOTTO: [ break \\ learn \\ share ]
+   ========================================= */
+.hero-motto {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text);
+  letter-spacing: 0.15em;
+  margin-top: 0.5rem;
+  margin-left: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  /* Espaço entre as palavras */
+}
+
+.hero-motto .motto-bracket {
+  color: var(--muted);
+  /* Deixa os colchetes cinzas para dar contraste */
+  font-weight: 700;
+}
+
+/* Espaçamento extra opcional nas barras neon para respirar melhor */
+.hero-motto .neon-text {
+  margin: 0 0.2rem;
+}
+
 .hero-gradient {
   position: absolute;
   inset: 0;
@@ -370,12 +426,38 @@ button {
 /* Aplicando a fonte Ubuntu nos títulos Hero */
 .hero-title {
   font-family: 'Ubuntu', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.9;
   letter-spacing: -0.2em;
   user-select: none;
   position: relative;
   pointer-events: none;
+}
+
+/* =========================================
+   AJUSTES DE TAMANHO: #_4root
+   ========================================= */
+
+.text-4 {
+  font-size: 1em;
+  margin-right: 0.1em;
+  display: inline-block;
+  transform: translateY(0.05em);
+}
+
+.text-root {
+  font-size: 0.8em;
+}
+
+.text-underscore {
+  display: inline-block;
+  transform: scaleX(0.65);
+  transform-origin: bottom right;
+  margin-left: -0.3em;
+}
+
+.text-hash {
+  font-size: 0.85em;
 }
 
 .hero-title.glitch {
@@ -390,9 +472,7 @@ button {
 }
 
 .hero-title.glitch .line-inner::before,
-.hero-title.glitch .line-inner::after,
-.hero-title.glitch .line2-inner::before,
-.hero-title.glitch .line2-inner::after {
+.hero-title.glitch .line-inner::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -402,6 +482,22 @@ button {
   overflow: hidden;
   pointer-events: none;
   font-family: 'Ubuntu', sans-serif;
+}
+
+.hero-title.glitch .line2-inner::before,
+.hero-title.glitch .line2-inner::after {
+  content: '#_4root';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  font-family: 'QB One', sans-serif;
+  /* Fonte corrigida no glitch */
+  display: block;
+  /* Remove o display: flex e o gap que causavam a separação */
 }
 
 .hero-title.glitch .line2-inner::before,
@@ -658,7 +754,8 @@ button {
 .hero-title .line-inner {
   display: block;
   font-size: 3.75rem;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'QB One', sans-serif;
+  /* Alterado de Ubuntu */
 }
 
 .hero-title .line2-inner {
@@ -666,7 +763,8 @@ button {
   align-items: baseline;
   font-size: 3.75rem;
   pointer-events: none;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'QB One', sans-serif;
+  /* Alterado de Ubuntu */
 }
 
 .hero-subtitle-wrap {
@@ -693,6 +791,15 @@ button {
   -webkit-mask-image: radial-gradient(circle 130px at var(--mask-x, -200px) var(--mask-y, -200px), #000 0%, #000 40%, transparent 75%);
   mask-image: radial-gradient(circle 130px at var(--mask-x, -200px) var(--mask-y, -200px), #000 0%, #000 40%, transparent 75%);
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
+
+  /* NOVO: O texto neon começa transparente e tem uma transição suave de 0.4s */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* NOVO: Quando o mouse entra no container, o texto neon faz o fade in */
+.hero-subtitle-wrap:hover .hero-proximity-text {
+  opacity: 1;
 }
 
 .hero-ctas {
@@ -1519,11 +1626,13 @@ button {
 
 @media (min-width: 1024px) {
   .hero-title .line-inner {
-    font-size: 9rem;
+    font-size: 6.5rem;
+    /* Reduzido para não ficar gigante no web */
   }
 
   .hero-title .line2-inner {
-    font-size: 8.5rem;
+    font-size: 6rem;
+    /* Reduzido para não ficar gigante no web */
   }
 }
 
@@ -1560,9 +1669,11 @@ button {
 
   .hero-title .line:first-child .line-inner,
   .hero-title .line2-inner {
-    font-size: clamp(2rem, 10vw, 3rem);
     display: flex;
     align-items: baseline;
+    gap: 0;
+    /* Isso aproxima o #_ do 4 e do root */
+    pointer-events: none;
   }
 
   .hero-title .line2-inner {
@@ -1828,31 +1939,31 @@ textarea,
 
 
 
+/* =========================================
+   TEXTURA: DUST OVERLAY
+   ========================================= */
+.dust-overlay {
+  position: absolute;
+  top: -10%;
+  left: -5%;
+  width: 110%;
+  height: 120%;
 
+  background-image: url('../local-assets/images/dust.png');
+  background-size: cover;
+  background-position: center;
 
+  opacity: 0.8;
+  pointer-events: none;
+  z-index: 10;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* --- Cursor Inteligente com Glitch Randômico e Fade de Inatividade --- */
 *,
 *::before,
 *::after {
   cursor: none !important;
 }
 
-/* Remove o cursor padrão apenas em desktops (dispositivos com mouse) */
 @media (pointer: fine) {
 
   *,
@@ -1862,7 +1973,6 @@ textarea,
   }
 }
 
-/* Garante que o cursor customizado suma completamente no mobile/touch */
 @media (pointer: coarse),
 (max-width: 768px) {
   #cyber-cursor {
