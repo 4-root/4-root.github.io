@@ -1,69 +1,69 @@
-(function () { 
+(function () {
   'use strict';
   /* ============================================== 
    PARTICLE NETWORK CYBER
    ============================================== */
-const canvas = document.getElementById("particle-canvas");
-if (canvas) {
+  const canvas = document.getElementById("particle-canvas");
+  if (canvas) {
     const ctx = canvas.getContext("2d");
     let particles = [];
     let animFrame;
     let w, h;
     const mouse = {
-        x: -9999,
-        y: -9999,
-        active: false
+      x: -9999,
+      y: -9999,
+      active: false
     };
 
     function resize() {
-        const section = canvas.parentElement;
-        w = canvas.width = section.offsetWidth;
-        h = canvas.height = section.offsetHeight;
+      const section = canvas.parentElement;
+      w = canvas.width = section.offsetWidth;
+      h = canvas.height = section.offsetHeight;
     }
 
     function createParticles() {
-        particles = [];
-        const density = 4000;
-        const count = Math.floor((w * h) / density);
-        const maxCount = Math.min(count, 400);
-        for (let i = 0; i < maxCount; i++) {
-            particles.push({
-                x: Math.random() * w,
-                y: Math.random() * h,
-                vx: (Math.random() - 0.5) * 0.30,
-                vy: (Math.random() - 0.5) * 0.30,
-                r: Math.random() * 0.8 + 0.3
-            });
-        }
+      particles = [];
+      const density = 4000;
+      const count = Math.floor((w * h) / density);
+      const maxCount = Math.min(count, 400);
+      for (let i = 0; i < maxCount; i++) {
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.30,
+          vy: (Math.random() - 0.5) * 0.30,
+          r: Math.random() * 0.8 + 0.3
+        });
+      }
     }
-    function distance(x1,y1,x2,y2){
-        return Math.hypot(x1-x2,y1-y2);
+    function distance(x1, y1, x2, y2) {
+      return Math.hypot(x1 - x2, y1 - y2);
     }
     const lightnings = [];
 
-function createLightning() {
-    if (!mouse.active) return;
-    const nearby = particles.filter(p =>
+    function createLightning() {
+      if (!mouse.active) return;
+      const nearby = particles.filter(p =>
         distance(p.x, p.y, mouse.x, mouse.y) < 180
-    );
+      );
 
-    if (nearby.length < 2) return;
-    const start = nearby[Math.floor(Math.random() * nearby.length)];
-    const end   = nearby[Math.floor(Math.random() * nearby.length)];
-    if (start === end) return;
-    lightnings.push({
+      if (nearby.length < 2) return;
+      const start = nearby[Math.floor(Math.random() * nearby.length)];
+      const end = nearby[Math.floor(Math.random() * nearby.length)];
+      if (start === end) return;
+      lightnings.push({
         start,
         end,
         life: 6 + Math.random() * 4
-    });
-}
-
-function drawLightning() {
-    if (mouse.active && Math.random() < 0.035) {
-        createLightning();
+      });
     }
 
-    for (let i = lightnings.length - 1; i >= 0; i--) {
+    function drawLightning() {
+      if (mouse.active && Math.random() < 0.035) {
+        createLightning();
+      }
+
+      for (let i = lightnings.length - 1; i >= 0; i--) {
 
         const bolt = lightnings[i];
         const x1 = bolt.start.x;
@@ -78,160 +78,160 @@ function drawLightning() {
         ctx.save();
         ctx.shadowBlur = 15;
         ctx.shadowColor = "#00ff4058";
-        ctx.strokeStyle = `rgba(0,255,65,${bolt.life/10})`;
+        ctx.strokeStyle = `rgba(0,255,65,${bolt.life / 10})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(x1, y1);
 
         for (let s = 1; s < segments; s++) {
-            const t = s / segments;
-            const px = x1 + dx * t;
-            const py = y1 + dy * t;
-            const offset = (Math.random() - 0.5) * 18;
-            const nx = -dy / len;
-            const ny = dx / len;
+          const t = s / segments;
+          const px = x1 + dx * t;
+          const py = y1 + dy * t;
+          const offset = (Math.random() - 0.5) * 18;
+          const nx = -dy / len;
+          const ny = dx / len;
 
-            ctx.lineTo(
-                px + nx * offset,
-                py + ny * offset
-            );
+          ctx.lineTo(
+            px + nx * offset,
+            py + ny * offset
+          );
         }
 
         ctx.lineTo(x2, y2);
         ctx.stroke();
 
         if (Math.random() < 0.45) {
-            const t = Math.random();
-            const bx = x1 + dx * t;
-            const by = y1 + dy * t;
-            ctx.beginPath();
-            ctx.moveTo(bx, by);
-            ctx.lineTo(
-                bx + (Math.random() - 0.5) * 35,
-                by + (Math.random() - 0.5) * 35
-            );
-            ctx.stroke();
+          const t = Math.random();
+          const bx = x1 + dx * t;
+          const by = y1 + dy * t;
+          ctx.beginPath();
+          ctx.moveTo(bx, by);
+          ctx.lineTo(
+            bx + (Math.random() - 0.5) * 35,
+            by + (Math.random() - 0.5) * 35
+          );
+          ctx.stroke();
 
         }
         ctx.restore();
         bolt.life -= 1;
 
         if (bolt.life <= 0) {
-            lightnings.splice(i, 1);
+          lightnings.splice(i, 1);
         }
+      }
     }
-}
 
-    function drawParticles(){
+    function drawParticles() {
 
-        ctx.clearRect(0,0,w,h);
-        const maxDist=200;
+      ctx.clearRect(0, 0, w, h);
+      const maxDist = 200;
 
-        for(let i=0;i<particles.length;i++){
-            const p1=particles[i];
+      for (let i = 0; i < particles.length; i++) {
+        const p1 = particles[i];
 
-            for(let j=i+1;j<particles.length;j++){
+        for (let j = i + 1; j < particles.length; j++) {
 
-                const p2=particles[j];
-                const dx=p1.x-p2.x;
-                const dy=p1.y-p2.y;
-                const dist=Math.sqrt(dx*dx+dy*dy);
+          const p2 = particles[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-                if(dist>maxDist) continue;
-                let alpha=(1-dist/maxDist)*0.18;
-                let color="120,120,120";
+          if (dist > maxDist) continue;
+          let alpha = (1 - dist / maxDist) * 0.18;
+          let color = "120,120,120";
 
-                if(mouse.active){
-                    const dm1=distance(mouse.x,mouse.y,p1.x,p1.y);
-                    const dm2=distance(mouse.x,mouse.y,p2.x,p2.y);
+          if (mouse.active) {
+            const dm1 = distance(mouse.x, mouse.y, p1.x, p1.y);
+            const dm2 = distance(mouse.x, mouse.y, p2.x, p2.y);
 
-                    if(dm1<170 || dm2<170){
-                        color="0,255,65";
-                        alpha*=2;
-                    }
-                }
-
-                ctx.strokeStyle=`rgba(${color},${alpha})`;
-                ctx.lineWidth=0.6;
-                ctx.beginPath();
-                ctx.moveTo(p1.x,p1.y);
-                ctx.lineTo(p2.x,p2.y);
-                ctx.stroke();
+            if (dm1 < 170 || dm2 < 170) {
+              color = "0,255,65";
+              alpha *= 2;
             }
+          }
+
+          ctx.strokeStyle = `rgba(${color},${alpha})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.stroke();
+        }
+      }
+
+      for (const p of particles) {
+        let color = "140,140,140";
+        let glow = "rgba(140,140,140,0.05)";
+
+        if (mouse.active) {
+          const dm = distance(mouse.x, mouse.y, p.x, p.y);
+
+          if (dm < 170) {
+            color = "0,255,65";
+            const intensity = 1 - (dm / 170);
+            glow = `rgba(0,255,65,${0.12 * intensity})`;
+          }
         }
 
-        for(const p of particles){
-            let color="140,140,140";
-            let glow="rgba(140,140,140,0.05)";
+        ctx.beginPath();
+        ctx.fillStyle = `rgb(${color})`;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.fillStyle = glow;
+        ctx.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x <= 0 || p.x >= w) p.vx *= -1;
+        if (p.y <= 0 || p.y >= h) p.vy *= -1;
+      }
 
-            if(mouse.active){
-                const dm=distance(mouse.x,mouse.y,p.x,p.y);
+      if (mouse.active) {
+        const gradient = ctx.createRadialGradient(
+          mouse.x,
+          mouse.y,
+          0,
+          mouse.x,
+          mouse.y,
+          140
+        );
 
-                if(dm<170){
-                    color="0,255,65";
-                    const intensity=1-(dm/170);
-                    glow=`rgba(0,255,65,${0.12*intensity})`;
-                }
-            }
-
-            ctx.beginPath();
-            ctx.fillStyle=`rgb(${color})`;
-            ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.fillStyle=glow;
-            ctx.arc(p.x,p.y,p.r*3,0,Math.PI*2);
-            ctx.fill();
-            p.x+=p.vx;
-            p.y+=p.vy;
-            if(p.x<=0 || p.x>=w) p.vx*=-1;
-            if(p.y<=0 || p.y>=h) p.vy*=-1;
-        }
-
-        if(mouse.active){
-            const gradient=ctx.createRadialGradient(
-                mouse.x,
-                mouse.y,
-                0,
-                mouse.x,
-                mouse.y,
-                140
-            );
-
-            gradient.addColorStop(0,"rgba(0,255,65,0.05)");
-            gradient.addColorStop(1,"rgba(0,255,65,0)");
-            ctx.fillStyle=gradient;
-            ctx.beginPath();
-            ctx.arc(mouse.x,mouse.y,140,0,Math.PI*2);
-            ctx.fill();
-        }
-        drawLightning();
-        animFrame=requestAnimationFrame(drawParticles);
+        gradient.addColorStop(0, "rgba(0,255,65,0.05)");
+        gradient.addColorStop(1, "rgba(0,255,65,0)");
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(mouse.x, mouse.y, 140, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      drawLightning();
+      animFrame = requestAnimationFrame(drawParticles);
     }
 
     const section = canvas.parentElement;
-    section.addEventListener("mousemove",(e)=>{
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
-        mouse.active = true;
+    section.addEventListener("mousemove", (e) => {
+      const rect = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+      mouse.active = true;
     });
 
-    section.addEventListener("mouseleave",()=>{
-        mouse.active = false;
+    section.addEventListener("mouseleave", () => {
+      mouse.active = false;
 
     });
     resize();
     createParticles();
     drawParticles();
-    window.addEventListener("resize",()=>{
-        cancelAnimationFrame(animFrame);
-        resize();
-        createParticles();
-        drawParticles();
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(animFrame);
+      resize();
+      createParticles();
+      drawParticles();
     });
 
-}
+  }
 
   /* ==============================================
      2. NAVBAR: scroll background + active link
@@ -324,10 +324,6 @@ function drawLightning() {
       subtitleWrap.style.setProperty('--mask-x', x + 'px');
       subtitleWrap.style.setProperty('--mask-y', y + 'px');
     });
-    subtitleWrap.addEventListener('mouseleave', function () {
-      subtitleWrap.style.setProperty('--mask-x', '-200px');
-      subtitleWrap.style.setProperty('--mask-y', '-200px');
-    });
   }
 
   /* ==============================================
@@ -375,15 +371,15 @@ function drawLightning() {
 })();
 
 document.addEventListener('contextmenu', function (event) {
-    event.preventDefault();
+  event.preventDefault();
 });
 
 document.addEventListener('selectstart', function (event) {
-    if (
-        event.target.tagName !== 'INPUT' &&
-        event.target.tagName !== 'TEXTAREA' &&
-        !event.target.isContentEditable
-    ) {
-        event.preventDefault();
-    }
+  if (
+    event.target.tagName !== 'INPUT' &&
+    event.target.tagName !== 'TEXTAREA' &&
+    !event.target.isContentEditable
+  ) {
+    event.preventDefault();
+  }
 }); 
