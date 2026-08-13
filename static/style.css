@@ -477,7 +477,7 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 110%;
   height: 100%;
   overflow: hidden;
   pointer-events: none;
@@ -490,7 +490,7 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 110%;
   height: 100%;
   overflow: hidden;
   pointer-events: none;
@@ -764,7 +764,12 @@ button {
   font-size: 3.75rem;
   pointer-events: none;
   font-family: 'QB One', sans-serif;
-  /* Alterado de Ubuntu */
+
+  /* NOVAS REGRAS PARA CONTER O OVERLAY */
+  position: relative;
+  /* Define este contêiner como a âncora para o .dust-overlay absoluto */
+  width: max-content;
+  /* Força a caixa a encolher e ter a exata largura da palavra #_4root */
 }
 
 .hero-subtitle-wrap {
@@ -1626,13 +1631,11 @@ button {
 
 @media (min-width: 1024px) {
   .hero-title .line-inner {
-    font-size: 6.5rem;
-    /* Reduzido para não ficar gigante no web */
+    font-size: 5.0rem;
   }
 
   .hero-title .line2-inner {
     font-size: 6rem;
-    /* Reduzido para não ficar gigante no web */
   }
 }
 
@@ -1672,8 +1675,8 @@ button {
     display: flex;
     align-items: baseline;
     gap: 0;
-    /* Isso aproxima o #_ do 4 e do root */
     pointer-events: none;
+    width: max-content;
   }
 
   .hero-title .line2-inner {
@@ -1990,6 +1993,8 @@ textarea,
   pointer-events: none;
   z-index: 10;
 }
+
+
 
 *,
 *::before,
