@@ -2,21 +2,47 @@
 <html lang="pt-BR">
   
 <head>
-  <title>#_4root | Comunidade de Cibersegurança</title>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#050505">
-  <meta name="description" content="#_4root é uma comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de talks, eventos, CTFs e iniciativas colaborativas em segurança ofensiva, CTI, OSINT e outras áreas do ecossistema cyber.">
- 
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="#_4root | Comunidade de Cibersegurança">
-  <meta property="og:description" content="#_4root é uma comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de talks, eventos, CTFs e iniciativas colaborativas em segurança ofensiva, CTI, OSINT e outras áreas do ecossistema cyber.">
-  <meta property="og:url" content="https://4root.com.br/">
-  <meta property="og:image" content="https://github.com/4-root/4-root.github.io/local-assets/image/og-image.png">
-  <meta property="og:locale" content="pt_BR">
+  <title>#_4root | Comunidade de Cibersegurança e Hacking</title>
   
+  <meta name="description" content="#_4root é uma comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de talks, eventos, CTFs e iniciativas colaborativas em segurança ofensiva, CTI e OSINT.">
+  <meta name="keywords" content="cibersegurança, hacking, pentesting, CTF, capture the flag, segurança ofensiva, CTI, OSINT, comunidade de hackers, #_4root">
+  <meta name="author" content="#_4root Community">
+  <meta name="theme-color" content="#050505">
   <link rel="canonical" href="https://4root.com.br/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="#_4root">
+  <meta property="og:title" content="#_4root | Comunidade de Cibersegurança">
+  <meta property="og:description" content="#_4root é uma comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de talks, eventos, CTFs e iniciativas colaborativas em segurança ofensiva, CTI e OSINT.">
+  <meta property="og:url" content="https://4root.com.br/">
+  <meta property="og:image" content="https://4root.com.br/static/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pt_BR">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="#_4root | Comunidade de Cibersegurança">
+  <meta name="twitter:description" content="#_4root é uma comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico.">
+  <meta name="twitter:image" content="https://4root.com.br/static/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "#_4root",
+    "url": "https://4root.com.br/",
+    "logo": "https://4root.com.br/static/favicon.png",
+    "sameAs": [
+      "https://discord.gg/Aw4F6qXS4N",
+      "https://www.linkedin.com/in/4root-community-724636428/",
+      "https://t.me/+_rd9M-U3vo01N2Fh",
+      "https://www.instagram.com/_4root_"
+    ],
+    "description": "Comunidade de cibersegurança e hacking voltada à troca de conhecimento, pesquisa e desenvolvimento técnico."
+  }
+  </script>
 
   <link rel="icon" type="image/x-icon" href="static/favicon.png">
   <link rel="stylesheet" href="static/style.css">
@@ -24,8 +50,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-
-
 </head>
 
 <body>
@@ -45,17 +69,8 @@
     <div class="preloader-status font-mono">Bypassing security<span class="caret-blink">_</span></div>
   </div>
 
-
-
-
-  <!-- =========================================
-       GRAIN OVERLAY (visual effect)
-       ========================================= -->
   <div class="grain-overlay"></div>
 
-  <!-- =========================================
-       NAVBAR
-       ========================================= -->
   <header class="navbar" id="navbar">
     <nav class="nav-inner">
       <a href="#home" class="nav-logo">
@@ -65,15 +80,11 @@
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home" class="nav-link active" data-section="home">Home<span class="underline"></span></a></li>
-        <li><a href="#comunidade" class="nav-link" data-section="comunidade">Comunidade<span
-              class="underline"></span></a></li>
+        <li><a href="#comunidade" class="nav-link" data-section="comunidade">Comunidade<span class="underline"></span></a></li>
         <li><a href="#eventos" class="nav-link" data-section="eventos">Eventos<span class="underline"></span></a></li>
-        <li><a href="#recursos" class="nav-link" data-section="recursos">Networks<span class="underline"></span></a>
-        </li>
-        <li><a href="#desafios" class="nav-link" data-section="desafios">Desafios<span class="underline"></span></a>
-        </li>
+        <li><a href="#recursos" class="nav-link" data-section="recursos">Networks<span class="underline"></span></a></li>
+        <li><a href="#desafios" class="nav-link" data-section="desafios">Desafios<span class="underline"></span></a></li>
         <li><a href="#contato" class="nav-link" data-section="contato">Contato<span class="underline"></span></a></li>
-
       </ul>
       <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -93,15 +104,10 @@
     <a href="#recursos" data-section="recursos">Recursos</a>
     <a href="#desafios" data-section="desafios">Desafios</a>
     <a href="#contato" data-section="contato">Contato</a>
-
-
   </div>
 
   <main>
 
-    <!-- =========================================
-         HERO SECTION
-         ========================================= -->
     <section id="home" class="hero-section scanlines">
       <canvas id="particle-canvas"></canvas>
       <div class="hero-gradient"></div>
@@ -118,10 +124,7 @@
           </span>
           <span class="line">
             <span class="line2-inner" data-text="#_4root">
-
-              <!-- NOVO: Camada da textura de poeira -->
               <span class="dust-overlay"></span>
-
               <span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span>
               <span class="neon-text font-sora text-4">4</span>
               <span class="font-qb text-root">root</span>
@@ -129,29 +132,23 @@
           </span>
         </h1>
 
-        <!-- NOVO: Motto da comunidade -->
         <div class="hero-motto">
           <span class="motto-bracket">[</span>
           break <span class="neon-text">//</span> learn <span class="neon-text">//</span> share
           <span class="motto-bracket">]</span>
         </div>
 
-        <!-- Subtitle -->
         <div class="hero-subtitle-wrap" id="hero-subtitle-wrap">
-          <p class="hero-subtitle">Uma comunidade de viciados em hacking e pentesting. Exploramos sistemas, resolvemos
-            CTFs e compartilhamos conhecimento.</p>
-          <p class="hero-proximity-text" aria-hidden="true">Uma comunidade de viciados em hacking e pentesting.
-            Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento 0x726f6f74</p>
+          <p class="hero-subtitle">Uma comunidade de viciados em hacking e pentesting. Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento.</p>
+          <p class="hero-proximity-text" aria-hidden="true">Uma comunidade de viciados em hacking e pentesting. Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento 0x726f6f74</p>
         </div>
 
-        <!-- CTA Buttons -->
         <div class="hero-ctas">
           <a href="#desafios" class="cta-primary glitch" data-text="iniciar desafios">iniciar desafios</a>
           <a href="#comunidade" class="cta-secondary">ler manifesto</a>
         </div>
       </div>
 
-      <!-- Scroll indicator -->
       <a href="#comunidade" class="hero-scroll-indicator bounce-arrow">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -161,9 +158,6 @@
       </a>
     </section>
 
-    <!-- =========================================
-         MARQUEE
-         ========================================= -->
     <div class="marquee">
       <div class="marquee-track animate-marquee">
         <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
@@ -173,7 +167,6 @@
         <span class="marquee-item">stay curious</span><span class="marquee-divider">/</span>
         <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
         <span class="marquee-item">root@4root:~#</span><span class="marquee-divider">/</span>
-        <!-- Duplicate for seamless loop -->
         <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
         <span class="marquee-item">join the network</span><span class="marquee-divider">/</span>
         <span class="marquee-item">capture the flag</span><span class="marquee-divider">/</span>
@@ -184,9 +177,6 @@
       </div>
     </div>
 
-    <!-- =========================================
-         COMUNIDADE SECTION
-         ========================================= -->
     <section id="comunidade" class="section comunidade-section">
       <div class="section-inner">
 
@@ -195,41 +185,35 @@
           <span>// 02 — comunidade</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Manifesto da raiz">Manifesto da raiz</h2>
-        <p class="section-desc animate-on-scroll">Quatro princípios que definem quem somos. Sem hierarquia corporativa,
-          só a busca crua por conhecimento.</p>
+        <p class="section-desc animate-on-scroll">Quatro princípios que definem quem somos. Sem hierarquia corporativa, só a busca crua por conhecimento.</p>
 
         <div class="manifesto-grid">
 
           <div class="manifesto-card animate-on-scroll">
             <span class="manifesto-number">01</span>
             <h3 class="manifesto-title"><span class="arrow">›</span> Acesso Root</h3>
-            <p class="manifesto-body">Não pedimos permissão para entender. Quebramos, remontamos e dominamos cada
-              sistema até que ele não tenha mais segredos. Conhecimento é privilégio de quem cava fundo.</p>
+            <p class="manifesto-body">Não pedimos permissão para entender. Quebramos, remontamos e dominamos cada sistema até que ele não tenha mais segredos. Conhecimento é privilégio de quem cava fundo.</p>
             <span class="neon-bottom-line"></span>
           </div>
 
           <div class="manifesto-card animate-on-scroll">
             <span class="manifesto-number">02</span>
             <h3 class="manifesto-title"><span class="arrow">›</span> Curiosidade Radical</h3>
-            <p class="manifesto-body">A pergunta 'como isso funciona?' é o nosso ponto de partida. Exploramos
-              protocolos, binários e redes movidos por uma obsessão saudável de descobrir o que existe abaixo da
-              superfície.</p>
+            <p class="manifesto-body">A pergunta 'como isso funciona?' é o nosso ponto de partida. Exploramos protocolos, binários e redes movidos por uma obsessão saudável de descobrir o que existe abaixo da superfície.</p>
             <span class="neon-bottom-line"></span>
           </div>
 
           <div class="manifesto-card animate-on-scroll">
             <span class="manifesto-number">03</span>
             <h3 class="manifesto-title"><span class="arrow">›</span> Ética do Hacker</h3>
-            <p class="manifesto-body">Poder exige responsabilidade. Aprendemos a atacar para saber defender.
-              Compartilhamos, documentamos e elevamos a comunidade — nunca a exploramos.</p>
+            <p class="manifesto-body">Poder exige responsabilidade. Aprendemos a atacar para saber defender. Compartilhamos, documentamos e elevamos a comunidade — nunca a exploramos.</p>
             <span class="neon-bottom-line"></span>
           </div>
 
           <div class="manifesto-card animate-on-scroll">
             <span class="manifesto-number">04</span>
             <h3 class="manifesto-title"><span class="arrow">›</span> Coletivo &gt; Ego</h3>
-            <p class="manifesto-body">Aqui ninguém cresce sozinho. Writeups abertos, mentorias e CTFs em grupo. A
-              #_4root é uma rede: cada nó torna o próximo mais forte.</p>
+            <p class="manifesto-body">Aqui ninguém cresce sozinho. Writeups abertos, mentorias e CTFs em grupo. A #_4root é uma rede: cada nó torna o próximo mais forte.</p>
             <span class="neon-bottom-line"></span>
           </div>
 
@@ -278,9 +262,6 @@
       </div>
     </section>
 
-    <!-- =========================================
-         EVENTS SECTION
-         ========================================= -->
     <section id="eventos" class="section desafios-section">
       <div class="section-inner">
 
@@ -314,15 +295,10 @@
             </div>
           </div>
 
-
-
         </div>
       </div>
     </section>
 
-    <!-- =========================================
-         NETWORK SECTION
-         ========================================= -->
     <section id="recursos" class="section recursos-section">
       <div class="section-inner">
 
@@ -331,8 +307,7 @@
           <span>// 04 — networks</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Networks">Networks</h2>
-        <p class="section-desc animate-on-scroll">Parceiros, patrocinadores e apoiadores da comunidade, torne-se um
-          apoiador do projeto também.</p>
+        <p class="section-desc animate-on-scroll">Parceiros, patrocinadores e apoiadores da comunidade, torne-se um apoiador do projeto também.</p>
 
         <div class="tools-grid">
 
@@ -443,10 +418,6 @@
       </div>
     </section>
 
-
-    <!-- =========================================
-         DESAFIOS SECTION
-         ========================================= -->
     <section id="desafios" class="section desafios-section">
       <div class="section-inner">
 
@@ -519,14 +490,8 @@
         </div>
 
       </div>
-      </div>
     </section>
 
-
-
-    <!-- =========================================
-         CONTATO SECTION
-         ========================================= -->
     <section id="contato" class="section contato-section">
       <div class="section-inner">
 
@@ -535,14 +500,12 @@
           <span>// 01 — contato</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Entre na rede">Entre na rede</h2>
-        <p class="section-desc animate-on-scroll">Toda conexão começa com um handshake. Escolha por onde falar com a
-          gente e faça parte do coletivo.</p>
+        <p class="section-desc animate-on-scroll">Toda conexão começa com um handshake. Escolha por onde falar com a gente e faça parte do coletivo.</p>
 
         <div class="socials-grid">
 
-          <a href="https://discord.gg/Aw4F6qXS4N" class="social-card animate-on-scroll">
+          <a href="https://discord.gg/Aw4F6qXS4N" class="social-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">
-              <!-- Discord icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path
@@ -559,11 +522,9 @@
             </div>
           </a>
 
-
           <a href="https://www.linkedin.com/in/4root-community-724636428/" class="social-card animate-on-scroll"
             target="_blank" rel="noopener noreferrer">
             <div class="social-icon">
-              <!-- Ícone do LinkedIn -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -576,9 +537,9 @@
               <p class="social-handle">/4root</p>
             </div>
           </a>
-          <a href="https://t.me/+_rd9M-U3vo01N2Fh" class="social-card animate-on-scroll">
+
+          <a href="https://t.me/+_rd9M-U3vo01N2Fh" class="social-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">
-              <!-- Telegram (send) icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <path d="m22 2-7 20-4-9-9-4Z"></path>
@@ -591,9 +552,8 @@
             </div>
           </a>
 
-          <a href="https://www.instagram.com/_4root_" class="social-card animate-on-scroll">
+          <a href="https://www.instagram.com/_4root_" class="social-card animate-on-scroll" target="_blank" rel="noopener noreferrer">
             <div class="social-icon">
-              <!-- Instagram icon -->
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
                 <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
@@ -613,12 +573,6 @@
 
   </main>
 
-
-
-
-  <!-- =========================================
-       FOOTER
-       ========================================= -->
   <footer>
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
@@ -628,27 +582,20 @@
     </div>
   </footer>
 
-  <!-- =========================================
-       JAVASCRIPT
-       ========================================= -->
   <script src="static/script.js"></script>
   <script>
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
-
-      // Tempo de 1.2 segundos (1200ms) para exibir o efeito hacker antes de liberar o site
       setTimeout(() => {
         preloader.classList.add('fade-out');
       }, 400);
     });
   </script>
 
-
   <script>
     const cursor = document.getElementById('cyber-cursor');
     let inactivityTimer;
 
-    // 1. Movimento do cursor e gerenciamento de inatividade
     document.addEventListener('mousemove', (e) => {
       cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
       cursor.classList.remove('inactive', 'hidden');
@@ -659,17 +606,14 @@
       }, 2000);
     });
 
-    // 2. Esconde o cursor quando o mouse sai da janela HTML
     document.documentElement.addEventListener('mouseleave', () => {
       cursor.classList.add('hidden');
     });
 
-    // Mostra novamente quando entra na página
     document.documentElement.addEventListener('mouseenter', () => {
       cursor.classList.remove('hidden');
     });
 
-    // 3. Segurança extra: Se o usuário trocar de aba ou minimizar a janela
     window.addEventListener('blur', () => {
       cursor.classList.add('hidden');
     });
@@ -678,7 +622,6 @@
       cursor.classList.remove('hidden');
     });
 
-    // 4. Sistema de Glitch Randômico
     function triggerRandomGlitch() {
       cursor.classList.add('glitch-active');
       setTimeout(() => {
@@ -691,7 +634,6 @@
 
     triggerRandomGlitch();
   </script>
-
 
 </body>
 
