@@ -17,21 +17,15 @@
 </head>
 
 <body>
-  <!-- Cursor Inteligente Cyberpunk com Efeitos -->
   <div id="cyber-cursor">
     <div class="cursor-glitch-effect"></div>
   </div>
 
-
-  <!-- Preloader Cyberpunk -->
   <div id="preloader" class="grain-overlay scanlines">
     <div class="cyber-circle-wrapper">
-      <!-- Círculos giratórios -->
       <div class="cyber-circle-1"></div>
       <div class="cyber-circle-2"></div>
       <div class="cyber-circle-3"></div>
-
-      <!-- Texto central -->
       <div class="cyber-text">
         <span class="caret-blink">_</span>4ROOT
       </div>
@@ -53,9 +47,9 @@
   <header class="navbar" id="navbar">
     <nav class="nav-inner">
       <a href="#home" class="nav-logo">
-        <span>#</span>
-        <span class="neon-bar neon-glow"></span>
-        <span>4root</span>
+        <span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span>
+        <span class="neon-text font-sora text-4">4</span>
+        <span class="font-qb text-root">root</span>
       </a>
       <ul class="nav-links" id="nav-links">
         <li><a href="#home" class="nav-link active" data-section="home">Home<span class="underline"></span></a></li>
@@ -79,7 +73,6 @@
     </nav>
   </header>
 
-  <!-- Mobile Menu Overlay -->
   <div class="mobile-menu-overlay" id="mobile-menu">
     <a href="#home" class="active" data-section="home">Home</a>
     <a href="#comunidade" data-section="comunidade">Comunidade</a>
@@ -100,33 +93,41 @@
       <div class="hero-gradient"></div>
       <div class="hero-content">
 
-        <!-- Status line with typewriter -->
         <div class="hero-status">
           <span class="dot neon-glow caret-blink"></span>
           <span id="typewriter"></span>
         </div>
 
-        <!-- Title (with glitch effect) -->
-        <h1 class="hero-title glitch" data-text="acesso">
+        <h1 class="hero-title glitch" data-text="access">
           <span class="line">
-            <span class="line-inner" data-text="acesso">access</span>
+            <span class="line-inner" data-text="access" style="font-family: 'Ubuntu', sans-serif;">access</span>
           </span>
           <span class="line">
             <span class="line2-inner" data-text="#_4root">
-              <span>#</span>
-              <span class="neon-text">_</span>
-              <span class="line-inner">4root</span>
+
+              <!-- NOVO: Camada da textura de poeira -->
+              <span class="dust-overlay"></span>
+
+              <span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span>
+              <span class="neon-text font-sora text-4">4</span>
+              <span class="font-qb text-root">root</span>
             </span>
           </span>
         </h1>
 
+        <!-- NOVO: Motto da comunidade -->
+        <div class="hero-motto">
+          <span class="motto-bracket">[</span>
+          break <span class="neon-text">//</span> learn <span class="neon-text">//</span> share
+          <span class="motto-bracket">]</span>
+        </div>
+
         <!-- Subtitle -->
         <div class="hero-subtitle-wrap" id="hero-subtitle-wrap">
           <p class="hero-subtitle">Uma comunidade de viciados em hacking e pentesting. Exploramos sistemas, resolvemos
-            CTFs
-            e compartilhamos conhecimento.</p>
+            CTFs e compartilhamos conhecimento.</p>
           <p class="hero-proximity-text" aria-hidden="true">Uma comunidade de viciados em hacking e pentesting.
-            Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento — sem ruído, só raiz.</p>
+            Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento 0x726f6f74</p>
         </div>
 
         <!-- CTA Buttons -->
