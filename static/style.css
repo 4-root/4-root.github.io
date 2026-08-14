@@ -1730,6 +1730,9 @@ button {
 
   .hero-subtitle-wrap {
     margin-top: 1.5rem;
+    text-align: center;      /* Centraliza o texto em si */
+    margin-left: auto;       /* Centraliza o bloco do texto na tela */
+    margin-right: auto;
   }
 
   .hero-subtitle {
