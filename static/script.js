@@ -237,7 +237,8 @@
      2. NAVBAR: scroll background + active link
      ============================================== */
   const navbar = document.getElementById('navbar');
-  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+  const navLinks = document.querySelectorAll('a[data-section]');
+  /*const navLinks = document.querySelectorAll('.nav-link[data-section]');*/
   const sections = document.querySelectorAll('section[id], footer[id]');
 
   function updateNav() {
@@ -255,6 +256,14 @@
         current = section.id;
       }
     }
+
+    // --- CÓDIGO NOVO AQUI ---
+    // Verifica se o scroll atingiu o final da página (com margem de erro de 10px)
+    if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 10) {
+      current = 'contato'; // Força a última seção
+    }
+    // ------------------------
+
     navLinks.forEach(function (link) {
       if (link.dataset.section === current) {
         link.classList.add('active');
