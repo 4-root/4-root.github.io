@@ -450,7 +450,7 @@
         <p class="section-desc animate-on-scroll">Desafios para comunidade se divertir e aprender</p>
 
         <div class="challenges-grid">
-          <div class="challenge-card animate-on-scroll" onclick="forcarDownload('https://archive.org/download/4root/LBS_RAYX.png', 'LBS_RAYX.png')" style="cursor: pointer;">
+          <div class="challenge-card animate-on-scroll" onclick="Download('https://archive.org/download/4root/LBS_RAYX.png', 'LBS_RAYX.png')" style="cursor: pointer;">
             <div class="challenge-header">
               <span class="challenge-code">CTF-001</span>
               <span class="challenge-level level-medio">Médio</span>
@@ -657,6 +657,29 @@
     }
 
     triggerRandomGlitch();
+
+
+    function Download(url, nomeArquivo) {
+  // Faz a requisição da imagem
+  fetch(url)
+    .then(response => response.blob()) // Converte a resposta para um arquivo (Blob)
+    .then(blob => {
+      // Cria um link temporário na memória
+      const urlBlob = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = urlBlob;
+      link.download = nomeArquivo;
+      
+      // Simula o clique para baixar e depois remove o link
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Limpa a memória
+      window.URL.revokeObjectURL(urlBlob);
+    })
+    .catch(error => console.error('Erro ao baixar a imagem:', error));
+}
   </script>
 
 </body>
