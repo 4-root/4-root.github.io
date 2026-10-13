@@ -43,6 +43,16 @@ html {
   font-feature-settings: normal;
   -webkit-tap-highlight-color: transparent;
   scroll-padding-top: 80px;
+  /* v14: sem barra de rolagem tradicional — só o indicador de progresso no topo */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 body {
@@ -1708,6 +1718,19 @@ footer::before {
     text-align: center;      /* Centraliza o texto em si */
     margin-left: auto;       /* Centraliza o bloco do texto na tela */
     margin-right: auto;
+  }
+
+  /* v14: overlay neon de proximidade é efeito de HOVER — no touch o
+     ":hover" fica preso depois do toque e o texto aparece desalinhado;
+     desliga no mobile (o JS do mask também nem roda lá) */
+  .hero-proximity-text {
+    display: none;
+  }
+
+  /* v14: frases do terminal são longas — reduz para caber em 1 linha */
+  .hero-status {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
   }
 
   .hero-subtitle {
@@ -4362,6 +4385,25 @@ html.intro-lock {
   color: var(--muted);
   font-size: 0.85rem;
   margin: 0.35rem 0 0;
+}
+
+/* v15: selo do formato dos blocos (esqueleto do cronograma) */
+.sched-format {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 5px 10px;
+  border: 1px solid rgba(0, 255, 65, 0.25);
+  color: var(--neon);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .sched-format {
+    font-size: 0.56rem;
+    letter-spacing: 0.09em;
+  }
 }
 
 .sched-tabs {

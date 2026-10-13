@@ -236,25 +236,50 @@
     }
 
     const section = canvas.parentElement;
-    section.addEventListener("mousemove", (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.x = e.clientX - rect.left;
-      mouse.y = e.clientY - rect.top;
-      mouse.active = true;
-    });
+    /* v14: interação de mouse (raios + glow verde) só em dispositivos com
+       cursor de verdade — no toque o mousemove sintético ficava "preso"
+       e deixava o glow aceso no fundo do mobile */
+    const canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (canHover) {
+      section.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+        mouse.active = true;
+      });
 
-    section.addEventListener("mouseleave", () => {
-      mouse.active = false;
+      section.addEventListener("mouseleave", () => {
+        mouse.active = false;
 
-    });
-    resize();
+      });
+    }
+
+    /* v14: resize SEM flicker — no mobile a barra de endereço dispara resize
+       ao esconder/mostrar; o handler antigo cancelava o frame, limpava o
+       canvas (canvas.width = ...) e re-randomizava TODAS as partículas —
+       o fundo "sumia, aparecia, sumia de novo". Agora: debounce de 180ms,
+       ignora variação pequena (mesma largura e altura dentro de 120px) e
+       preserva as partículas reescalando as posições (a rede não salta). */
+    let lastW = 0, lastH = 0, rzTimer = 0;
+    function doResize() {
+      const nw = section.offsetWidth, nh = section.offsetHeight;
+      if (!nw || !nh) return;
+      if (nw === lastW && Math.abs(nh - lastH) < 120) return;
+      const kw = lastW ? nw / lastW : 1, kh = lastH ? nh / lastH : 1;
+      w = canvas.width = nw;
+      h = canvas.height = nh;
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].x = Math.min(Math.max(particles[i].x * kw, 0.5), nw - 0.5);
+        particles[i].y = Math.min(Math.max(particles[i].y * kh, 0.5), nh - 0.5);
+      }
+      lastW = nw; lastH = nh;
+    }
+    doResize();
     createParticles();
     netStart();
     window.addEventListener("resize", () => {
-      cancelAnimationFrame(animFrame);
-      resize();
-      createParticles();
-      netStart();
+      clearTimeout(rzTimer);
+      rzTimer = setTimeout(function () { doResize(); netStart(); }, 180);
     });
 
   }
@@ -349,9 +374,12 @@
 
   /* ==============================================
      5. PROXIMITY MASK EFFECT (Hero subtitle)
+     v14: só em dispositivos com hover — no mobile o toque
+     dispara mousemove + :hover preso e acende o overlay
+     neon desalinhado no meio do subtítulo
      ============================================== */
   const subtitleWrap = document.getElementById('hero-subtitle-wrap');
-  if (subtitleWrap) {
+  if (subtitleWrap && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     subtitleWrap.addEventListener('mousemove', function (e) {
       const rect = subtitleWrap.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -366,11 +394,14 @@
      ============================================= */
   const typewriterEl = document.getElementById('typewriter');
   if (typewriterEl) {
+    /* v14: texto original do terminal (commits anteriores) + 2 extras no mesmo formato */
     const phrases = [
-      'break // learn // share',
-      'comunidade hacker ética',
-      'ctf · threat intel · osint',
-      'feito pela raiz, pra raiz',
+      'root@4root:~$ infosec --community',
+      'root@4root:~$ pentest --learn --share',
+      'root@4root:~$ ctf --compete --grow',
+      'root@4root:~$ osint --explore --discover',
+      'root@4root:~$ rev --break --understand',
+      'root@4root:~$ forensics --dig --trace',
     ];
     let phraseIdx = 0;
     let charIdx = 0;
@@ -914,19 +945,19 @@ document.addEventListener('selectstart', function (event) {
   const A_ABOUT = sig("A **#_4root** é uma comunidade de **cibersegurança e hacking** voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de **talks, eventos, CTFs** e iniciativas colaborativas em **segurança ofensiva, CTI e OSINT**. Nosso lema: **break // learn // share**. Site: [4root.com.br](https://4root.com.br/)");
   const A_MOTTO = sig("Nosso lema é **[ break // learn // share ]**:\n- **break** — desmonta, faz engenharia reversa, entende como funciona por dentro\n- **learn** — absorve o conhecimento que existe abaixo da superfície\n- **share** — devolve pra comunidade em writeups, talks e mentorias\nÉ o espírito da raiz — e aparece no topo do site e no marquee.");
   const A_JOIN = sig("O coração da comunidade é o nosso **Discord** — o quartel-general: talks, mentorias, CTFs em grupo, **tickets de flag** e os avisos que não saem do servidor. Entra aqui: [discord.gg/Aw4F6qXS4N](" + U_DISC + "). É **grátis**, **todo nível é bem-vindo** e **sem hierarquia** — do iniciante ao veterano.");
-  const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026 a partir das 19:30 (Brasília)**, **online e gratuito**, com talks sobre **Hacking e CyberSecurity**. É o primeiro evento da comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + "). Quer a grade completa? Pergunta pelo **cronograma** — ou clica no card EVT-001 aqui no site.");
-  const A_SCHED = sig("Cronograma do **WebTalk2026** (online, a partir das 19h):\n**dia 17/11** — 19:00 abertura · 19:20 OSINT: mapeando superfícies de ataque · 20:00 do phishing ao shell (Windows) · 20:40 networking no Discord · 21:00 blue team na prática · 21:40 bug bounty no Brasil · 22:20 AMA + encerramento\n**dia 18/11** — 19:00 engenharia reversa de malware bancário · 19:40 workshop: CTF pwn do zero · 20:40 CTF relâmpago (40 min) · 21:30 carreiras em cyber · 22:10 encerramento + próximos passos\nFormato inspirado em BSides, H2HC, RoadSec e The Hack. A grade pode sofrer ajustes — confirme no **Discord** e no **YouTube**.");
-  const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team — **todo nível de experiência é bem-vindo**. O WebTalk2026 também vai ao ar no [YouTube](" + U_YT + ").");
+  const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**. É o primeiro evento da comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + "). O **cronograma** está **em breve** — nada programado ainda; a grade sai primeiro no **Discord** e no **YouTube**.");
+  const A_SCHED = sig("O cronograma do **WebTalk2026** já está no site como **esqueleto**: cada noite (17 e 18/11) roda das **19:30 às 21:30 (Brasília)** com **3 blocos de 40 min — 30 de talk + 10 de perguntas** (19:30, 20:10 e 20:50). Os títulos e palestrantes estão **em breve** — nada programado ainda. Assim que a grade fechar, anunciamos primeiro no **Discord** e no **YouTube**.");
+  const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas** — dentro da janela das **19:30 às 21:30**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
   const A_CTF = sig("Temos **CTFs públicos** na seção **Desafios** do site:\n- **CTF-001 · RAYX CTF** — criptografia e esteganografia · 100 pts · fácil\n- **CTF-002 · #_4ROOT+DARTH CTF** — engenharia reversa, stego e forense · 500 pts · difícil\n- **CTF-003 · OSINT CTF** — em breve · 300 pts · médio\nBaixa os arquivos clicando no card do desafio e resolve. **O submit da flag é só abrir um ticket no nosso Discord** — a equipe confere e pontua por lá. Detalhes? Pergunta 'como envio a flag'.");
   const A_FLAG = sig("**O submit de flag é só abrir um ticket no nosso Discord**: entra em [discord.gg/Aw4F6qXS4N](" + U_DISC + "), abre um **ticket** e manda a flag do desafio por lá. A equipe confere, pontua e responde no próprio ticket — sem formulário e sem e-mail. Vale pra todos os CTFs: **RAYX**, **#_4ROOT+DARTH** e os que vêm aí.");
   const A_MEMBERS = sig("Os **operadores ativos** da rede (4 nós):\n- **@Maarckz** — Threat Intelligence & Threat Research — [maarckz.github.io](https://maarckz.github.io)\n- **@4rch3on** — Threat Intelligence & OSINT — [LinkedIn](https://www.linkedin.com/in/alyson-dutra/)\n- **@4n0rak** — Network & Cyber Defense — [LinkedIn](https://www.linkedin.com/in/rfernandes72/)\n- **@N0xV3ct0R** — Crypto & Pwn — [LinkedIn](https://www.linkedin.com/in/lucas-diniz-980a1230a/)");
   const A_YT = sig("Todo o conteúdo da #_4root vive no **YouTube** — talks, lives e eventos: [youtube.com/@4rootcommunity](" + U_YT + "). Último vídeo: [#_4root: comunidade hacker em Brasília](" + U_VID + "). O **WebTalk2026 vai ao ar lá** — [se inscreve e ativa o lembrete](" + U_YTSUB + ") pra não perder nada!");
   const A_PARTNERS = sig("Rede de parceiros e apoiadores:\n- **Prodigium Academy** (parceiro) — [blog.prodigiumacademy.com](https://blog.prodigiumacademy.com/)\n- **RioCyberSec** (apoiador) — [riocybersec.com.br](https://www.riocybersec.com.br)\n- **Chapéu de Palha Hacker Club** (apoiador) — [Instagram](https://www.instagram.com/chapeudepalhahackerclub/)\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
   const A_CONTACT = "Canais oficiais da **#_4root** — todas as redes:\n- **Discord** — [discord.gg/Aw4F6qXS4N](" + U_DISC + ")\n- **YouTube** — [@4rootcommunity](" + U_YT + ")\n- **LinkedIn** — [/company/4root](" + U_LI + ")\n- **Instagram** — [@_4root_](" + U_IG + ")\nEscolhe por onde falar com a gente e faz parte do coletivo!";
-  const A_NAV = sig("O site tem 6 seções:\n- **Comunidade** — manifesto da raiz + membros\n- **Eventos** — WebTalk2026 + cronograma\n- **YouTube** — conteúdo e evento ao vivo\n- **Networks** — parceiros e apoiadores\n- **Desafios** — CTFs da comunidade\n- **Contato** — Discord + redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
-  const A_MANIFESTO = sig("Nosso **Manifesto da Raiz** tem 4 princípios:\n1. **Acesso Root** — não nos contentamos com a superfície: estudamos, desmontamos e reconstruímos tecnologias\n2. **Curiosidade Radical** — 'como isso funciona?' é o nosso ponto de partida\n3. **Ética do Hacker** — poder exige responsabilidade; aprendemos a atacar para saber defender\n4. **Coletivo > Ego** — writeups abertos, mentorias e CTFs em grupo: cada nó torna o próximo mais forte");
+  const A_NAV = sig("O site tem 6 seções:\n- **Comunidade** — kernel manifest + membros\n- **Eventos** — WebTalk2026 + cronograma\n- **YouTube** — conteúdo e evento ao vivo\n- **Networks** — parceiros e apoiadores\n- **Desafios** — CTFs da comunidade\n- **Contato** — Discord + redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
+  const A_MANIFESTO = sig("Nosso **Kernel manifest** tem 4 princípios:\n1. **Acesso Root** — não nos contentamos com a superfície: estudamos, desmontamos e reconstruímos tecnologias\n2. **Curiosidade Radical** — 'como isso funciona?' é o nosso ponto de partida\n3. **Ética do Hacker** — poder exige responsabilidade; aprendemos a atacar para saber defender\n4. **Coletivo > Ego** — writeups abertos, mentorias e CTFs em grupo: cada nó torna o próximo mais forte");
   const A_BOT = "Eu sou o **RootBot**, guia oficial do site da **#_4root**. Não sou uma IA de verdade — rodo 100% no seu navegador e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **evento e cronograma**, **CTFs e envio de flag**, **YouTube**, **parceiros**, **redes** e **contato**.";
-  const A_HELP = "Posso falar sobre **tudo que está no site**:\n- **a comunidade** e o **manifesto**\n- **membros** (operadores ativos)\n- **evento** WebTalk2026 e o **cronograma** completo\n- **CTFs** e **como enviar a flag** (ticket no Discord)\n- **YouTube** e conteúdo\n- **parceiros** e como **apoiar**\n- **palestrar** em um evento\n- **redes oficiais** e **contato**\nTambém aceito um 'oi' ou uma piada. ;)";
+  const A_HELP = "Posso falar sobre **tudo que está no site**:\n- **a comunidade** e o **kernel manifest**\n- **membros** (operadores ativos)\n- **evento** WebTalk2026 e o **cronograma**\n- **CTFs** e **como enviar a flag** (ticket no Discord)\n- **YouTube** e conteúdo\n- **parceiros** e como **apoiar**\n- **palestrar** em um evento\n- **redes oficiais** e **contato**\nTambém aceito um 'oi' ou uma piada. ;)";
   const A_FALL = "Essa eu não sei ainda. Tenta perguntar sobre: **comunidade**, **manifesto**, **membros**, **evento/cronograma**, **CTFs**, **envio de flag**, **YouTube**, **parceiros**, **palestrar** ou **contato/redes**!" + SIG;
   const A_JOKE = "Clássica da área: existem **10 tipos de pessoas** — as que entendem binário e as que não entendem. E as que entendem ternário: as que não entendem binário e as que não entendem ternário. ;)";
   const A_THX = "Por nada! Não esquece: **break // learn // share**. Nos vemos na rede." + SIG;
@@ -943,7 +974,7 @@ document.addEventListener('selectstart', function (event) {
     [/(quem e voce|voce e um|voce e o|voce e real|e um bot|e robo|chatbot|seu nome|rootbot|quem e o bot|\bia\b|robo)/, A_BOT],
     [/(membro|equipe|quem sao os|operador|time|fundador|admin|maarckz|4rch3on|4n0rak|n0xv)/, A_MEMBERS],
     [/(parceiro|patrocin|apoiador|apoiar|prodigium|rio ?cyber|chapeu de palha|network|doar|doacao|support)/, A_PARTNERS],
-    [/(manifesto|etica|valor|principio|regra|acesso root|curiosidade|coletivo)/, A_MANIFESTO],
+    [/(manifesto|kernel|etica|valor|principio|regra|acesso root|curiosidade|coletivo)/, A_MANIFESTO],
     [/(motto|lema|slogan|break\s+learn)/, A_MOTTO],
     [/(discord|entrar|participar|join|servidor|convite|invite|comunidade do discord)/, A_JOIN],
     [/(contato|redes|social|instagram|linkedin|email|e ?mail|falar com|seguir)/, A_CONTACT],
