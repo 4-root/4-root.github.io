@@ -12,6 +12,7 @@
     content="cibersegurança, hacking, pentesting, CTF, capture the flag, segurança ofensiva, CTI, OSINT, comunidade de hackers, #_4root">
   <meta name="author" content="#_4root Community">
   <meta name="theme-color" content="#050505">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="canonical" href="https://4root.com.br/">
 
   <meta property="og:type" content="website">
@@ -41,7 +42,7 @@
     "sameAs": [
       "https://discord.gg/Aw4F6qXS4N",
       "https://www.linkedin.com/company/4root",
-      "https://t.me/+_rd9M-U3vo01N2Fh",
+      "https://www.youtube.com/@4rootcommunity",
       "https://www.instagram.com/_4root_"
     ],
     "description": "Somos Uma comunidade dedicada ao hacking ético, pentesting e cibersegurança. Exploramos sistemas, resolvemos CTFs e compartilhamos conhecimento."
@@ -53,7 +54,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -61,17 +62,82 @@
     <div class="cursor-glitch-effect"></div>
   </div>
 
-  <div id="preloader" class="grain-overlay scanlines">
-    <div class="cyber-circle-wrapper">
-      <div class="cyber-circle-1"></div>
-      <div class="cyber-circle-2"></div>
-      <div class="cyber-circle-3"></div>
-      <div class="cyber-text">
-        <span class="caret-blink">_</span>4ROOT
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div id="intro" class="grain-overlay" aria-hidden="true">
+    <div class="intro-vignette"></div>
+    <canvas class="intro-dust"></canvas>
+    <div class="intro-grain"></div>
+    <div class="intro-scanlines"></div>
+    <div class="intro-core" id="intro-core">
+      <!-- v9: semicírculos que se formam e giram (inspirado no boot do Inventory) -->
+      <svg class="intro-rings" id="intro-rings" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <circle class="ring-track" cx="300" cy="300" r="112"></circle>
+        <circle class="ring-track" cx="300" cy="300" r="168"></circle>
+        <circle class="ring-track" cx="300" cy="300" r="224"></circle>
+        <circle class="ring-track" cx="300" cy="300" r="280"></circle>
+        <circle class="ring-arc" data-arc cx="300" cy="300" r="112" data-frac="0.40" data-spin="9s"  data-dir="1"></circle>
+        <circle class="ring-arc" data-arc cx="300" cy="300" r="168" data-frac="0.27" data-spin="14s" data-dir="-1"></circle>
+        <circle class="ring-arc" data-arc cx="300" cy="300" r="224" data-frac="0.18" data-spin="21s" data-dir="1"></circle>
+        <circle class="ring-arc" data-arc cx="300" cy="300" r="280" data-frac="0.11" data-spin="30s" data-dir="-1"></circle>
+      </svg>
+      <div class="intro-glow"></div>
+      <!-- wordmark #_4root + motto [ break // learn // share ] vetorizados (og-image) -->
+      <div class="intro-stack">
+        <!-- v9: wrapper permite as camadas de glitch (mesmo glitch do hero) -->
+        <div class="intro-wordmark" id="intro-wordmark">
+          <svg class="intro-text-svg" id="intro-text-svg" viewBox="0 0 446 94.4" aria-hidden="true" focusable="false">
+<path class="trace t-hash" transform="translate(9 0)" d="M15.01 61.21H6.0V51.69H17.05L19.43 40.81H10.25V31.29H21.47L24.615 16.5H36.175L33.03 31.29H47.395L50.54 16.5H62.185L58.955 31.29H67.965V40.81H57.0L54.62 51.69H63.715V61.21H52.58L49.435 76.0H37.79L41.02 61.21H26.57L23.425 76.0H11.865Z"></path>
+        <path class="trace t-hash-b" transform="translate(9 0)" d="M43.06 51.69 45.44 40.81H30.99L28.61 51.69Z"></path>
+        <path class="trace t-under" transform="translate(19 0)" d="M93.219 76.0V88.4H49.409V76.0Z"></path>
+        <path class="trace t-four" d="M120.415 65.9V50.5L149.015 6.0L159.715 13.3L134.515 52.7L135.715 54.7H180.515V65.9Z"></path>
+        <path class="trace t-four-b" d="M158.615 81.0V28.7H171.715V81.0Z"></path>
+        <path class="trace t-root-r" d="M252.335 76.0H238.735L227.455 59.44H209.695V76.0H196.815V20.0H241.615L250.735 29.12V50.48L241.775 59.44H241.055ZM209.695 30.88V49.52H237.615L237.855 49.36V31.28L237.455 30.88Z"></path>
+        <path class="trace t-root-o1" transform="translate(18 0)" d="M243.295 66.88V29.12L252.415 20.0H288.095L297.215 29.12V66.88L288.095 76.0H252.415ZM256.575 65.12H283.935L284.335 64.72V31.28L283.935 30.88H256.575L256.175 31.28V64.72Z"></path>
+        <path class="trace t-root-o2" transform="translate(35 0)" d="M289.215 66.88V29.12L298.335 20.0H334.015L343.135 29.12V66.88L334.015 76.0H298.335ZM302.495 65.12H329.855L330.255 64.72V31.28L329.855 30.88H302.495L302.095 31.28V64.72Z"></path>
+        <path class="trace t-root-t" transform="translate(53.5 0)" d="M333.535 20.0H386.255V28.48L383.775 30.88H366.335V76.0H353.455V30.88H333.535Z"></path>
+          </svg>
+          <!-- camadas do glitch (idênticas ao hero: vermelho/ciano com clip-path) -->
+          <svg class="intro-glitch intro-glitch-r" viewBox="0 0 446 94.4" aria-hidden="true" focusable="false">
+            <path transform="translate(9 0)" d="M15.01 61.21H6.0V51.69H17.05L19.43 40.81H10.25V31.29H21.47L24.615 16.5H36.175L33.03 31.29H47.395L50.54 16.5H62.185L58.955 31.29H67.965V40.81H57.0L54.62 51.69H63.715V61.21H52.58L49.435 76.0H37.79L41.02 61.21H26.57L23.425 76.0H11.865Z"></path>
+            <path transform="translate(9 0)" d="M43.06 51.69 45.44 40.81H30.99L28.61 51.69Z"></path>
+            <path transform="translate(19 0)" d="M93.219 76.0V88.4H49.409V76.0Z"></path>
+            <path d="M120.415 65.9V50.5L149.015 6.0L159.715 13.3L134.515 52.7L135.715 54.7H180.515V65.9Z"></path>
+            <path d="M158.615 81.0V28.7H171.715V81.0Z"></path>
+            <path d="M252.335 76.0H238.735L227.455 59.44H209.695V76.0H196.815V20.0H241.615L250.735 29.12V50.48L241.775 59.44H241.055ZM209.695 30.88V49.52H237.615L237.855 49.36V31.28L237.455 30.88Z"></path>
+            <path transform="translate(18 0)" d="M243.295 66.88V29.12L252.415 20.0H288.095L297.215 29.12V66.88L288.095 76.0H252.415ZM256.575 65.12H283.935L284.335 64.72V31.28L283.935 30.88H256.575L256.175 31.28V64.72Z"></path>
+            <path transform="translate(35 0)" d="M289.215 66.88V29.12L298.335 20.0H334.015L343.135 29.12V66.88L334.015 76.0H298.335ZM302.495 65.12H329.855L330.255 64.72V31.28L329.855 30.88H302.495L302.095 31.28V64.72Z"></path>
+            <path transform="translate(53.5 0)" d="M333.535 20.0H386.255V28.48L383.775 30.88H366.335V76.0H353.455V30.88H333.535Z"></path>
+          </svg>
+          <svg class="intro-glitch intro-glitch-c" viewBox="0 0 446 94.4" aria-hidden="true" focusable="false">
+            <path transform="translate(9 0)" d="M15.01 61.21H6.0V51.69H17.05L19.43 40.81H10.25V31.29H21.47L24.615 16.5H36.175L33.03 31.29H47.395L50.54 16.5H62.185L58.955 31.29H67.965V40.81H57.0L54.62 51.69H63.715V61.21H52.58L49.435 76.0H37.79L41.02 61.21H26.57L23.425 76.0H11.865Z"></path>
+            <path transform="translate(9 0)" d="M43.06 51.69 45.44 40.81H30.99L28.61 51.69Z"></path>
+            <path transform="translate(19 0)" d="M93.219 76.0V88.4H49.409V76.0Z"></path>
+            <path d="M120.415 65.9V50.5L149.015 6.0L159.715 13.3L134.515 52.7L135.715 54.7H180.515V65.9Z"></path>
+            <path d="M158.615 81.0V28.7H171.715V81.0Z"></path>
+            <path d="M252.335 76.0H238.735L227.455 59.44H209.695V76.0H196.815V20.0H241.615L250.735 29.12V50.48L241.775 59.44H241.055ZM209.695 30.88V49.52H237.615L237.855 49.36V31.28L237.455 30.88Z"></path>
+            <path transform="translate(18 0)" d="M243.295 66.88V29.12L252.415 20.0H288.095L297.215 29.12V66.88L288.095 76.0H252.415ZM256.575 65.12H283.935L284.335 64.72V31.28L283.935 30.88H256.575L256.175 31.28V64.72Z"></path>
+            <path transform="translate(35 0)" d="M289.215 66.88V29.12L298.335 20.0H334.015L343.135 29.12V66.88L334.015 76.0H298.335ZM302.495 65.12H329.855L330.255 64.72V31.28L329.855 30.88H302.495L302.095 31.28V64.72Z"></path>
+            <path transform="translate(53.5 0)" d="M333.535 20.0H386.255V28.48L383.775 30.88H366.335V76.0H353.455V30.88H333.535Z"></path>
+          </svg>
+        </div>
+        <svg class="intro-motto-svg" id="intro-motto-svg" viewBox="0 0 1760.5 106.2" aria-hidden="true" focusable="false">
+        <path class="m-trace m-bracket" d="M16 101.2V5.4H25.2V101.2ZM20.4 101.2V93.6H37.2V101.2ZM20.4 13V5.4H37.2V13Z"></path>
+        <path class="m-trace m-word" d="M150.6 84.8Q144 84.8 138.8 81.9Q133.7 79 130.7 73.5Q127.7 67.9 127.4 60.1H130V83H122.4V10H132V45.5L128.6 52.8Q129 44.1 132.1 38.6Q135.2 33.1 140.2 30.4Q145.3 27.8 151.4 27.8Q157.1 27.8 161.8 29.9Q166.5 32.1 169.9 35.8Q173.3 39.6 175.1 44.5Q176.9 49.5 176.9 55.2V57Q176.9 62.7 175 67.7Q173.2 72.7 169.7 76.6Q166.2 80.4 161.3 82.6Q156.5 84.8 150.6 84.8ZM149.5 76.4Q154.9 76.4 158.9 73.8Q162.9 71.2 165.1 66.7Q167.3 62.1 167.3 56.1Q167.3 50.1 165 45.6Q162.8 41.1 158.8 38.6Q154.8 36.2 149.5 36.2Q144.7 36.2 140.6 38.3Q136.5 40.5 134 44.5Q131.6 48.6 131.6 54.3V58.9Q131.6 64.4 134.1 68.3Q136.6 72.2 140.7 74.3Q144.8 76.4 149.5 76.4Z M206.3 83V29.6H213.9V51.6H213.5Q213.5 39.9 218.6 34.5Q223.8 29 234.1 29H235.9V37.6H232.5Q224.5 37.6 220.2 41.8Q215.9 46.1 215.9 54.1V83Z M285 84.8Q278 84.8 272.9 82.4Q267.8 80 264.6 76Q261.4 72.1 259.8 67.2Q258.3 62.3 258.3 57.2V55.4Q258.3 50.2 259.8 45.3Q261.4 40.4 264.6 36.5Q267.8 32.5 272.7 30.1Q277.7 27.8 284.4 27.8Q293.1 27.8 298.7 31.5Q304.4 35.3 307.1 41.2Q309.9 47.1 309.9 53.8V58.1H262.5V50.9H302.9L300.7 54.8Q300.7 49.1 298.9 45Q297.1 40.8 293.5 38.5Q289.9 36.2 284.4 36.2Q278.7 36.2 274.9 38.8Q271.2 41.4 269.3 45.9Q267.5 50.4 267.5 56.3Q267.5 62 269.3 66.5Q271.2 71.1 275.1 73.8Q279 76.4 285 76.4Q291.3 76.4 295.2 73.6Q299.2 70.8 300 67.1H309Q307.9 72.6 304.6 76.6Q301.3 80.6 296.3 82.7Q291.3 84.8 285 84.8Z M370.8 83V67H369.2V48.5Q369.2 43 366.3 40.2Q363.5 37.4 358 37.4Q354.9 37.4 351.6 37.5Q348.3 37.6 345.3 37.7Q342.3 37.8 340.1 38V29.6Q342.3 29.4 344.7 29.2Q347.2 29.1 349.8 29Q352.4 29 354.8 29Q363 29 368.2 30.9Q373.4 32.9 375.9 37.3Q378.4 41.7 378.4 49.2V83ZM353.3 84.4Q347.3 84.4 342.9 82.3Q338.6 80.3 336.2 76.4Q333.9 72.5 333.9 67Q333.9 61.3 336.4 57.5Q339 53.7 343.9 51.8Q348.8 49.8 355.7 49.8H370.2V57H355.3Q349.5 57 346.4 59.8Q343.3 62.6 343.3 67Q343.3 71.4 346.4 74.1Q349.5 76.8 355.3 76.8Q358.7 76.8 361.8 75.5Q364.9 74.3 366.9 71.3Q369 68.4 369.2 63.2L371.8 67Q371.3 72.7 369 76.6Q366.8 80.4 362.8 82.4Q358.9 84.4 353.3 84.4Z M447.8 83 427.7 58.1H418.9L443.4 29.6H453.5L431.3 55.3L432 50.2L458.9 83ZM411 83V10H420.6V83Z"></path>
+        <path class="m-trace m-slash" d="M554.3 89 574.7 5H583.7L563.3 89Z M603.7 89 624.1 5H633.1L612.7 89Z"></path>
+        <path class="m-trace m-word" d="M738.2 83V10H747.8V83ZM730.8 17.6V10H747.8V17.6Z M803.9 84.8Q796.9 84.8 791.8 82.4Q786.7 80 783.5 76Q780.3 72.1 778.8 67.2Q777.2 62.3 777.2 57.2V55.4Q777.2 50.2 778.8 45.3Q780.3 40.4 783.5 36.5Q786.7 32.5 791.7 30.1Q796.6 27.8 803.3 27.8Q812 27.8 817.7 31.5Q823.3 35.3 826.1 41.2Q828.8 47.1 828.8 53.8V58.1H781.4V50.9H821.8L819.6 54.8Q819.6 49.1 817.8 45Q816 40.8 812.4 38.5Q808.8 36.2 803.3 36.2Q797.6 36.2 793.9 38.8Q790.1 41.4 788.3 45.9Q786.4 50.4 786.4 56.3Q786.4 62 788.3 66.5Q790.1 71.1 794 73.8Q797.9 76.4 803.9 76.4Q810.2 76.4 814.2 73.6Q818.1 70.8 818.9 67.1H827.9Q826.8 72.6 823.5 76.6Q820.2 80.6 815.2 82.7Q810.2 84.8 803.9 84.8Z M889.7 83V67H888.1V48.5Q888.1 43 885.3 40.2Q882.4 37.4 876.9 37.4Q873.8 37.4 870.5 37.5Q867.2 37.6 864.2 37.7Q861.2 37.8 859 38V29.6Q861.2 29.4 863.7 29.2Q866.1 29.1 868.7 29Q871.3 29 873.7 29Q881.9 29 887.1 30.9Q892.3 32.9 894.8 37.3Q897.3 41.7 897.3 49.2V83ZM872.2 84.4Q866.2 84.4 861.9 82.3Q857.5 80.3 855.2 76.4Q852.8 72.5 852.8 67Q852.8 61.3 855.4 57.5Q857.9 53.7 862.8 51.8Q867.7 49.8 874.6 49.8H889.1V57H874.2Q868.4 57 865.3 59.8Q862.2 62.6 862.2 67Q862.2 71.4 865.3 74.1Q868.4 76.8 874.2 76.8Q877.6 76.8 880.7 75.5Q883.8 74.3 885.9 71.3Q887.9 68.4 888.1 63.2L890.7 67Q890.2 72.7 888 76.6Q885.7 80.4 881.8 82.4Q877.8 84.4 872.2 84.4Z M929.9 83V29.6H937.5V51.6H937.1Q937.1 39.9 942.3 34.5Q947.4 29 957.7 29H959.5V37.6H956.1Q948.1 37.6 943.8 41.8Q939.5 46.1 939.5 54.1V83Z M985.9 83V29.6H993.5V52.5H992.3Q992.3 44.6 994.5 39.1Q996.6 33.7 1001 30.8Q1005.4 28 1012.1 28H1012.5Q1022.6 28 1027.5 34.3Q1032.3 40.6 1032.3 52.5V83H1022.7V50.5Q1022.7 44.3 1019.2 40.5Q1015.7 36.8 1009.6 36.8Q1003.3 36.8 999.4 40.7Q995.5 44.6 995.5 51.1V83Z"></path>
+        <path class="m-trace m-slash" d="M1136 89 1156.4 5H1165.4L1145 89Z M1185.4 89 1205.8 5H1214.8L1194.4 89Z"></path>
+        <path class="m-trace m-word" d="M1336.8 84.6Q1326.3 84.6 1320.5 80.1Q1314.8 75.6 1314.6 67.8H1323.6Q1323.8 70.9 1326.7 73.7Q1329.7 76.4 1336.8 76.4Q1343.2 76.4 1346.6 73.8Q1350 71.3 1350 67.6Q1350 64.3 1347.5 62.4Q1345 60.6 1339.4 60L1333.6 59.4Q1326 58.6 1321.2 54.8Q1316.4 51.1 1316.4 44.3Q1316.4 39.2 1319 35.5Q1321.6 31.9 1326.2 29.9Q1330.8 28 1336.8 28Q1345.8 28 1351.4 32Q1357 36 1357.2 43.9H1348.2Q1348.1 40.7 1345.2 38.4Q1342.4 36.2 1336.8 36.2Q1331.2 36.2 1328.3 38.5Q1325.4 40.8 1325.4 44.3Q1325.4 47.3 1327.4 49.1Q1329.5 50.9 1334.2 51.4L1340 52Q1348.6 52.9 1353.8 56.8Q1359 60.6 1359 67.6Q1359 72.6 1356.1 76.4Q1353.3 80.3 1348.3 82.4Q1343.3 84.6 1336.8 84.6Z M1387.9 83V10H1397.5V53.6H1395.1Q1395.1 45.7 1397.1 39.9Q1399.2 34.2 1403.5 31.1Q1407.8 28 1414.5 28H1414.9Q1424.5 28 1429.4 34.3Q1434.3 40.7 1434.3 52.5V83H1424.7V50.5Q1424.7 44 1421 40.4Q1417.4 36.8 1411.6 36.8Q1405.2 36.8 1401.3 41Q1397.5 45.3 1397.5 52.2V83Z M1499.2 83V67H1497.6V48.5Q1497.6 43 1494.7 40.2Q1491.9 37.4 1486.4 37.4Q1483.3 37.4 1480 37.5Q1476.7 37.6 1473.7 37.7Q1470.7 37.8 1468.5 38V29.6Q1470.7 29.4 1473.1 29.2Q1475.6 29.1 1478.2 29Q1480.8 29 1483.2 29Q1491.4 29 1496.6 30.9Q1501.8 32.9 1504.3 37.3Q1506.8 41.7 1506.8 49.2V83ZM1481.7 84.4Q1475.7 84.4 1471.3 82.3Q1467 80.3 1464.6 76.4Q1462.3 72.5 1462.3 67Q1462.3 61.3 1464.8 57.5Q1467.4 53.7 1472.3 51.8Q1477.2 49.8 1484.1 49.8H1498.6V57H1483.7Q1477.9 57 1474.8 59.8Q1471.7 62.6 1471.7 67Q1471.7 71.4 1474.8 74.1Q1477.9 76.8 1483.7 76.8Q1487.1 76.8 1490.2 75.5Q1493.3 74.3 1495.3 71.3Q1497.4 68.4 1497.6 63.2L1500.2 67Q1499.7 72.7 1497.4 76.6Q1495.2 80.4 1491.2 82.4Q1487.3 84.4 1481.7 84.4Z M1539.4 83V29.6H1547V51.6H1546.6Q1546.6 39.9 1551.7 34.5Q1556.9 29 1567.2 29H1569V37.6H1565.6Q1557.6 37.6 1553.3 41.8Q1549 46.1 1549 54.1V83Z M1618.1 84.8Q1611.1 84.8 1606 82.4Q1600.9 80 1597.7 76Q1594.5 72.1 1592.9 67.2Q1591.4 62.3 1591.4 57.2V55.4Q1591.4 50.2 1592.9 45.3Q1594.5 40.4 1597.7 36.5Q1600.9 32.5 1605.8 30.1Q1610.8 27.8 1617.5 27.8Q1626.2 27.8 1631.8 31.5Q1637.5 35.3 1640.2 41.2Q1643 47.1 1643 53.8V58.1H1595.6V50.9H1636L1633.8 54.8Q1633.8 49.1 1632 45Q1630.2 40.8 1626.6 38.5Q1623 36.2 1617.5 36.2Q1611.8 36.2 1608 38.8Q1604.3 41.4 1602.4 45.9Q1600.6 50.4 1600.6 56.3Q1600.6 62 1602.4 66.5Q1604.3 71.1 1608.2 73.8Q1612.1 76.4 1618.1 76.4Q1624.4 76.4 1628.3 73.6Q1632.3 70.8 1633.1 67.1H1642.1Q1641 72.6 1637.7 76.6Q1634.4 80.6 1629.4 82.7Q1624.4 84.8 1618.1 84.8Z"></path>
+        <path class="m-trace m-bracket" d="M1744.5 101.2V5.4H1735.3V101.2ZM1740.1 101.2V93.6H1723.3V101.2ZM1740.1 13V5.4H1723.3V13Z"></path>
+        </svg>
       </div>
     </div>
-    <div class="preloader-status font-mono">Initializing #_4root<span class="caret-blink">_</span></div>
+    <!-- v12: barra de carregamento do topo removida por feedback -->
+    <button class="intro-skip" id="intro-skip" type="button">pular intro</button>
   </div>
+  <noscript>
+    <style>#intro{display:none!important}.hero-content,.hero-ctas,.hero-gradient,.hero-scroll-indicator{opacity:1!important;animation:none!important}</style>
+  </noscript>
 
   <div class="grain-overlay"></div>
 
@@ -87,6 +153,7 @@
         <li><a href="#comunidade" class="nav-link" data-section="comunidade">Comunidade<span
               class="underline"></span></a></li>
         <li><a href="#eventos" class="nav-link" data-section="eventos">Eventos<span class="underline"></span></a></li>
+        <li><a href="#youtube" class="nav-link" data-section="youtube">YouTube<span class="underline"></span></a></li>
         <li><a href="#recursos" class="nav-link" data-section="recursos">Networks<span class="underline"></span></a>
         </li>
         <li><a href="#desafios" class="nav-link" data-section="desafios">Desafios<span class="underline"></span></a>
@@ -108,9 +175,42 @@
     <a href="#home" class="active" data-section="home">Home</a>
     <a href="#comunidade" data-section="comunidade">Comunidade</a>
     <a href="#eventos" data-section="eventos">Eventos</a>
+    <a href="#youtube" data-section="youtube">YouTube</a>
     <a href="#recursos" data-section="recursos">Recursos</a>
     <a href="#desafios" data-section="desafios">Desafios</a>
     <a href="#contato" data-section="contato">Contato</a>
+    <div class="mobile-menu-socials" aria-label="Redes da comunidade">
+      <a href="https://discord.gg/Aw4F6qXS4N" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3.54 5.61c-3.22.96-6.22.88-8.92 0-.5-.15-.83.42-.56.86a7.54 7.54 0 0 0 5.02 2.75 7.54 7.54 0 0 0 5.02-2.75c.27-.44-.06-1.01-.56-.86Z"></path>
+          <path d="M18.5 3h-13A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 3Z"></path>
+        </svg>
+      </a>
+      <a href="https://www.youtube.com/@4rootcommunity" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path>
+          <path d="m10 15 5-3-5-3z"></path>
+        </svg>
+      </a>
+      <a href="https://www.linkedin.com/company/4root" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/_4root_" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+        </svg>
+      </a>
+    </div>
   </div>
 
   <main>
@@ -171,20 +271,20 @@
 
     <div class="marquee">
       <div class="marquee-track animate-marquee">
-        <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
         <span class="marquee-item">join the network</span><span class="marquee-divider">/</span>
         <span class="marquee-item">capture the flag</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">threat intel · osint · pwn</span><span class="marquee-divider">/</span>
         <span class="marquee-item">stay curious</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">comunidade hacker</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
         <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">root@4root:~#</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">sudo access granted</span><span class="marquee-divider">/</span>
         <span class="marquee-item">join the network</span><span class="marquee-divider">/</span>
         <span class="marquee-item">capture the flag</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">threat intel · osint · pwn</span><span class="marquee-divider">/</span>
         <span class="marquee-item">stay curious</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">break // learn // share</span><span class="marquee-divider">/</span>
-        <span class="marquee-item">root@4root:~#</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">comunidade hacker</span><span class="marquee-divider">/</span>
+        <span class="marquee-item">0x4root</span><span class="marquee-divider">/</span>
       </div>
     </div>
 
@@ -199,7 +299,7 @@
         <p class="section-desc animate-on-scroll">Quatro princípios que definem quem somos. Sem hierarquia corporativa,
           só a busca crua por conhecimento.</p>
 
-        <div class="manifesto-grid">
+        <div class="manifesto-grid animate-on-scroll">
 
           <div class="manifesto-card animate-on-scroll">
             <span class="manifesto-number">01</span>
@@ -293,30 +393,29 @@
         <p class="section-desc animate-on-scroll">Nossos eventos e eventos de comunidades parceiras.</p>
 
         <div class="challenges-grid">
-          <a href="https://forms.gle/RoVxXp863fwdH1tx6"
-             target="_blank"
-             rel="noopener noreferrer"
-             class="challenge-card animate-on-scroll"
-             style="text-decoration: none; color: inherit; cursor: pointer;">
-          
+          <button type="button" id="event-card"
+             class="challenge-card challenge-card--btn animate-on-scroll"
+             aria-haspopup="dialog" aria-controls="sched-modal"
+             title="Ver o cronograma do WebTalk2026">
+
             <div class="challenge-header">
               <span class="challenge-code">EVT-001</span>
               <span class="challenge-level level-facil">WEB</span>
             </div>
-          
+
             <h3 class="challenge-title">#_4root WebTalk2026</h3>
-          
+
             <p class="challenge-desc">
               Dias 17 e 18/11/2026 | 19:30h - Online
             </p>
-          
+
             <p class="challenge-desc">
               Primeiro evento da #_4root, com talks sobre Hacking e CyberSecurity.
             </p>
-          
+
             <div class="challenge-footer">
               <span class="challenge-cat">Talks</span>
-          
+
               <span class="challenge-pts">
                 <svg viewBox="0 0 24 24"
                      width="16"
@@ -325,15 +424,81 @@
                      stroke="currentColor"
                      stroke-width="2"
                      stroke-linecap="round"
-                     stroke-linejoin="round">
-                  <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path>
-                  <line x1="4" x2="4" y1="22" y2="15"></line>
+                     stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="0" ry="0"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
                 </svg>
-                Cadastre-se Aqui
+                Veja Nosso Cronograma
               </span>
             </div>
-          </a>
-     
+          </button>
+
+
+        </div>
+      </div>
+    </section>
+
+    <section id="youtube" class="section youtube-section">
+      <div class="section-inner">
+
+        <div class="section-label animate-on-scroll">
+          <span class="label-bar"></span>
+          <span>// 03 — youtube</span>
+        </div>
+        <h2 class="section-title animate-on-scroll text-glitch" data-text="No ar no YouTube">No ar no YouTube</h2>
+        <p class="section-desc animate-on-scroll">Talks, lives e eventos da #_4root direto do nosso canal. O
+          WebTalk2026 vai ao ar lá — se inscreva e ative o lembrete.</p>
+
+        <div class="yt-grid">
+
+          <div class="yt-featured animate-on-scroll">
+            <a class="yt-facade" id="yt-facade" href="https://www.youtube.com/watch?v=ULNX2MVzY8w"
+              data-video="ULNX2MVzY8w" target="_blank" rel="noopener noreferrer"
+              aria-label="Assistir: #_4root, comunidade hacker em Brasília">
+              <img src="local-assets/images/yt-thumb.jpg" alt="Capa do vídeo #_4root: comunidade hacker em Brasília"
+                loading="lazy">
+              <span class="yt-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z"></path>
+                </svg>
+              </span>
+              <span class="yt-badge">último vídeo</span>
+            </a>
+            <div class="yt-featured-meta">
+              <img class="yt-avatar" src="local-assets/images/yt-avatar.png"
+                alt="Avatar do canal #_4root no YouTube" loading="lazy">
+              <div class="yt-meta-text">
+                <p class="yt-title">#_4root: comunidade hacker em Brasília</p>
+                <p class="yt-sub">youtube.com/@4rootcommunity</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="yt-side">
+            <div class="yt-event-card animate-on-scroll">
+              <div class="yt-event-head">
+                <span class="yt-live-dot" aria-hidden="true"></span>
+                <span class="yt-event-label">evento ao vivo no youtube</span>
+              </div>
+              <p class="yt-event-name">#_4root WebTalk2026</p>
+              <p class="yt-event-date">17 e 18 de novembro · 19h30 · online</p>
+              <div class="yt-count" id="yt-count" role="timer" aria-label="Contagem regressiva para o WebTalk2026">
+                <div class="yt-count-cell"><strong id="yt-dd">--</strong><span>dias</span></div>
+                <div class="yt-count-cell"><strong id="yt-hh">--</strong><span>horas</span></div>
+                <div class="yt-count-cell"><strong id="yt-mm">--</strong><span>min</span></div>
+                <div class="yt-count-cell"><strong id="yt-ss">--</strong><span>seg</span></div>
+              </div>
+              <div class="yt-event-ctas">
+                <a class="cta-primary glitch" data-text="inscrever-se no canal"
+                  href="https://www.youtube.com/@4rootcommunity?sub_confirmation=1" target="_blank"
+                  rel="noopener noreferrer">inscrever-se no canal</a>
+                <a class="cta-secondary" href="https://forms.gle/DvirpKtr2vg2cM9h8" target="_blank"
+                  rel="noopener noreferrer">Gostaria de palestrar?</a>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -344,7 +509,7 @@
 
         <div class="section-label animate-on-scroll">
           <span class="label-bar"></span>
-          <span>// 03 — networks</span>
+          <span>// 04 — networks</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Networks">Networks</h2>
         <p class="section-desc animate-on-scroll">Parceiros, patrocinadores e apoiadores da comunidade, torne-se um
@@ -352,7 +517,7 @@
 
         <div class="tools-grid">
 
-          <a href="https://blog.prodigiumacademy.com/" class="tool-card animate-on-scroll">
+          <a href="https://prodigiumacademy.com/" class="tool-card animate-on-scroll">
             <div class="tool-bg-img"
               style="background-image: url('');">
             </div>
@@ -464,7 +629,7 @@
 
         <div class="section-label animate-on-scroll">
           <span class="label-bar"></span>
-          <span>// 04 — desafios</span>
+          <span>// 05 — desafios</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Capture the flag">Capture the flag</h2>
         <p class="section-desc animate-on-scroll">Desafios para comunidade se divertir e aprender</p>
@@ -540,32 +705,51 @@
 
         <div class="section-label animate-on-scroll">
           <span class="label-bar"></span>
-          <span>// 05 — contato</span>
+          <span>// 06 — contato</span>
         </div>
         <h2 class="section-title animate-on-scroll text-glitch" data-text="Entre na rede">Entre na rede</h2>
         <p class="section-desc animate-on-scroll">Toda conexão começa com um handshake. Escolha por onde falar com a
           gente e faça parte do coletivo.</p>
 
-        <div class="socials-grid">
+        <div class="contact-grid">
 
-          <a href="https://discord.gg/Aw4F6qXS4N" class="social-card animate-on-scroll" target="_blank"
-            rel="noopener noreferrer">
-            <div class="social-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path
-                  d="M8 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3.54 5.61c-3.22.96-6.22.88-8.92 0-.5-.15-.83.42-.56.86a7.54 7.54 0 0 0 5.02 2.75 7.54 7.54 0 0 0 5.02-2.75c.27-.44-.06-1.01-.56-.86Z">
-                </path>
-                <path
-                  d="M18.5 3h-13A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h13a2.5 2.5 0 0 0 2.5-2.5v-13A2.5 2.5 0 0 0 18.5 3Z">
-                </path>
-              </svg>
+          <aside class="discord-card animate-on-scroll" id="discord-card" data-guild="1535407796974256159">
+            <canvas class="discord-particles" aria-hidden="true"></canvas>
+            <div class="discord-head">
+              <div class="discord-glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.78 13.78 0 0 0-.64 1.28 18.27 18.27 0 0 0-5.5 0 12.64 12.64 0 0 0-.64-1.28h-.05A19.74 19.74 0 0 0 3.63 4.37 20.26 20.26 0 0 0 .11 18.06a19.9 19.9 0 0 0 6.04 3.03c.46-.63.87-1.3 1.22-2a12.83 12.83 0 0 1-1.93-.92c.16-.12.32-.24.47-.37a14.17 14.17 0 0 0 12.18 0c.15.13.31.25.47.37-.61.36-1.26.67-1.93.92.35.7.76 1.37 1.22 2a19.84 19.84 0 0 0 6.04-3.03 20.24 20.24 0 0 0-3.57-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.34-.95 2.42-2.16 2.42Zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.34-.95 2.42-2.16 2.42Z">
+                  </path>
+                </svg>
+              </div>
+              <div class="discord-title">
+                <strong>#_4root no Discord</strong>
+                <span class="discord-status" id="discord-status"><i class="st on" aria-hidden="true"></i>comunidade
+                  ativa agora</span>
+              </div>
             </div>
-            <div>
-              <p class="social-name">Discord</p>
-              <p class="social-handle">#_4root</p>
+            <p class="discord-sub">O quartel-general da comunidade: talks, mentorias, CTFs em grupo e os avisos que
+              não saem do servidor.</p>
+            <ul class="discord-faces" id="discord-faces" aria-label="Pessoas online agora">
+              <li title="online"><span class="face">M</span><i class="st on" aria-hidden="true"></i></li>
+              <li title="online"><span class="face">A</span><i class="st on" aria-hidden="true"></i></li>
+              <li title="online"><span class="face">C</span><i class="st on" aria-hidden="true"></i></li>
+              <li title="online"><span class="face">4</span><i class="st on" aria-hidden="true"></i></li>
+              <li class="face-more" id="discord-more">+9</li>
+            </ul>
+            <div class="discord-cta">
+              <a href="https://discord.gg/Aw4F6qXS4N" target="_blank" rel="noopener noreferrer" class="btn-discord">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M20.32 4.37a19.8 19.8 0 0 0-4.93-1.51 13.78 13.78 0 0 0-.64 1.28 18.27 18.27 0 0 0-5.5 0 12.64 12.64 0 0 0-.64-1.28h-.05A19.74 19.74 0 0 0 3.63 4.37 20.26 20.26 0 0 0 .11 18.06a19.9 19.9 0 0 0 6.04 3.03c.46-.63.87-1.3 1.22-2a12.83 12.83 0 0 1-1.93-.92c.16-.12.32-.24.47-.37a14.17 14.17 0 0 0 12.18 0c.15.13.31.25.47.37-.61.36-1.26.67-1.93.92.35.7.76 1.37 1.22 2a19.84 19.84 0 0 0 6.04-3.03 20.24 20.24 0 0 0-3.57-13.69ZM8.02 15.33c-1.18 0-2.16-1.08-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.34-.95 2.42-2.16 2.42Zm7.97 0c-1.18 0-2.16-1.08-2.16-2.42s.95-2.43 2.16-2.43 2.18 1.1 2.16 2.43c0 1.34-.95 2.42-2.16 2.42Z">
+                  </path>
+                </svg>
+                entrar no servidor
+              </a>
+              <p class="discord-note">grátis · todo nível é bem-vindo · sem hierarquia</p>
             </div>
-          </a>
+          </aside>
+
+          <div class="socials-grid socials-grid--contact">
 
           <a href="https://www.linkedin.com/company/4root" class="social-card animate-on-scroll"
             target="_blank" rel="noopener noreferrer">
@@ -583,18 +767,20 @@
             </div>
           </a>
 
-          <a href="https://t.me/+_rd9M-U3vo01N2Fh" class="social-card animate-on-scroll" target="_blank"
+          <a href="https://www.youtube.com/@4rootcommunity" class="social-card animate-on-scroll" target="_blank"
             rel="noopener noreferrer">
             <div class="social-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                 stroke-linejoin="round">
-                <path d="m22 2-7 20-4-9-9-4Z"></path>
-                <path d="M22 2 11 13"></path>
+                <path
+                  d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17">
+                </path>
+                <path d="m10 15 5-3-5-3z"></path>
               </svg>
             </div>
             <div>
-              <p class="social-name">Telegram</p>
-              <p class="social-handle">@#_4root</p>
+              <p class="social-name">YouTube</p>
+              <p class="social-handle">@4rootcommunity</p>
             </div>
           </a>
 
@@ -614,7 +800,9 @@
             </div>
           </a>
 
-        </div>
+          </div><!-- /socials-grid -->
+
+        </div><!-- /contact-grid -->
       </div>
     </section>
 
@@ -623,21 +811,220 @@
   <footer>
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <span class="footer-copyright">&copy; 2026 #_4root — Comunidade Cyber</span>
-        <span class="footer-motto">break // learn // share</span>
+        <a href="#home" class="nav-logo footer-logo-link" aria-label="#_4root — voltar ao topo">
+          <span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span>
+          <span class="neon-text font-sora text-4">4</span>
+          <span class="font-qb text-root">root</span>
+        </a>
+        <span class="footer-copyright">&copy; 2026 #_4root — comunidade de cibersegurança</span>
+        <span class="footer-powered">powered by <a href="https://maarckz.github.io" target="_blank"
+            rel="noopener noreferrer">Maarckz</a></span>
       </div>
     </div>
   </footer>
 
+  <button id="back-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m18 15-6-6-6 6"></path>
+    </svg>
+  </button>
+
+  <!-- ===== RootBot — assistente da comunidade ===== -->
+  <svg class="goo-defs" width="0" height="0" focusable="false" aria-hidden="true">
+    <defs>
+      <filter id="r4-goo" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="b" />
+        <feColorMatrix in="b" mode="matrix"
+          values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 22 -10" result="g" />
+      </filter>
+    </defs>
+  </svg>
+  <div id="bot-goo" aria-hidden="true">
+    <div class="bot-float">
+      <div class="bot-trail"></div>
+      <div class="bot-blob"></div>
+    </div>
+  </div>
+  <button id="bot-dot" aria-label="Abrir o RootBot" title="RootBot — assistente da comunidade"></button>
+  <div id="bot-tip" aria-hidden="true">oi! eu sou o RootBot — me pergunte sobre a #_4root</div>
+
+  <section id="bot-panel" role="dialog" aria-label="Chat RootBot" aria-hidden="true">
+    <header class="bot-head">
+      <span class="bot-avatar" aria-hidden="true">
+        <img src="static/logo.svg" alt="">
+      </span>
+      <div class="bot-head-t">
+        <strong>RootBot</strong>
+        <small><span class="bot-status-dot" aria-hidden="true"></span> online · responde na hora</small>
+      </div>
+      <button id="bot-clear" aria-label="Limpar conversa" title="Limpar conversa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 6h18"></path>
+          <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"></path>
+          <path d="M10 11v6"></path>
+          <path d="M14 11v6"></path>
+        </svg>
+      </button>
+      <button id="bot-close" aria-label="Fechar chat" title="Fechar [esc]">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          aria-hidden="true">
+          <path d="M18 6L6 18M6 6l12 12"></path>
+        </svg>
+      </button>
+    </header>
+    <div class="bot-msgs" id="bot-msgs" aria-live="polite"></div>
+    <div class="bot-chips" id="bot-chips"></div>
+    <div class="bot-input-row">
+      <input id="bot-input" type="text" placeholder="escreva sua pergunta..." autocomplete="off" maxlength="240">
+      <button id="bot-send" aria-label="Enviar mensagem">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M2 21l21-9L2 3v7l15 2-15 2v7z"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- v8: modal do cronograma do evento (abre pelo card EVT-001) -->
+  <div class="sched-modal" id="sched-modal" aria-hidden="true">
+    <div class="sched-backdrop" data-sched-close></div>
+    <div class="sched-box" role="dialog" aria-modal="true" aria-labelledby="sched-title">
+      <button type="button" class="sched-close" data-sched-close aria-label="Fechar cronograma">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="sched-head">
+        <span class="sched-code">// EVT-001 — cronograma</span>
+        <h3 class="sched-title" id="sched-title">#_4root WebTalk2026</h3>
+        <p class="sched-meta">17 e 18 de novembro de 2026 · online · a partir das 19h30 (Brasília)</p>
+      </div>
+      <div class="sched-tabs" role="tablist" aria-label="Dias do evento">
+        <span class="sched-indicator" aria-hidden="true"></span>
+        <button type="button" class="sched-tab is-active" role="tab" aria-selected="true"
+                data-day="d1">17 nov <i>· dia 01</i></button>
+        <button type="button" class="sched-tab" role="tab" aria-selected="false"
+                data-day="d2">18 nov <i>· dia 02</i></button>
+      </div>
+      <!-- v9: viewport com transição suave entre os dias -->
+      <div class="sched-viewport" id="sched-viewport">
+      <ul class="sched-list is-active" data-day="d1" role="tabpanel" aria-label="Cronograma do dia 17 de novembro">
+        <li class="sched-item">
+          <span class="sched-time">19:00</span>
+          <div class="sched-info">
+            <p class="sched-talk">Abertura #_4root — bem-vindos ao WebTalk2026</p>
+            <p class="sched-who">Equipe #_4root</p>
+          </div>
+          <span class="sched-tag tag-comm">comunidade</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">19:20</span>
+          <div class="sched-info">
+            <p class="sched-talk">OSINT: mapeando superfícies de ataque antes do primeiro exploit</p>
+            <p class="sched-who">Palestrante convidado</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">20:00</span>
+          <div class="sched-info">
+            <p class="sched-talk">Do phishing ao shell: cadeia de ataque em ambientes Windows</p>
+            <p class="sched-who">Palestrante convidado</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">20:40</span>
+          <div class="sched-info">
+            <p class="sched-talk">Networking no Discord da comunidade</p>
+            <p class="sched-who">Todos os participantes</p>
+          </div>
+          <span class="sched-tag tag-net">networking</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">21:00</span>
+          <div class="sched-info">
+            <p class="sched-talk">Blue team na prática: detecção e resposta a incidentes</p>
+            <p class="sched-who">Palestrante convidado</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">21:40</span>
+          <div class="sched-info">
+            <p class="sched-talk">Bug bounty no Brasil: do primeiro relatório à recompensa</p>
+            <p class="sched-who">Palestrante convidado</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">22:20</span>
+          <div class="sched-info">
+            <p class="sched-talk">AMA + encerramento do primeiro dia</p>
+            <p class="sched-who">Equipe #_4root</p>
+          </div>
+          <span class="sched-tag tag-comm">comunidade</span>
+        </li>
+      </ul>
+      <ul class="sched-list" data-day="d2" role="tabpanel" aria-label="Cronograma do dia 18 de novembro" hidden>
+        <li class="sched-item">
+          <span class="sched-time">19:00</span>
+          <div class="sched-info">
+            <p class="sched-talk">Engenharia reversa de malware bancário</p>
+            <p class="sched-who">Palestrante convidado</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">19:40</span>
+          <div class="sched-info">
+            <p class="sched-talk">Workshop: CTF pwn do zero — binário, exploit e flag</p>
+            <p class="sched-who">Equipe #_4root</p>
+          </div>
+          <span class="sched-tag tag-workshop">workshop</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">20:40</span>
+          <div class="sched-info">
+            <p class="sched-talk">CTF relâmpago — 40 minutos de desafios ao vivo</p>
+            <p class="sched-who">Todos os participantes</p>
+          </div>
+          <span class="sched-tag tag-ctf">ctf</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">21:30</span>
+          <div class="sched-info">
+            <p class="sched-talk">Carreiras em cyber: portfólio, certificações e comunidade</p>
+            <p class="sched-who">Convidados especiais</p>
+          </div>
+          <span class="sched-tag tag-talk">talk</span>
+        </li>
+        <li class="sched-item">
+          <span class="sched-time">22:10</span>
+          <div class="sched-info">
+            <p class="sched-talk">Encerramento + próximos passos da #_4root</p>
+            <p class="sched-who">Equipe #_4root</p>
+          </div>
+          <span class="sched-tag tag-comm">comunidade</span>
+        </li>
+      </ul>
+      </div>
+      <div class="sched-foot">
+        <a class="cta-primary glitch" data-text="garantir minha vaga"
+           href="https://forms.gle/RoVxXp863fwdH1tx6" target="_blank"
+           rel="noopener noreferrer">garantir minha vaga</a>
+        <a class="cta-secondary" href="https://forms.gle/DvirpKtr2vg2cM9h8" target="_blank"
+           rel="noopener noreferrer">Gostaria de palestrar?</a>
+      </div>
+      <p class="sched-note">Estamos ajustando os horarios e conteúdo ainda.</p>
+    </div>
+  </div>
+
   <script src="static/script.js"></script>
-  <script>
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      setTimeout(() => {
-        preloader.classList.add('fade-out');
-      }, 400);
-    });
-  </script>
 
   <script>
     const cursor = document.getElementById('cyber-cursor');
