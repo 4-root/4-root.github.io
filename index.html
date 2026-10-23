@@ -141,47 +141,37 @@
 
   <div class="grain-overlay"></div>
 
-  <header class="navbar" id="navbar">
-    <nav class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span>
-        <span class="neon-text font-sora text-4">4</span>
-        <span class="font-qb text-root">root</span>
-      </a>
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#home" class="nav-link active" data-section="home">Home<span class="underline"></span></a></li>
-        <li><a href="#comunidade" class="nav-link" data-section="comunidade">Comunidade<span
-              class="underline"></span></a></li>
-        <li><a href="#eventos" class="nav-link" data-section="eventos">Eventos<span class="underline"></span></a></li>
-        <li><a href="#youtube" class="nav-link" data-section="youtube">YouTube<span class="underline"></span></a></li>
-        <li><a href="#recursos" class="nav-link" data-section="recursos">Networks<span class="underline"></span></a>
-        </li>
-       <li>
-        <a href="#desafios" class="nav-link" data-section="desafios">
-          Desafios<span class="underline"></span>
-        </a>
-      </li>
-      <li>
-        <a href="https://academy.4root.com.br" class="nav-link">
-          Academy<span class="underline"></span>
-        </a>
-      </li>
-      <li>
-        <a href="#contato" class="nav-link" data-section="contato">
-          Contato<span class="underline"></span>
-        </a>
-      </li>
-      </ul>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" x2="20" y1="12" y2="12"></line>
-          <line x1="4" x2="20" y1="6" y2="6"></line>
-          <line x1="4" x2="20" y1="18" y2="18"></line>
-        </svg>
-      </button>
-    </nav>
-  </header>
+    <!-- ===== NAVBAR OFICIAL 4root.com.br (+ News) ===== -->
+    <header class="navbar" id="navbar">
+        <nav class="nav-inner">
+            <a href="/" class="nav-logo" aria-label="#_4root news"><span class="font-qb text-hash">#</span><span class="font-qb text-underscore">_</span><span class="neon-text font-sora text-4">4</span><span class="font-qb text-root">root</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="https://4root.com.br/" class="nav-link">Home<span class="underline"></span></a></li>
+                <li><a href="https://4root.com.br/#comunidade" class="nav-link">Comunidade<span class="underline"></span></a></li>
+                <li><a href="https://4root.com.br/#eventos" class="nav-link">Eventos<span class="underline"></span></a></li>
+                <li><a href="https://4root.com.br/#youtube" class="nav-link">YouTube<span class="underline"></span></a></li>
+                <li><a href="https://4root.com.br/#recursos" class="nav-link">Networks<span class="underline"></span></a></li>
+                <li><a href="https://4root.com.br/#desafios" class="nav-link">Desafios<span class="underline"></span></a></li>
+                <li class="nav-drop has-active">
+                    <button type="button" class="nav-link nav-drop-btn" aria-haspopup="true">Produtos<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><span class="underline"></span></button>
+                    <div class="nav-drop-menu" role="menu">
+                        <a href="https://academy.4root.com.br" role="menuitem" data-text="Academy">Academy</a>
+                        <a href="/" role="menuitem" class="active" data-text="News">News</a>
+                        <a href="https://cti.4root.com.br" role="menuitem" data-text="CTI | CVE">CTI | CVE</a>
+                    </div>
+                </li>
+                <li><a href="https://4root.com.br/#contato" class="nav-link">Contato<span class="underline"></span></a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12"></line>
+                    <line x1="4" x2="20" y1="6" y2="6"></line>
+                    <line x1="4" x2="20" y1="18" y2="18"></line>
+                </svg>
+            </button>
+        </nav>
+    </header>
 
   <div class="mobile-menu-overlay" id="mobile-menu">
     <a href="#home" class="active" data-section="home">Home</a>
