@@ -1,8 +1,5 @@
 (function () {
   'use strict';
-  /* ============================================== 
-   PARTICLE NETWORK CYBER
-   ============================================== */
   const canvas = document.getElementById("particle-canvas");
   if (canvas) {
     const ctx = canvas.getContext("2d");
@@ -209,7 +206,6 @@
       animFrame = requestAnimationFrame(drawParticles);
     }
 
-    /* v9: pausa quando a aba esta oculta ou o hero saiu da tela */
     let netRunning = false;
     let netVisible = true;
     function netStart() {
@@ -236,9 +232,6 @@
     }
 
     const section = canvas.parentElement;
-    /* v14: interação de mouse (raios + glow verde) só em dispositivos com
-       cursor de verdade — no toque o mousemove sintético ficava "preso"
-       e deixava o glow aceso no fundo do mobile */
     const canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (canHover) {
       section.addEventListener("mousemove", (e) => {
@@ -254,12 +247,6 @@
       });
     }
 
-    /* v14: resize SEM flicker — no mobile a barra de endereço dispara resize
-       ao esconder/mostrar; o handler antigo cancelava o frame, limpava o
-       canvas (canvas.width = ...) e re-randomizava TODAS as partículas —
-       o fundo "sumia, aparecia, sumia de novo". Agora: debounce de 180ms,
-       ignora variação pequena (mesma largura e altura dentro de 120px) e
-       preserva as partículas reescalando as posições (a rede não salta). */
     let lastW = 0, lastH = 0, rzTimer = 0;
     function doResize() {
       const nw = section.offsetWidth, nh = section.offsetHeight;
@@ -284,12 +271,8 @@
 
   }
 
-  /* ==============================================
-     2. NAVBAR: scroll background + active link
-     ============================================== */
   const navbar = document.getElementById('navbar');
   const navLinks = document.querySelectorAll('a[data-section]');
-  /*const navLinks = document.querySelectorAll('.nav-link[data-section]');*/
   const sections = document.querySelectorAll('section[id], footer[id]');
 
   function updateNav() {
@@ -308,12 +291,9 @@
       }
     }
 
-    // --- CÓDIGO NOVO AQUI ---
-    // Verifica se o scroll atingiu o final da página (com margem de erro de 10px)
     if ((window.innerHeight + Math.round(window.scrollY)) >= document.body.offsetHeight - 10) {
-      current = 'contato'; // Força a última seção
+      current = 'contato'; 
     }
-    // ------------------------
 
     navLinks.forEach(function (link) {
       if (link.dataset.section === current) {
@@ -327,9 +307,6 @@
   window.addEventListener('scroll', updateNav, { passive: true });
   updateNav();
 
-  /* ==============================================
-     3. MOBILE MENU
-     ============================================== */
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
 
@@ -345,9 +322,6 @@
     });
   }
 
-  /* ==============================================
-     4. SCROLL ANIMATIONS (IntersectionObserver)
-     ============================================== */
   const animElements = document.querySelectorAll('.animate-on-scroll');
 
   if ('IntersectionObserver' in window) {
@@ -372,12 +346,6 @@
     });
   }
 
-  /* ==============================================
-     5. PROXIMITY MASK EFFECT (Hero subtitle)
-     v14: só em dispositivos com hover — no mobile o toque
-     dispara mousemove + :hover preso e acende o overlay
-     neon desalinhado no meio do subtítulo
-     ============================================== */
   const subtitleWrap = document.getElementById('hero-subtitle-wrap');
   if (subtitleWrap && window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     subtitleWrap.addEventListener('mousemove', function (e) {
@@ -389,12 +357,8 @@
     });
   }
 
-  /* ==============================================
-     6. TYPEWRITER EFFECT (Hero status)
-     ============================================= */
   const typewriterEl = document.getElementById('typewriter');
   if (typewriterEl) {
-    /* v14: texto original do terminal (commits anteriores) + 2 extras no mesmo formato */
     const phrases = [
       'root@4root:~$ infosec --community',
       'root@4root:~$ pentest --learn --share',
@@ -432,7 +396,6 @@
       setTimeout(typewrite, typeSpeed);
     }
 
-    // V2: typewriter só começa depois da intro cinematográfica
     let twStarted = false;
     function startTypewriter() {
       if (twStarted) return;
@@ -440,7 +403,7 @@
       typewrite();
     }
     document.addEventListener('4root:ready', startTypewriter);
-    setTimeout(startTypewriter, 4500); // fallback de segurança
+    setTimeout(startTypewriter, 4500); 
   }
 })();
 
@@ -458,10 +421,6 @@ document.addEventListener('selectstart', function (event) {
   }
 });
 
-/* ==============================================================
-   V2.1 — INTRO: logo #_4root traçada linha a linha
-   (bootanimation estilo Android: contorno desenhado + fill)
-   ============================================================== */
 (function () {
   'use strict';
   const intro = document.getElementById('intro');
@@ -494,12 +453,8 @@ document.addEventListener('selectstart', function (event) {
     }, 480);
   }
 
-  /* trava de segurança: nunca prender o usuário */
   setTimeout(finish, 6500);
 
-  /* ---- Dust particles (verde, sobem de baixo E caem de cima) ----
-     v12: quantidade suavizada por feedback — junto com o borrão verde
-     estavam pesadas demais; visibilidade do v11 mantida */
   let burst = function () { };
   let dustStop = function () { };
   (function dust() {
@@ -517,7 +472,6 @@ document.addEventListener('selectstart', function (event) {
       W = cv.width = Math.max(2, Math.round(innerWidth * dpr));
       H = cv.height = Math.max(2, Math.round(innerHeight * dpr));
     }
-    /* dir: -1 = sobe (nasce embaixo) | 1 = desce (nasce em cima) */
     function spawn(init, dir) {
       const d = dir === 1 ? 1 : -1;
       const c = COLORS[Math.floor(Math.random() * COLORS.length)];
@@ -525,29 +479,21 @@ document.addEventListener('selectstart', function (event) {
         x: Math.random() * W,
         y: init ? Math.random() * H : (d === 1 ? -12 * dpr : H + 12 * dpr),
         d: d,
-        /* v11: maiores, mais visiveis (o topo precisa aparecer inteiro) */
         r: (0.8 + Math.random() * 2.0) * dpr,
         v: (14 + Math.random() * 34) * dpr,
         amp: (5 + Math.random() * 15) * dpr,
         f: 0.35 + Math.random(),
         ph: Math.random() * 6.2832,
-        /* v12: alpha um pouco mais suave */
         a: 0.18 + Math.random() * 0.44,
         tw: 0.7 + Math.random() * 2,
         c: c
       };
     }
-    /* v11: size() PRECISA vir antes do init — antes W/H eram 0 e TODAS as
-       particulas nasciam em (0,0): amontoadas no canto superior esquerdo
-       (as que descem) e direto renascidas embaixo (as que sobem) */
     size();
-    /* v12: menos particulas (era 100-240) — a cena ficou mais respiravel
-       sem perder o clima; continuam baratas: arcos simples a 60fps */
     const area = Math.round(screen.width * screen.height);
     const NP = Math.max(70, Math.min(160, Math.round(area / 9200)));
     for (let i = 0; i < NP; i++) pts.push(spawn(true, i % 2 === 0 ? -1 : 1));
 
-    /* pausa quando a aba esta em segundo plano */
     let paused = document.hidden;
     document.addEventListener('visibilitychange', function () { paused = document.hidden; last = 0; });
 
@@ -605,7 +551,6 @@ document.addEventListener('selectstart', function (event) {
     };
   })();
 
-  /* ---- Traçado do texto #_4root (contorno -> preenchimento) ---- */
   const svg = document.getElementById('intro-text-svg');
   const core = document.getElementById('intro-core');
   const ringsSvg = document.getElementById('intro-rings');
@@ -620,10 +565,8 @@ document.addEventListener('selectstart', function (event) {
   window.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !finished) finish(); });
 
   try {
-    /* visita repetida = versão curta */
     const K = seen ? 0.55 : 1;
 
-    /* centraliza aneis, glow e eco no centro do wordmark */
     function alignRings() {
       if (!core || !svg) return;
       const cr = core.getBoundingClientRect();
@@ -634,10 +577,6 @@ document.addEventListener('selectstart', function (event) {
     }
     window.addEventListener('resize', alignRings, { passive: true });
 
-    /* DUAS FRENTES desenham ao mesmo tempo:
-       frente esquerda comeca no INICIO da palavra (#)
-       frente direita comeca no FINAL (T) e caminha de tras para frente */
-    /* v10: intro mais rapido (feedback) — delays ~15% mais curtos */
     const PLAN = [
       { sel: '.t-hash', delay: 0.26, dur: 0.46 },
       { sel: '.t-hash-b', delay: 0.64, dur: 0.11 },
@@ -664,8 +603,6 @@ document.addEventListener('selectstart', function (event) {
       el.style.setProperty('--dur', (p.dur * K).toFixed(2) + 's');
     });
 
-    /* v9: SEMICIRCULOS que se formam — o arco cresce do zero até o seu
-       tamanho final enquanto já gira (inspirado no boot do Inventory) */
     if (ringsSvg) {
       const arcs = ringsSvg.querySelectorAll('.ring-arc[data-arc]');
       arcs.forEach(function (r, i) {
@@ -676,23 +613,21 @@ document.addEventListener('selectstart', function (event) {
         r.setAttribute('data-spin', r.getAttribute('data-spin') || '12s');
         r.style.setProperty('--spin', r.getAttribute('data-spin'));
         if (r.getAttribute('data-dir') === '-1') r.classList.add('spin-rev');
-        /* comeca como um ponto e vai se formando */
         r.style.strokeDasharray = '1 ' + C.toFixed(1);
         r.style.setProperty('--clen', C.toFixed(1));
         r.style.setProperty('--alen', arcLen.toFixed(1));
         r.style.setProperty('--astart', ((0.18 + i * 0.14) * K).toFixed(2) + 's');
       });
-      /* anima o crescimento dos arcos (uma unica vez, custo zero depois) */
       const tArco = performance.now();
       (function growArcs(now) {
-        const el = (now - tArco) / 1000; /* segundos desde o inicio */
+        const el = (now - tArco) / 1000; 
         let allDone = true;
         arcs.forEach(function (r) {
           const st = parseFloat(r.style.getPropertyValue('--astart')) || 0;
           const C = parseFloat(r.style.getPropertyValue('--clen')) || 700;
           const A = parseFloat(r.style.getPropertyValue('--alen')) || 200;
           const local = Math.max(0, Math.min(1, (el - st) / 1.1));
-          const e = 1 - Math.pow(1 - local, 3); /* easeOutCubic */
+          const e = 1 - Math.pow(1 - local, 3); 
           r.style.strokeDasharray = Math.max(1, A * e).toFixed(1) + ' ' + C.toFixed(1);
           if (local < 1) allDone = false;
         });
@@ -700,21 +635,17 @@ document.addEventListener('selectstart', function (event) {
       })(tArco);
     }
 
-    /* v12: motto [ break // learn // share ] — desenho LINHA A LINHA,
-       TRACO A TRACO (cascata sequencial: o comeco de cada linha encosta
-       no fim da anterior). Duracao proporcional ao comprimento. */
     const mTraces = mottoSvg ? mottoSvg.querySelectorAll('.m-trace') : [];
-    /* sequencia: [ colchete, BREAK, //, LEARN, //, SHARE, colchete ] */
     const M_PLAN = [
-      { dur: 0.18, delay: 0 },
-      { dur: 0.42, delay: 0.05 },
-      { dur: 0.15, delay: 0.4 },
-      { dur: 0.42, delay: 0.47 },
-      { dur: 0.15, delay: 0.82 },
-      { dur: 0.42, delay: 0.89 },
-      { dur: 0.18, delay: 1.24 }
+      { dur: 0.144, delay: 0 },
+      { dur: 0.336, delay: 0.04 },
+      { dur: 0.12, delay: 0.32 },
+      { dur: 0.336, delay: 0.376 },
+      { dur: 0.12, delay: 0.656 },
+      { dur: 0.336, delay: 0.712 },
+      { dur: 0.144, delay: 0.992 }
     ];
-    const mottoTraceEnd = 1.42; /* delay + dur do ultimo path */
+    const mottoTraceEnd = 1.13;
     mTraces.forEach(function (el, i) {
       const p = M_PLAN[i] || { dur: 0.3, delay: 0 };
       let L = 400;
@@ -724,7 +655,6 @@ document.addEventListener('selectstart', function (event) {
       el.style.setProperty('--dur', (p.dur * K).toFixed(2) + 's');
     });
 
-    /* dispara o desenho */
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
         alignRings();
@@ -735,9 +665,8 @@ document.addEventListener('selectstart', function (event) {
     const fillAt = Math.round((seen ? 0.9 : 1.5) * 1000);
     const waveAt = fillAt + 150;
     const mottoAt = Math.round(fillAt + 220 * K);
-    const endAt = Math.round((seen ? 2.9 : 3.9) * 1000);
+    const endAt = Math.round((seen ? 2.35 : 3.4) * 1000);
 
-    /* eco do contorno do texto (duas ondas na hora do fill) */
     const spawnEcho = function () {
       if (!svg || !core) return;
       const c = svg.cloneNode(true);
@@ -762,22 +691,14 @@ document.addEventListener('selectstart', function (event) {
       setTimeout(spawnEcho, 220);
     }, waveAt);
 
-    /* v12: o motto é desenhado LINHA A LINHA (cascata) e solidifica com
-       UM UNICO glitch RGB — sem decode, sem fatias, sem pulso infinito */
     setTimeout(function () { intro.classList.add('motto-go'); }, mottoAt);
 
-    const glitchAt = mottoAt + Math.round(mottoTraceEnd * 1000 * K);
-    /* cascata terminou -> o solido chega com o glitch (uma coisa so) */
+    const solidAt = mottoAt + Math.round(mottoTraceEnd * 1000 * K);
     setTimeout(function () {
-      intro.classList.add('motto-glitch');
       intro.classList.add('motto-fill');
-    }, glitchAt);
-    /* garantia (mantida da v11): apos o glitch nada fica preso —
-       estado final completo em qualquer maquina */
-    setTimeout(function () { intro.classList.add('motto-done'); }, glitchAt + Math.round(520 * K));
+    }, solidAt);
+    setTimeout(function () { intro.classList.add('motto-done'); }, solidAt + Math.round(420 * K));
 
-    /* v9: parallax suave no intro (desktop) — aneis/glow/texto
-       deslizam poucos px com o mouse; roda em rAF, custo quase zero */
     if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
       const layers = [
         { el: ringsSvg, f: 10 },
@@ -799,7 +720,6 @@ document.addEventListener('selectstart', function (event) {
         ty = (e.clientY / innerHeight - 0.5) * 2;
         if (!pRaf) pRaf = requestAnimationFrame(pTick);
       }, { passive: true });
-      /* limpa o translate ao sair, para o exit não levar offset */
       const pClear = function () {
         tx = 0; ty = 0;
         if (!pRaf) pRaf = requestAnimationFrame(pTick);
@@ -813,15 +733,6 @@ document.addEventListener('selectstart', function (event) {
   }
 })();
 
-/* ==============================================================
-   v12 — INTRO: barra de carregamento removida por feedback
-   (o elemento .intro-load nao existe mais; o site mantém apenas
-   a barra de progresso de scroll própria)
-   ============================================================== */
-
-/* ==============================================================
-   V6 — MARQUEE: pausa fora da viewport (economia de CPU)
-   ============================================================== */
 (function () {
   'use strict';
   const mq = document.querySelector('.marquee');
@@ -832,9 +743,6 @@ document.addEventListener('selectstart', function (event) {
     });
   }, { threshold: 0 }).observe(mq);
 })();
-/* ==============================================================
-   V2 — SCROLL PROGRESS + BACK TO TOP
-   ============================================================== */
 (function () {
   'use strict';
   const progress = document.getElementById('scroll-progress');
@@ -858,15 +766,11 @@ document.addEventListener('selectstart', function (event) {
   }
 })();
 
-/* ==============================================================
-   V2 — SPOTLIGHT NOS CARDS + TILT NOS MEMBROS
-   ============================================================== */
 (function () {
   'use strict';
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
 
-  // Adiciona classe spotlight aos cards
   document.querySelectorAll('.manifesto-card, .challenge-card, .tool-card, .social-card').forEach(function (c) {
     c.classList.add('spot');
   });
@@ -880,7 +784,6 @@ document.addEventListener('selectstart', function (event) {
       card.style.setProperty('--my', (e.clientY - r.top) + 'px');
     }, { passive: true });
 
-    // Tilt 3D sutil nas fotos dos membros
     document.querySelectorAll('.member-card').forEach(function (card) {
       const img = card.querySelector('img');
       if (!img) return;
@@ -897,13 +800,9 @@ document.addEventListener('selectstart', function (event) {
   }
 })();
 
-/* ==============================================================
-   V2 — #_RootBot — FAKE CHAT (blob arrastável + Q&A)
-   ============================================================== */
 (function () {
   'use strict';
 
-  /* ---------- Utilitários ---------- */
   const clean = s => String(s || '').replace(/\s+/g, ' ').trim();
   const escapeHtml = s => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -926,34 +825,30 @@ document.addEventListener('selectstart', function (event) {
     return src.replace(/\n/g, '<br>');
   }
 
-  /* ---------- Base de conhecimento (v13 — TODO o conteúdo do site) ---------- */
-
-  /* links oficiais da comunidade */
   const U_DISC  = "https://discord.gg/Aw4F6qXS4N";
   const U_YT    = "https://www.youtube.com/@4rootcommunity";
   const U_YTSUB = "https://www.youtube.com/@4rootcommunity?sub_confirmation=1";
   const U_LI    = "https://www.linkedin.com/company/4root";
-  const U_IG    = "https://www.instagram.com/_4root_";
+  const U_IG    = "https://www.instagram.com/4root_community";
   const U_FORM_VAGA = "https://forms.gle/RoVxXp863fwdH1tx6";
   const U_FORM_TALK = "https://forms.gle/DvirpKtr2vg2cM9h8";
   const U_VID   = "https://www.youtube.com/watch?v=ULNX2MVzY8w";
 
-  /* v13: assinatura de redes — toda resposta com conteúdo carrega TODAS as redes */
   const SIG = "\n\n**redes oficiais da #_4root:** [Discord](" + U_DISC + ") · [YouTube](" + U_YT + ") · [LinkedIn](" + U_LI + ") · [Instagram](" + U_IG + ")";
   const sig = t => t + SIG;
 
   const A_ABOUT = sig("A **#_4root** é uma comunidade de **cibersegurança e hacking** voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de **talks, eventos, CTFs** e iniciativas colaborativas em **segurança ofensiva, CTI e OSINT**. Nosso lema: **break // learn // share**. Site: [4root.com.br](https://4root.com.br/)");
   const A_MOTTO = sig("Nosso lema é **[ break // learn // share ]**:\n- **break** — desmonta, faz engenharia reversa, entende como funciona por dentro\n- **learn** — absorve o conhecimento que existe abaixo da superfície\n- **share** — devolve pra comunidade em writeups, talks e mentorias\nÉ o espírito da raiz — e aparece no topo do site e no marquee.");
   const A_JOIN = sig("O coração da comunidade é o nosso **Discord** — o quartel-general: talks, mentorias, CTFs em grupo, **tickets de flag** e os avisos que não saem do servidor. Entra aqui: [discord.gg/Aw4F6qXS4N](" + U_DISC + "). É **grátis**, **todo nível é bem-vindo** e **sem hierarquia** — do iniciante ao veterano.");
-  const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**. É o primeiro evento da comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + "). O **cronograma** está **em breve** — nada programado ainda; a grade sai primeiro no **Discord** e no **YouTube**.");
-  const A_SCHED = sig("O cronograma do **WebTalk2026** já está no site como **esqueleto**: cada noite (17 e 18/11) roda das **19:30 às 21:30 (Brasília)** com **3 blocos de 40 min — 30 de talk + 10 de perguntas** (19:30, 20:10 e 20:50). Os títulos e palestrantes estão **em breve** — nada programado ainda. Assim que a grade fechar, anunciamos primeiro no **Discord** e no **YouTube**.");
+  const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**, ao vivo no **YouTube**. A dinâmica: cada noite roda **3 talks de 30 minutos + 10 minutos de perguntas** com a comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + ") — e [ative o lembrete](" + U_YTSUB + ") pra não perder nada!");
+  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 30 minutos + 10 minutos de perguntas** (blocos das 19:30, 20:10 e 20:50). Títulos e palestrantes saem **em breve** — a grade completa está no site, na seção **Eventos**.");
   const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas** — dentro da janela das **19:30 às 21:30**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
   const A_CTF = sig("Temos **CTFs públicos** na seção **Desafios** do site:\n- **CTF-001 · RAYX CTF** — criptografia e esteganografia · 100 pts · fácil\n- **CTF-002 · #_4ROOT+DARTH CTF** — engenharia reversa, stego e forense · 500 pts · difícil\n- **CTF-003 · OSINT CTF** — em breve · 300 pts · médio\nBaixa os arquivos clicando no card do desafio e resolve. **O submit da flag é só abrir um ticket no nosso Discord** — a equipe confere e pontua por lá. Detalhes? Pergunta 'como envio a flag'.");
   const A_FLAG = sig("**O submit de flag é só abrir um ticket no nosso Discord**: entra em [discord.gg/Aw4F6qXS4N](" + U_DISC + "), abre um **ticket** e manda a flag do desafio por lá. A equipe confere, pontua e responde no próprio ticket — sem formulário e sem e-mail. Vale pra todos os CTFs: **RAYX**, **#_4ROOT+DARTH** e os que vêm aí.");
   const A_MEMBERS = sig("Os **operadores ativos** da rede (4 nós):\n- **@Maarckz** — Threat Intelligence & Threat Research — [maarckz.github.io](https://maarckz.github.io)\n- **@4rch3on** — Threat Intelligence & OSINT — [LinkedIn](https://www.linkedin.com/in/alyson-dutra/)\n- **@4n0rak** — Network & Cyber Defense — [LinkedIn](https://www.linkedin.com/in/rfernandes72/)\n- **@N0xV3ct0R** — Crypto & Pwn — [LinkedIn](https://www.linkedin.com/in/lucas-diniz-980a1230a/)");
   const A_YT = sig("Todo o conteúdo da #_4root vive no **YouTube** — talks, lives e eventos: [youtube.com/@4rootcommunity](" + U_YT + "). Último vídeo: [#_4root: comunidade hacker em Brasília](" + U_VID + "). O **WebTalk2026 vai ao ar lá** — [se inscreve e ativa o lembrete](" + U_YTSUB + ") pra não perder nada!");
-  const A_PARTNERS = sig("Rede de parceiros e apoiadores:\n- **Prodigium Academy** (parceiro) — [blog.prodigiumacademy.com](https://blog.prodigiumacademy.com/)\n- **RioCyberSec** (apoiador) — [riocybersec.com.br](https://www.riocybersec.com.br)\n- **Chapéu de Palha Hacker Club** (apoiador) — [Instagram](https://www.instagram.com/chapeudepalhahackerclub/)\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
-  const A_CONTACT = "Canais oficiais da **#_4root** — todas as redes:\n- **Discord** — [discord.gg/Aw4F6qXS4N](" + U_DISC + ")\n- **YouTube** — [@4rootcommunity](" + U_YT + ")\n- **LinkedIn** — [/company/4root](" + U_LI + ")\n- **Instagram** — [@_4root_](" + U_IG + ")\nEscolhe por onde falar com a gente e faz parte do coletivo!";
+  const A_PARTNERS = sig("Rede de parceiros e apoiadores — os logos passam no carrossel da seção **Networks**:\n- **Prodigium Academy** (parceiro) — [blog.prodigiumacademy.com](https://blog.prodigiumacademy.com/)\n- **RioCyberSec** (apoiador) — [riocybersec.com.br](https://www.riocybersec.com.br)\n- **Chapéu de Palha Hacker Club** (apoiador) — [Instagram](https://www.instagram.com/chapeudepalhahackerclub/)\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
+  const A_CONTACT = "Canais oficiais da **#_4root** — todas as redes:\n- **Discord** — [discord.gg/Aw4F6qXS4N](" + U_DISC + ")\n- **YouTube** — [@4rootcommunity](" + U_YT + ")\n- **LinkedIn** — [/company/4root](" + U_LI + ")\n- **Instagram** — [@4root_community](" + U_IG + ")\nEscolhe por onde falar com a gente e faz parte do coletivo!";
   const A_NAV = sig("O site tem 6 seções:\n- **Comunidade** — kernel manifest + membros\n- **Eventos** — WebTalk2026 + cronograma\n- **YouTube** — conteúdo e evento ao vivo\n- **Networks** — parceiros e apoiadores\n- **Desafios** — CTFs da comunidade\n- **Contato** — Discord + redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
   const A_MANIFESTO = sig("Nosso **Kernel manifest** tem 4 princípios:\n1. **Acesso Root** — não nos contentamos com a superfície: estudamos, desmontamos e reconstruímos tecnologias\n2. **Curiosidade Radical** — 'como isso funciona?' é o nosso ponto de partida\n3. **Ética do Hacker** — poder exige responsabilidade; aprendemos a atacar para saber defender\n4. **Coletivo > Ego** — writeups abertos, mentorias e CTFs em grupo: cada nó torna o próximo mais forte");
   const A_BOT = "Eu sou o **RootBot**, guia oficial do site da **#_4root**. Não sou uma IA de verdade — rodo 100% no seu navegador e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **evento e cronograma**, **CTFs e envio de flag**, **YouTube**, **parceiros**, **redes** e **contato**.";
@@ -963,10 +858,9 @@ document.addEventListener('selectstart', function (event) {
   const A_THX = "Por nada! Não esquece: **break // learn // share**. Nos vemos na rede." + SIG;
   const A_HI = "Salve! Bem-vindo à raiz. Quer saber sobre a **comunidade**, o **WebTalk2026** (e o **cronograma**), os **CTFs** — e **como enviar a flag** — ou as **redes oficiais**?";
 
-  /* v13: ordem = do mais específico pro mais geral (flag/ticket antes de CTF etc.) */
   const RULES = [
     [/(flag|ticket|submit|submeter|entreg|onde envio|envio a flag|pontuac)/, A_FLAG],
-    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento)/, A_SCHED],
+    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento|dinamica|como funciona o evento|duracao|quantos minutos|formato do evento)/, A_SCHED],
     [/(palestrar|palestrante|apresentar|dar uma talk|minha talk|ser palestr|submeter palestra)/, A_SPEAK],
     [/(webtalk|proximo evento|prox evento|evento|palestra|talk|inscric|garantir vaga|vaga|quando acontece|quando vai ser)/, A_EVENT],
     [/(ctf|desafio|capture the flag|pwn|exploit|stego|steagan|forense|reverse|reversa|cripto|crypto|osint|pontos|rayx|darth)/, A_CTF],
@@ -995,8 +889,7 @@ document.addEventListener('selectstart', function (event) {
     return A_FALL;
   }
 
-  /* ---------- Estado & DOM ---------- */
-  const LS_HIST = 'r4_bot_hist_v13'; /* v13: nova base — histórico antigo não bloqueia o novo welcome */
+  const LS_HIST = 'r4_bot_hist_v13'; 
   const LS_DOCK = 'r4_bot_dock_v1';
   const LS_TIP = 'r4_bot_tip_v1';
 
@@ -1025,7 +918,6 @@ document.addEventListener('selectstart', function (event) {
   const clamp = (v, a, b) => v < a ? a : (v > b ? b : v);
   const edgeX = side => side === 'left' ? M : P.vw - M;
 
-  /* ---------- Persistência ---------- */
   function loadHist() {
     try {
       const raw = localStorage.getItem(LS_HIST);
@@ -1037,7 +929,6 @@ document.addEventListener('selectstart', function (event) {
     try { localStorage.setItem(LS_HIST, JSON.stringify(history.slice(-24))); } catch (e) { }
   }
 
-  /* ---------- Posição / dock ---------- */
   function restoreDock() {
     P.vw = Math.max(1, window.innerWidth);
     const vv = window.visualViewport;
@@ -1068,7 +959,6 @@ document.addEventListener('selectstart', function (event) {
     saveDock();
   }
 
-  /* ---------- Loop físico: squash & stretch + trail elástico (estilo BSides) ---------- */
   function loop() {
     if (document.hidden) { requestAnimationFrame(loop); return; }
     P.enter += (P.enterT - P.enter) * 0.11;
@@ -1121,7 +1011,6 @@ document.addEventListener('selectstart', function (event) {
     requestAnimationFrame(loop);
   }
 
-  /* ---------- Mensagens ---------- */
   function addMsg(cls, html, text) {
     const d = document.createElement('div');
     d.className = 'msg ' + cls;
@@ -1176,7 +1065,6 @@ document.addEventListener('selectstart', function (event) {
     }, delay);
   }
 
-  /* ---------- Painel ---------- */
   function placePanel() {
     if (window.innerWidth <= 620) return;
     const h = panel.offsetHeight || 560;
@@ -1202,15 +1090,13 @@ document.addEventListener('selectstart', function (event) {
           addMsg(m.role === 'user' ? 'msg--user' : 'msg--bot', m.role === 'user' ? '' : renderRich(m.content), m.content);
         });
       } else {
-        const w = "Olá! Eu sou o **RootBot**, guia da comunidade — e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **evento e cronograma**, **CTFs** (e **como enviar a flag**: ticket no Discord), **YouTube**, **parceiros** e **redes/contato**. O que você quer saber?";
+        const w = "Olá! Eu sou o **RootBot**, guia da comunidade — e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **WebTalk2026** (dias, horários e a **dinâmica das talks**), **CTFs** (e **como enviar a flag**: ticket no Discord), **YouTube**, **parceiros** e **redes/contato**. O que você quer saber?";
         addMsg('msg--bot', renderRich(w));
         history.push({ role: 'bot', content: w });
         saveHist();
       }
       renderChips();
     }
-    /* v12: no mobile NAO foca automaticamente — o teclado abria junto
-       com o painel e o cobria; o usuario toca no campo quando quiser */
     if (!isMobile()) {
       setTimeout(function () { try { input.focus({ preventScroll: true }); } catch (e) { } }, 320);
     }
@@ -1219,7 +1105,6 @@ document.addEventListener('selectstart', function (event) {
     if (!open) return;
     open = false; P.open = false; P.enterT = 1;
     panel.classList.remove('bot-open');
-    /* v12: limpa o estado do teclado */
     panel.classList.remove('kb-open');
     panel.style.removeProperty('--kb');
     panel.style.removeProperty('--vvh');
@@ -1230,7 +1115,6 @@ document.addEventListener('selectstart', function (event) {
   }
   function togglePanel() { if (open) closePanel(); else openPanel(); }
 
-  /* ---------- Arrastar / tocar ---------- */
   const drag = { offX: 0, offY: 0, moved: 0, id: null };
   function onDown(e) {
     if (!live || P.open || P.dragging) return;
@@ -1280,7 +1164,6 @@ document.addEventListener('selectstart', function (event) {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && open) closePanel();
   });
-  /* clique fora fecha o painel */
   document.addEventListener('pointerdown', function (e) {
     if (open && !panel.contains(e.target) && !dot.contains(e.target)) closePanel();
   }, true);
@@ -1296,12 +1179,6 @@ document.addEventListener('selectstart', function (event) {
     if (open) placePanel();
   }, { passive: true });
 
-  /* ---------- v12: TECLADO MOBILE — o chat nunca fica tampado ----------
-     Quando o teclado abre, a area visivel (visualViewport) encolhe mas o
-     layout continua do mesmo tamanho: um painel ancorado no fundo fica
-     atras do teclado. Medimos o teclado (innerHeight - altura visivel) e
-     subimos o painel por cima dele (--kb/--vvh consumidos no CSS); o
-     historico cola no fim para o texto permanecer visivel. */
   (function keyboardWatch() {
     const vv = window.visualViewport;
     if (!vv) return;
@@ -1319,13 +1196,11 @@ document.addEventListener('selectstart', function (event) {
         panel.style.removeProperty('--kb');
         panel.style.removeProperty('--vvh');
       }
-      /* texto do chat sempre visivel: cola no fim */
       msgsEl.scrollTop = msgsEl.scrollHeight;
     };
     const schedule = function () { if (!kbRaf) kbRaf = requestAnimationFrame(apply); };
     vv.addEventListener('resize', schedule);
     vv.addEventListener('scroll', schedule);
-    /* foco no campo: o teclado comeca a subir — re-medir em duas alturas */
     input && input.addEventListener('focus', function () {
       setTimeout(apply, 80);
       setTimeout(apply, 420);
@@ -1333,7 +1208,6 @@ document.addEventListener('selectstart', function (event) {
     });
   })();
 
-  /* ---------- Tip bubble (aparece 1x) ---------- */
   function placeTip() {
     if (!tipEl) return;
     tipEl.style.top = P.y + 'px';
@@ -1342,7 +1216,6 @@ document.addEventListener('selectstart', function (event) {
     else { tipEl.style.left = (P.x + 42) + 'px'; tipEl.style.right = 'auto'; }
   }
 
-  /* ---------- Inatividade: blob fica 50% após 3s parado ---------- */
   let lastActivity = Date.now();
   const resetActivity = function () {
     lastActivity = Date.now();
@@ -1366,7 +1239,6 @@ document.addEventListener('selectstart', function (event) {
     }
   }, 1000);
 
-  /* ---------- Entrance: blob entra depois da intro ---------- */
   function entrance() {
     if (live) return;
     setTimeout(function () {
@@ -1390,24 +1262,16 @@ document.addEventListener('selectstart', function (event) {
   if (document.documentElement.classList.contains('site-in')) entrance();
   else {
     document.addEventListener('4root:ready', entrance, { once: true });
-    setTimeout(entrance, 5000); /* guarda-chuva */
+    setTimeout(entrance, 5000); 
   }
 
-  /* ---------- Boot ---------- */
   restoreDock();
   requestAnimationFrame(loop);
 })(); 
 
-/* ==============================================================
-   V2.1 — YOUTUBE: facade do vídeo + countdown do WebTalk2026
-   ============================================================== */
 (function () {
   'use strict';
 
-  /* ---- Facade: clique troca a capa pelo player ----
-     Erro 153 do YouTube: o player passou a exigir um referrer válido.
-     Abertos via file:// (ou referrer bloqueado) o embed quebra —
-     nesses casos abre o vídeo direto no YouTube. */
   const facade = document.getElementById('yt-facade');
   if (facade) {
     facade.addEventListener('click', function (e) {
@@ -1438,7 +1302,6 @@ document.addEventListener('selectstart', function (event) {
     });
   }
 
-  /* ---- Countdown para 17/11/2026 19:30 (horário de Brasília) ---- */
   const dd = document.getElementById('yt-dd');
   const hh = document.getElementById('yt-hh');
   const mm = document.getElementById('yt-mm');
@@ -1468,7 +1331,6 @@ document.addEventListener('selectstart', function (event) {
   }
   tickCount();
 
-  /* ---- Card do evento com a MESMA altura do card de assistir ---- */
   const ytFacade = document.querySelector('.yt-facade');
   const ytEventCard = document.querySelector('.yt-event-card');
 
@@ -1480,8 +1342,6 @@ document.addEventListener('selectstart', function (event) {
       if (img) img.style.height = '';
       return;
     }
-    /* altura final = maior entre facade e conteudo do card;
-       aplicada aos DOIS para que crescam juntos (sem clip, sem desalinho) */
     ytEventCard.style.height = '';
     const img = ytFacade.querySelector('img');
     if (img) img.style.height = '';
@@ -1500,10 +1360,6 @@ document.addEventListener('selectstart', function (event) {
   setTimeout(syncYtCard, 600);
 })();
 
-/* ==============================================================
-   V2.1 — DISCORD AO VIVO (design próprio, sem widget padrão)
-   Tenta a widget API; se falhar (CORS/offline), mantém o fallback.
-   ============================================================== */
 (function () {
   'use strict';
   const card = document.getElementById('discord-card');
@@ -1570,12 +1426,9 @@ document.addEventListener('selectstart', function (event) {
         facesEl.appendChild(moreEl);
       }
     })
-    .catch(function () { /* mantém o fallback estático */ });
+    .catch(function () {  });
 })();
 
-/* ==============================================================
-   V4 — PARTÍCULAS SUBINDO no card do Discord (base do card)
-   ============================================================== */
 (function () {
   'use strict';
   const card = document.getElementById('discord-card');
@@ -1636,20 +1489,17 @@ document.addEventListener('selectstart', function (event) {
       const x = p.x + Math.sin(t * p.f + p.ph) * p.amp;
       const a = p.a * (0.5 + 0.5 * Math.sin(t * p.tw + p.ph * 2));
 
-      /* halo suave (brilho) */
       ctx.beginPath();
       ctx.fillStyle = 'rgba(' + p.c[0] + ',' + p.c[1] + ',' + p.c[2] + ',' + (a * 0.16).toFixed(3) + ')';
       ctx.arc(x, p.y, p.r * 3.4, 0, 6.2832);
       ctx.fill();
 
-      /* núcleo */
       ctx.beginPath();
       ctx.fillStyle = 'rgba(' + p.c[0] + ',' + p.c[1] + ',' + p.c[2] + ',' + a.toFixed(3) + ')';
       ctx.arc(x, p.y, p.r, 0, 6.2832);
       ctx.fill();
     }
 
-    /* esfumaça o topo da faixa — as partículas "morrem" antes do meio do card */
     ctx.globalCompositeOperation = 'destination-out';
     const g = ctx.createLinearGradient(0, 0, 0, H * 0.55);
     g.addColorStop(0, 'rgba(0,0,0,0.9)');
@@ -1694,10 +1544,6 @@ document.addEventListener('selectstart', function (event) {
   }, { passive: true });
 })();
 
-/* ==============================================================
-   V8 — CRONOGRAMA: modal aberto pelo card de eventos (EVT-001)
-   tabs 17/18 nov, fecha por X/backdrop/ESC, foco preso no dialog
-   ============================================================== */
 (function () {
   'use strict';
   const modal = document.getElementById('sched-modal');
@@ -1712,7 +1558,6 @@ document.addEventListener('selectstart', function (event) {
   let lastFocus = null;
   let currentDay = 'd1';
 
-  /* v9: posiciona o indicador sob a aba ativa */
   function moveIndicator(tab) {
     if (!indicator || !tab) return;
     indicator.style.width = tab.offsetWidth + 'px';
@@ -1744,16 +1589,18 @@ document.addEventListener('selectstart', function (event) {
   trigger.addEventListener('click', openModal);
   closers.forEach(function (el) { el.addEventListener('click', closeModal); });
   window.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      const spk = document.getElementById('speaker-modal');
+      if (spk && spk.classList.contains('is-open')) return;
+      closeModal();
+    }
   });
 
-  /* v9: troca de dia com transicao suave — o painel desliza na direcao
-     correta e a altura do viewport acompanha (sem salto) */
   function switchDay(nextTab) {
     const nextDay = nextTab.getAttribute('data-day');
     if (nextDay === currentDay) return;
 
-    const goingRight = nextDay === 'd2'; /* d1 -> d2 desliza p/ esquerda */
+    const goingRight = nextDay === 'd2'; 
     const oldList = modal.querySelector('.sched-list[data-day="' + currentDay + '"]');
     const newList = modal.querySelector('.sched-list[data-day="' + nextDay + '"]');
     if (!oldList || !newList) return;
@@ -1768,9 +1615,7 @@ document.addEventListener('selectstart', function (event) {
     const animate = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (viewport && animate) {
-      /* trava a altura atual e anima ate a altura do novo painel */
       viewport.style.height = viewport.offsetHeight + 'px';
-      /* força reflow para a altura inicial valer */
       void viewport.offsetHeight;
 
       oldList.classList.remove('is-active');
@@ -1802,7 +1647,6 @@ document.addEventListener('selectstart', function (event) {
     tab.addEventListener('click', function () { switchDay(tab); });
   });
 
-  /* loop de foco simples dentro do dialog */
   modal.addEventListener('keydown', function (e) {
     if (e.key !== 'Tab') return;
     const focusables = modal.querySelectorAll('button, a[href]');
@@ -1812,4 +1656,273 @@ document.addEventListener('selectstart', function (event) {
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
+})();
+
+(function () {
+  'use strict';
+
+  const SPEAKERS = {
+    'wt-d1-1': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 01',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d1-1.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    },
+    'wt-d1-2': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 01',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d1-2.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    },
+    'wt-d1-3': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 01',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d1-3.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    },
+    'wt-d2-1': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 02',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d2-1.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    },
+    'wt-d2-2': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 02',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d2-2.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    },
+    'wt-d2-3': {
+      name: 'A confirmar',
+      role: 'Palestrante — WebTalk2026 · dia 02',
+      talk: 'Em breve',
+      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
+      photo: 'local-assets/images/speakers/wt-d2-3.jpg',
+      links: [
+        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
+        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
+        { type: 'site', url: 'https://4root.com.br' }
+      ]
+    }
+  };
+
+  const modal = document.getElementById('speaker-modal');
+  if (!modal) return;
+  const schedModal = document.getElementById('sched-modal');
+
+  const el = {
+    photoWrap: document.getElementById('speaker-photo-wrap'),
+    photo: document.getElementById('speaker-photo'),
+    code: document.getElementById('speaker-code'),
+    name: document.getElementById('speaker-name'),
+    role: document.getElementById('speaker-role'),
+    talk: document.getElementById('speaker-talk'),
+    bio: document.getElementById('speaker-bio'),
+    links: document.getElementById('speaker-links'),
+    note: document.getElementById('speaker-note')
+  };
+
+  const ICONS = {
+    site: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+    email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+    linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
+    instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>',
+    github: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>',
+    x: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16"></path><path d="M20 4L4 20"></path></svg>',
+    youtube: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"></path><path d="m10 15 5-3-5-3z"></path></svg>'
+  };
+
+  const LABELS = {
+    site: 'Site',
+    email: 'E-mail',
+    linkedin: 'LinkedIn',
+    instagram: 'Instagram',
+    github: 'GitHub',
+    x: 'X / Twitter',
+    youtube: 'YouTube'
+  };
+
+  let lastFocus = null;
+
+  function setPhoto(src, alt) {
+    el.photoWrap.classList.add('is-empty');
+    el.photo.onerror = function () { el.photoWrap.classList.add('is-empty'); };
+    el.photo.onload = function () { el.photoWrap.classList.remove('is-empty'); };
+    el.photo.removeAttribute('src');
+    el.photo.alt = alt || '';
+    if (src) el.photo.src = src;
+  }
+
+  function renderLinks(links) {
+    el.links.innerHTML = '';
+    const list = Array.isArray(links) ? links : [];
+    if (!list.length) return;
+    list.forEach(function (l) {
+      if (!l || !l.url) return;
+      const type = ICONS[l.type] ? l.type : 'site';
+      const a = document.createElement('a');
+      a.className = 'speaker-link';
+      a.href = type === 'email' ? 'mailto:' + l.url : l.url;
+      if (type !== 'email') { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      a.title = l.label || LABELS[type] || type;
+      a.innerHTML = ICONS[type] + '<span>' + (l.label || LABELS[type] || type) + '</span>';
+      el.links.appendChild(a);
+    });
+  }
+
+  function fill(id) {
+    const sp = SPEAKERS[id] || null;
+
+    el.code.textContent = '// ' + (sp ? id : 'palestrante');
+    el.name.textContent = sp && sp.name ? sp.name : 'A confirmar';
+    el.role.textContent = sp && sp.role ? sp.role : 'Palestrante — WebTalk2026';
+    el.talk.textContent = sp && sp.talk ? sp.talk : 'Em breve';
+    el.bio.textContent = sp && sp.bio ? sp.bio :
+      'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.';
+
+    setPhoto(sp && sp.photo ? sp.photo : '', sp && sp.name ? sp.name : 'Foto do palestrante');
+    renderLinks(sp ? sp.links : []);
+
+    const hasLinks = sp && Array.isArray(sp.links) && sp.links.some(function (l) { return l && l.url; });
+    el.note.textContent = hasLinks ? '' : 'Contatos e redes sociais serão publicados junto com a confirmação da talk.';
+  }
+
+  function open(id, triggerEl) {
+    lastFocus = triggerEl || document.activeElement;
+    fill(id);
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('sched-lock');
+    const closeBtn = modal.querySelector('.speaker-close');
+    if (closeBtn) { try { closeBtn.focus({ preventScroll: true }); } catch (e) { closeBtn.focus(); } }
+  }
+
+  function close() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    if (!(schedModal && schedModal.classList.contains('is-open'))) {
+      document.documentElement.classList.remove('sched-lock');
+    }
+    if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+  }
+
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest && e.target.closest('.sched-speaker');
+    if (!btn) return;
+    e.preventDefault();
+    open(btn.getAttribute('data-speaker'), btn);
+  });
+
+  modal.querySelectorAll('[data-speaker-close]').forEach(function (c) {
+    c.addEventListener('click', close);
+  });
+
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+
+  modal.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab') return;
+    const focusables = modal.querySelectorAll('button, a[href]');
+    if (!focusables.length) return;
+    const first = focusables[0];
+    const last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+})();
+
+(function () {
+  'use strict';
+  const mq = document.querySelector('.mq');
+  const track = mq ? mq.querySelector('.mq-track') : null;
+  const set = track ? track.querySelector('.mq-set') : null;
+  if (!mq || !track || !set) return;
+
+  function fill() {
+    while (track.children.length > 1) track.removeChild(track.lastElementChild);
+    const w = Math.max(1, set.getBoundingClientRect().width);
+    let n = Math.ceil((mq.clientWidth * 2) / w) + 1;
+    if (n < 2) n = 2;
+    if (n % 2) n++;
+    for (let i = 0; i < n - 1; i++) {
+      const c = set.cloneNode(true);
+      c.setAttribute('aria-hidden', 'true');
+      c.querySelectorAll('a').forEach(function (a) {
+        a.setAttribute('tabindex', '-1');
+      });
+      track.appendChild(c);
+    }
+  }
+
+  let t;
+  window.addEventListener('resize', function () {
+    clearTimeout(t);
+    t = setTimeout(fill, 150);
+  }, { passive: true });
+  window.addEventListener('load', fill);
+  fill();
+})();
+
+(function () {
+  'use strict';
+
+  const LIVE_WINDOWS = [
+    ['2026-11-17T19:30:00-03:00', '2026-11-17T21:30:00-03:00'],
+    ['2026-11-18T19:30:00-03:00', '2026-11-18T21:30:00-03:00']
+  ];
+
+  function inWindow(now) {
+    return LIVE_WINDOWS.some(function (w) {
+      return now >= new Date(w[0]).getTime() && now <= new Date(w[1]).getTime();
+    });
+  }
+
+  function showBadge() {
+    if (document.body.classList.contains('is-live')) return;
+    document.body.classList.add('is-live');
+
+    const badge = document.createElement('span');
+    badge.className = 'live-badge';
+    badge.setAttribute('role', 'status');
+    badge.textContent = 'ao vivo agora';
+
+    const ytHead = document.querySelector('.yt-event-head');
+    if (ytHead) ytHead.appendChild(badge.cloneNode(true));
+
+    const evtHead = document.querySelector('#event-card .challenge-header');
+    if (evtHead) evtHead.appendChild(badge.cloneNode(true));
+  }
+
+  if (inWindow(Date.now())) showBadge();
 })();

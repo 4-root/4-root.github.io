@@ -1,11 +1,6 @@
-/* Adicionando a fonte Ubuntu para os títulos Hero */
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap');
 
-
-
-/* =========================================
-   FONTES LOCAIS
-   ========================================= */
 @font-face {
   font-family: 'QB One';
   src: url('../local-assets/qb-one-semi-bold.ttf') format('truetype');
@@ -20,7 +15,6 @@
   font-style: normal;
 }
 
-/* Classes utilitárias */
 .font-qb {
   font-family: 'QB One', sans-serif !important;
 }
@@ -43,7 +37,7 @@ html {
   font-feature-settings: normal;
   -webkit-tap-highlight-color: transparent;
   scroll-padding-top: 80px;
-  /* v14: sem barra de rolagem tradicional — só o indicador de progresso no topo */
+
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -220,8 +214,6 @@ button {
   transform: translateY(0);
 }
 
-/* ================= NAVBAR OFICIAL 4root.com.br (valores exatos academy) ================= */
-
 .navbar {
   position: fixed;
   top: 0;
@@ -342,9 +334,7 @@ button {
 .mobile-menu-overlay a:hover,
 .mobile-menu-overlay a.active {
   color: var(--neon);
-}
-
-@media (min-width: 768px) {
+}@media (min-width: 768px) {
   .nav-inner {
     padding: 1rem 2.5rem;
   }
@@ -356,7 +346,6 @@ button {
   }
 }
 
-/* ---- dropdown PRODUTOS (unica diferenca vs 4root.com.br) ---- */
 .nav-drop { position: relative; }
 
 .nav-drop-btn {
@@ -400,7 +389,6 @@ button {
   z-index: 70;
 }
 
-/* ponte invisivel entre gatilho e painel (nao perde o hover) */
 .nav-drop-menu::before {
   content: "";
   position: absolute;
@@ -439,8 +427,6 @@ button {
 
 .nav-drop-menu a.active { color: var(--neon); }
 
-/* item "Produtos" ativo (site atual esta no droplist): mesmo estado
-   visual do .nav-link.active da 4root.com.br */
 .nav-drop.has-active .nav-drop-btn { color: var(--neon); }
 .nav-drop.has-active .nav-drop-btn .underline { opacity: 1; }
 
@@ -461,10 +447,6 @@ button {
   display: block;
 }
 
-
-/* =========================================
-   HERO MOTTO: [ break \\ learn \\ share ]
-   ========================================= */
 .hero-motto {
   font-family: 'Sora', system-ui, sans-serif;
   font-size: 0.9rem;
@@ -475,16 +457,15 @@ button {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  /* Espaço entre as palavras */
+
 }
 
 .hero-motto .motto-bracket {
   color: var(--muted);
-  /* Deixa os colchetes cinzas para dar contraste */
+
   font-weight: 700;
 }
 
-/* Espaçamento extra opcional nas barras neon para respirar melhor */
 .hero-motto .neon-text {
   margin: 0 0.2rem;
 }
@@ -532,7 +513,6 @@ button {
   background: var(--neon);
 }
 
-/* Aplicando a fonte Ubuntu nos títulos Hero */
 .hero-title {
   font-family: 'Ubuntu', sans-serif;
   font-weight: 600;
@@ -542,10 +522,6 @@ button {
   position: relative;
   pointer-events: none;
 }
-
-/* =========================================
-   AJUSTES DE TAMANHO: #_4root
-   ========================================= */
 
 .text-4 {
   font-size: 1em;
@@ -604,9 +580,9 @@ button {
   overflow: hidden;
   pointer-events: none;
   font-family: 'QB One', sans-serif;
-  /* Fonte corrigida no glitch */
+
   display: block;
-  /* Remove o display: flex e o gap que causavam a separação */
+
 }
 
 .hero-title.glitch .line2-inner::before,
@@ -864,7 +840,7 @@ button {
   display: block;
   font-size: 3.75rem;
   font-family: 'QB One', sans-serif;
-  /* Alterado de Ubuntu */
+
 }
 
 .hero-title .line2-inner {
@@ -874,11 +850,10 @@ button {
   pointer-events: none;
   font-family: 'QB One', sans-serif;
 
-  /* NOVAS REGRAS PARA CONTER O OVERLAY */
   position: relative;
-  /* Define este contêiner como a âncora para o .dust-overlay absoluto */
+
   width: max-content;
-  /* Força a caixa a encolher e ter a exata largura da palavra #_4root */
+
 }
 
 .hero-subtitle-wrap {
@@ -906,12 +881,10 @@ button {
   mask-image: radial-gradient(circle 130px at var(--mask-x, -200px) var(--mask-y, -200px), #000 0%, #000 40%, transparent 75%);
   text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
 
-  /* NOVO: O texto neon começa transparente e tem uma transição suave de 0.4s */
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
-/* NOVO: Quando o mouse entra no container, o texto neon faz o fade in */
 .hero-subtitle-wrap:hover .hero-proximity-text {
   opacity: 1;
 }
@@ -972,7 +945,6 @@ button {
   z-index: -1;
   animation: glitch-after 8s steps(2, end) infinite;
 }
-
 
 .cta-primary.glitch {
   animation: glitch-skew 8s steps(1) infinite;
@@ -1401,113 +1373,6 @@ button {
   background: var(--bg);
 }
 
-.tools-grid {
-  display: grid;
-  gap: 1rem;
-  margin-top: 3.5rem;
-}
-
-/* --- Tool Card com fundo verde inicial --- */
-.tool-card {
-  position: relative;
-  padding: 1.5rem;
-  border: 1px solid rgba(0, 255, 65, 0.2);
-  border-radius: 2px;
-  background: rgba(0, 255, 65, 0.04);
-  /* Fundo verde bem sutil logo de início */
-  transition: all 0.4s ease;
-  display: block;
-  overflow: hidden;
-}
-
-/* Imagem de fundo em Preto e Branco inicialmente */
-.tool-bg-img {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: grayscale(100%) brightness(0.25) contrast(1.2);
-  opacity: 0.2;
-  /* Visível de fundo em P&B */
-  transition: all 0.4s ease;
-  z-index: 1;
-}
-
-/* Garante que o conteúdo fique acima da imagem de fundo */
-.tool-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Estado de Hover: O verde intensifica e a logo ganha a cor/tom do tema */
-.tool-card:hover {
-  border-color: var(--neon);
-  background: rgba(0, 255, 64, 0.895);
-  /* Fundo verde mais forte no hover */
-}
-
-.tool-card:hover .tool-bg-img {
-  filter: grayscale(0%) brightness(0.4) sepia(100%) hue-rotate(60deg) saturate(300%);
-  /* Transforma para o tom verde neon do tema */
-  opacity: 0.35;
-  /* Fica um pouco mais aparente no hover */
-}
-
-
-
-.tool-card:hover .tool-tag {
-  color: #000;
-}
-
-
-.tool-card:hover .tool-name {
-  color: #000;
-}
-
-.tool-card:hover .tool-arrow path,
-.tool-card:hover .tool-arrow line {
-  stroke: #000;
-}
-
-.tool-top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.tool-tag {
-  font-family: 'Sora', system-ui, sans-serif;
-  font-size: 0.625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted);
-  transition: color 0.3s ease;
-}
-
-.tool-arrow {
-  flex-shrink: 0;
-  color: var(--muted);
-  transition: color 0.3s ease;
-}
-
-.tool-arrow svg {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.tool-name {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text);
-  transition: color 0.3s ease;
-}
-
 .contato-section {
   background: var(--bg-alt);
   padding-top: 7rem;
@@ -1597,9 +1462,7 @@ footer::before {
 
 .font-mono {
   font-family: 'Sora', system-ui, sans-serif;
-}
-
-@media (min-width: 768px) {
+}@media (min-width: 768px) {
   .nav-inner {
     padding: 1rem 2.5rem;
   }
@@ -1654,10 +1517,6 @@ footer::before {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .contato-section {
     padding-top: 9rem;
   }
@@ -1669,23 +1528,15 @@ footer::before {
   .footer-bottom-inner {
     padding: 0 2.5rem;
   }
-}
-
-@media (min-width: 1024px) {
+}@media (min-width: 1024px) {
   .challenges-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(4, 1fr);
   }
 
   .socials-grid {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-
-@media (min-width: 640px) {
+}@media (min-width: 640px) {
   .hero-title .line-inner {
     font-size: 4.5rem;
   }
@@ -1693,9 +1544,7 @@ footer::before {
   .hero-title .line2-inner {
     font-size: 4.5rem;
   }
-}
-
-@media (min-width: 768px) {
+}@media (min-width: 768px) {
   .hero-title .line-inner {
     font-size: 6rem;
   }
@@ -1711,9 +1560,7 @@ footer::before {
   .hero-proximity-text {
     font-size: 1rem;
   }
-}
-
-@media (min-width: 1024px) {
+}@media (min-width: 1024px) {
   .hero-title .line-inner {
     font-size: 5.0rem;
   }
@@ -1721,9 +1568,7 @@ footer::before {
   .hero-title .line2-inner {
     font-size: 6rem;
   }
-}
-
-@media (max-width: 767px) {
+}@media (max-width: 767px) {
   .section {
     padding: 4.5rem 0;
   }
@@ -1779,19 +1624,13 @@ footer::before {
     white-space: nowrap;
   }
 
-
-  /* =========================================
-    HERO MOTTO: [ break \\ learn \\ share ]
-    ========================================= */
   .hero-motto {
     font-family: 'Sora', system-ui, sans-serif;
     font-size: 0.9rem;
     color: var(--text);
     letter-spacing: 0.15em;
     margin-top: 1.5rem;
-    /* Ajustado para dar um respiro legal logo abaixo dos CTAs ou subtítulo */
 
-    /* Espelhando o alinhamento dos CTAs */
     margin-left: auto;
     margin-right: auto;
     width: 60%;
@@ -1799,7 +1638,7 @@ footer::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Centraliza o texto dentro da largura de 60% */
+
     gap: 0.5rem;
   }
 
@@ -1814,19 +1653,15 @@ footer::before {
 
   .hero-subtitle-wrap {
     margin-top: 1.5rem;
-    text-align: center;      /* Centraliza o texto em si */
-    margin-left: auto;       /* Centraliza o bloco do texto na tela */
+    text-align: center;
+    margin-left: auto;
     margin-right: auto;
   }
 
-  /* v14: overlay neon de proximidade é efeito de HOVER — no touch o
-     ":hover" fica preso depois do toque e o texto aparece desalinhado;
-     desliga no mobile (o JS do mask também nem roda lá) */
   .hero-proximity-text {
     display: none;
   }
 
-  /* v14: frases do terminal são longas — reduz para caber em 1 linha */
   .hero-status {
     font-size: 0.62rem;
     letter-spacing: 0.14em;
@@ -1880,19 +1715,6 @@ footer::before {
     font-size: 0.75rem;
   }
 
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-  }
-
-  .tool-card {
-    padding: 1rem;
-  }
-
-  .tool-name {
-    font-size: 0.95rem;
-  }
-
   .contato-section {
     padding-top: 5rem;
   }
@@ -1926,20 +1748,12 @@ footer::before {
   }
 }
 
-
-
-
-
-
-
-
-/* --- Preloader Circular Cyberpunk --- */
 #preloader {
   position: fixed;
   inset: 0;
   z-index: 9999;
   background-color: var(--bg);
-  /* Usa o #050505 do seu CSS */
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1953,7 +1767,6 @@ footer::before {
   visibility: hidden;
 }
 
-/* Wrapper principal do círculo */
 .cyber-circle-wrapper {
   position: relative;
   width: 120px;
@@ -1963,7 +1776,6 @@ footer::before {
   justify-content: center;
 }
 
-/* Anel Externo - Brilho Neon */
 .cyber-circle-1 {
   position: absolute;
   inset: 0;
@@ -1975,18 +1787,16 @@ footer::before {
   animation: cyber-spin 1.5s linear infinite;
 }
 
-/* Anel Intermediário - Tracejado Mudo */
 .cyber-circle-2 {
   position: absolute;
   inset: 12px;
   border-radius: 50%;
   border: 2px dashed var(--muted);
   border-right-color: var(--neon);
-  /* Um toque de verde girando */
+
   animation: cyber-spin-reverse 3s linear infinite;
 }
 
-/* Anel Interno - Rápido */
 .cyber-circle-3 {
   position: absolute;
   inset: 24px;
@@ -1996,7 +1806,6 @@ footer::before {
   animation: cyber-spin 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
 }
 
-/* Texto do meio */
 .cyber-text {
   position: absolute;
   font-family: 'Sora', system-ui, sans-serif;
@@ -2015,7 +1824,6 @@ footer::before {
   animation: fade-in-out 1.5s ease-in-out infinite;
 }
 
-/* Animações dos anéis */
 @keyframes cyber-spin {
   0% {
     transform: rotate(0deg);
@@ -2048,8 +1856,6 @@ footer::before {
   }
 }
 
-
-/* Bloqueia seleção de texto */
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -2057,7 +1863,6 @@ body {
   user-select: none;
 }
 
-/* Mantém inputs e áreas de texto selecionáveis */
 input,
 textarea,
 [contenteditable="true"] {
@@ -2066,13 +1871,6 @@ textarea,
   user-select: text;
 }
 
-
-
-
-
-/* =========================================
-   TEXTURA: DUST OVERLAY
-   ========================================= */
 .dust-overlay {
   position: absolute;
   top: -10%;
@@ -2088,24 +1886,18 @@ textarea,
   z-index: 10;
 }
 
-
-
 *,
 *::before,
 *::after {
   cursor: none !important;
-}
-
-@media (pointer: fine) {
+}@media (pointer: fine) {
 
   *,
   *::before,
   *::after {
     cursor: none !important;
   }
-}
-
-@media (pointer: coarse),
+}@media (pointer: coarse),
 (max-width: 768px) {
   #cyber-cursor {
     display: none !important;
@@ -2127,12 +1919,10 @@ textarea,
   transition: opacity 0.4s ease;
 }
 
-/* Estado de inatividade (quando o mouse para por 2 segundos) */
 #cyber-cursor.inactive {
   opacity: 0.15;
 }
 
-/* Estado oculto quando o mouse sai da janela */
 #cyber-cursor.hidden {
   opacity: 0;
   visibility: hidden;
@@ -2146,7 +1936,6 @@ textarea,
   background-position: top left;
 }
 
-/* O glitch só é disparado quando esta classe é injetada via JS */
 #cyber-cursor.glitch-active .cursor-glitch-effect {
   animation: cursor-flicker 0.25s steps(1, start) forwards;
 }
@@ -2178,11 +1967,6 @@ textarea,
   }
 }
 
-/* =========================================================
-   ================  V2 — UX/UI UPGRADE  ===================
-   ========================================================= */
-
-/* ---------- 0. Base fixes & helpers ---------- */
 body {
   overflow-x: hidden;
 }
@@ -2200,7 +1984,6 @@ body {
   z-index: 1;
 }
 
-/* Ambient green glow (dá algo para o glass blur difundir) */
 .section::before {
   content: "";
   position: absolute;
@@ -2238,7 +2021,6 @@ body {
   right: -140px;
 }
 
-/* ---------- 1. Scroll progress bar ---------- */
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -2252,7 +2034,6 @@ body {
   transition: width 0.12s linear;
 }
 
-/* ---------- 2. Navbar glass aprimorada ---------- */
 .navbar.scrolled {
   background-color: rgba(5, 5, 5, 0.72);
   backdrop-filter: blur(16px) saturate(1.15);
@@ -2261,7 +2042,6 @@ body {
   box-shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
 }
 
-/* ---------- 3. Sistema glass nos cards ---------- */
 .manifesto-card,
 .challenge-card,
 .social-card,
@@ -2272,13 +2052,6 @@ body {
   -webkit-backdrop-filter: blur(10px);
 }
 
-.tool-card {
-  background: rgba(0, 255, 65, 0.045);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-/* Spotlight que segue o mouse */
 .spot {
   isolation: isolate;
 }
@@ -2304,21 +2077,12 @@ body {
   position: relative;
 }
 
-/* Transições de reveal + hover combinadas (corrige snap original) */
 .challenge-card {
   transition: opacity 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
     transform 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
     filter 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
     border-color 0.5s ease 0s,
     box-shadow 0.6s ease 0s,
-    background 0.4s ease 0s;
-}
-
-.tool-card {
-  transition: opacity 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
-    transform 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
-    filter 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
-    border-color 0.4s ease 0s,
     background 0.4s ease 0s;
 }
 
@@ -2343,7 +2107,6 @@ body {
     background-color 0.5s ease 0s;
 }
 
-/* Reveal com blur (estilo cinematográfico) */
 .animate-on-scroll {
   filter: blur(10px);
   transition: opacity 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s),
@@ -2356,17 +2119,14 @@ body {
   filter: blur(0);
 }
 
-/* O fundo do manifesto-grid (hairlines) acompanha a entrada dos cards */
 .manifesto-grid.animate-on-scroll {
   transform: none;
   filter: none;
   transition: opacity 0.9s cubic-bezier(.19, 1, .22, 1) var(--rd, 0s);
 }
 
-/* Stagger das grids */
 .manifesto-grid > :nth-child(2),
 .challenges-grid > :nth-child(2),
-.tools-grid > :nth-child(2),
 .socials-grid > :nth-child(2),
 .members-grid > :nth-child(2) {
   --rd: 0.08s;
@@ -2374,7 +2134,6 @@ body {
 
 .manifesto-grid > :nth-child(3),
 .challenges-grid > :nth-child(3),
-.tools-grid > :nth-child(3),
 .socials-grid > :nth-child(3),
 .members-grid > :nth-child(3) {
   --rd: 0.16s;
@@ -2382,31 +2141,26 @@ body {
 
 .manifesto-grid > :nth-child(4),
 .challenges-grid > :nth-child(4),
-.tools-grid > :nth-child(4),
 .socials-grid > :nth-child(4),
 .members-grid > :nth-child(4) {
   --rd: 0.24s;
 }
 
-/* ---------- 4. Marquee: máscara de borda + leveza ---------- */
 .marquee {
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   contain: paint;
 }
 
-/* leveza: transform isolado em camada propria, sem repaint */
 .marquee-track {
   will-change: transform;
   backface-visibility: hidden;
 }
 
-/* sem pausa no hover; pausa somente fora da viewport (economia de CPU) */
 .marquee.marquee--off .marquee-track {
   animation-play-state: paused;
 }
 
-/* ---------- 5. Hero: entrada gateada pela intro ---------- */
 .hero-content,
 .hero-ctas,
 .hero-gradient,
@@ -2431,7 +2185,6 @@ html.site-in .hero-scroll-indicator {
     bounce-arrow 1.8s ease-in-out 2.2s infinite !important;
 }
 
-/* Bot entra com elastic ramp controlado pelo JS (P.enter) depois da intro */
 #bot-dot {
   opacity: 0;
 }
@@ -2444,7 +2197,6 @@ html:not(.site-in) #bot-dot {
   pointer-events: none;
 }
 
-/* Shine sweep no CTA secundário */
 .cta-secondary {
   position: relative;
   overflow: hidden;
@@ -2467,7 +2219,6 @@ html:not(.site-in) #bot-dot {
   left: 140%;
 }
 
-/* ---------- 6. Mobile menu: stagger blur-in + socials ---------- */
 .mobile-menu-overlay > a {
   opacity: 0;
   transform: translateY(16px);
@@ -2514,7 +2265,7 @@ html:not(.site-in) #bot-dot {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--line);
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: rgba(10, 10, 10, 0.6);
   color: var(--muted);
   font-size: 0 !important;
@@ -2534,7 +2285,6 @@ html:not(.site-in) #bot-dot {
   height: 18px;
 }
 
-/* ---------- 7. Footer: v9 tres zonas — logo | copyright | powered by ---------- */
 .footer-bottom {
   position: relative;
   z-index: 1;
@@ -2594,7 +2344,6 @@ html:not(.site-in) #bot-dot {
   filter: drop-shadow(0 0 18px rgba(0, 255, 65, 0.4));
 }
 
-/* ---------- 8. Botão voltar ao topo ---------- */
 #back-top {
   position: fixed;
   left: 22px;
@@ -2608,7 +2357,7 @@ html:not(.site-in) #bot-dot {
   color: var(--muted);
   background: rgba(8, 8, 8, 0.7);
   border: 1px solid var(--line);
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   opacity: 0;
@@ -2630,7 +2379,6 @@ html:not(.site-in) #bot-dot {
   box-shadow: 0 0 18px rgba(0, 255, 65, 0.18);
 }
 
-/* ---------- 9. INTRO — bootanimation da logo (linhas traçadas) ---------- */
 html.intro-lock {
   overflow: hidden;
 }
@@ -2669,7 +2417,6 @@ html.intro-lock {
   transition: transform 0.55s cubic-bezier(.3, .7, .3, 1), filter 0.55s ease, opacity 0.5s ease;
 }
 
-/* pilha vertical: wordmark + motto */
 .intro-stack {
   position: relative;
   z-index: 2;
@@ -2686,8 +2433,6 @@ html.intro-lock {
   opacity: 0;
 }
 
-/* --- texto #_4root tracado em SVG (mesmo texto do hero) --- */
-/* v9: wrapper com o scale — as camadas de glitch vivem dentro dele */
 .intro-wordmark {
   position: relative;
   width: 78%;
@@ -2709,12 +2454,10 @@ html.intro-lock {
   transition: opacity 0.5s ease, filter 0.6s ease;
 }
 
-/* preenchido: glow verde ambiente (o glitch cromatico agora vem das camadas .intro-glitch) */
 #intro.filled .intro-text-svg {
   filter: drop-shadow(0 0 22px rgba(0, 255, 65, 0.22)) drop-shadow(0 0 56px rgba(0, 255, 65, 0.08));
 }
 
-/* v9: camadas do MESMO glitch do hero (glitch-before / glitch-after 8s steps) */
 .intro-glitch {
   position: absolute;
   inset: 0;
@@ -2750,16 +2493,10 @@ html.intro-lock {
   animation: glitch-after 8s steps(2, end) infinite;
 }
 
-/* skew sutil no conjunto, igual ao .hero-title.glitch */
 #intro.filled .intro-wordmark {
   animation: glitch-skew 8s steps(1) infinite;
 }
 
-/* --- motto [ break // learn // share ] vetorizado (Sora, igual ao hero-motto) ---
-   v12: refeito por feedback — o desenho volta a ser LINHA A LINHA, TRACO A TRACO
-   (cascata de contorno, cada path desenhando em sequencia) e o aparecimento
-   solido acontece com UM UNICO efeito glitch (aberracao RGB que se resolve),
-   sem decode, sem fatias de clip-path e sem pulso infinito no // */
 .intro-motto-svg {
   width: 58%;
   height: auto;
@@ -2772,7 +2509,6 @@ html.intro-lock {
   opacity: 1;
 }
 
-/* cascata: linha a linha, traco a traco (delays/duracao vem do JS) */
 #intro.motto-go .m-trace {
   opacity: 1;
   stroke-dashoffset: 0;
@@ -2781,47 +2517,6 @@ html.intro-lock {
     opacity 0.22s ease var(--delay, 0s);
 }
 
-/* v12: aparecimento solido com UM efeito glitch (e somente ele):
-   aberracao vermelho/ciano + jitter horizontal. Sem clip-path — nada
-   que possa deixar o motto incompleto no final */
-#intro.motto-glitch .intro-motto-svg {
-  animation: motto-glitch-in 0.42s steps(2, end) both;
-}
-
-@keyframes motto-glitch-in {
-
-  0% {
-    transform: translateX(-3px) skewX(2deg);
-    filter: drop-shadow(3px 0 rgba(255, 0, 64, 0.75)) drop-shadow(-3px 0 rgba(0, 229, 255, 0.75));
-  }
-
-  20% {
-    transform: translateX(2.5px);
-    filter: drop-shadow(-2.5px 0 rgba(255, 0, 64, 0.6)) drop-shadow(2.5px 0 rgba(0, 229, 255, 0.6));
-  }
-
-  40% {
-    transform: translateX(-2px) skewX(-1.5deg);
-    filter: drop-shadow(2px 0 rgba(255, 0, 64, 0.5)) drop-shadow(-2px 0 rgba(0, 229, 255, 0.5));
-  }
-
-  60% {
-    transform: translateX(1.5px);
-    filter: drop-shadow(-1.5px 0 rgba(255, 0, 64, 0.35)) drop-shadow(1.5px 0 rgba(0, 229, 255, 0.35));
-  }
-
-  80% {
-    transform: translateX(-0.5px);
-    filter: drop-shadow(1px 0 rgba(255, 0, 64, 0.18)) drop-shadow(-1px 0 rgba(0, 229, 255, 0.18));
-  }
-
-  100% {
-    transform: none;
-    filter: none;
-  }
-}
-
-/* solido: contorno -> preenchimento, chega junto com o glitch */
 #intro.motto-fill .m-trace {
   fill-opacity: 1;
   stroke-opacity: 0;
@@ -2830,8 +2525,6 @@ html.intro-lock {
     stroke-opacity 0.3s ease 0.18s;
 }
 
-/* v11 mantido: estado final GARANTIDO — em qualquer maquina o motto
-   fica 100% visivel, sem traco preso */
 #intro.motto-done .m-trace {
   animation: none;
   opacity: 1;
@@ -2840,9 +2533,6 @@ html.intro-lock {
   stroke-opacity: 0;
 }
 
-/* v12: slash-pulse removido — o // fica solido com o proprio glow estatico */
-
-/* --- camadas cinematicas: vinheta, contornos, glow, sheen --- */
 .intro-vignette {
   position: absolute;
   inset: 0;
@@ -2851,8 +2541,6 @@ html.intro-lock {
   pointer-events: none;
 }
 
-/* v10: textura de TV antiga no FUNDO do intro (feedback) — grao animado
-   + scanlines verdes, iguais aos do site, porem exclusivos da intro */
 .intro-grain {
   position: absolute;
   inset: -32%;
@@ -2887,7 +2575,6 @@ html.intro-lock {
       transparent 3px);
 }
 
-/* aneis radar: og-image vetorizada (desenham de dentro para fora) */
 .intro-rings {
   position: absolute;
   left: calc(50% + var(--wm-dx, 0px));
@@ -2900,8 +2587,6 @@ html.intro-lock {
   z-index: 0;
 }
 
-/* v9: semicírculos que se formam e giram (inspirado no boot do Inventory)
-   — trilho quase invisível + arco neon que nasce, cresce e fica girando */
 .ring-track {
   fill: none;
   stroke: var(--neon);
@@ -2932,7 +2617,6 @@ html.intro-lock {
   animation: intro-arc-spin var(--spin, 12s) linear infinite;
 }
 
-/* sentido alternado por anel (data-dir) */
 .ring-arc.spin-rev {
   animation-direction: reverse;
 }
@@ -2967,7 +2651,6 @@ html.intro-lock {
   stroke-width: 1.2;
 }
 
-/* respira devagar junto com o glow (sutil) */
 #intro.filled .intro-rings {
   animation: intro-rings-breathe 4.2s ease-in-out 0.9s infinite;
 }
@@ -2984,9 +2667,6 @@ html.intro-lock {
   }
 }
 
-/* glow ambiente atras do texto
-   v12: MAIS SUAVE por feedback — o borrão verde sobrecarregava junto
-   com as particulas: gradiente mais fraco, blob menor e mais difuso */
 .intro-glow {
   position: absolute;
   left: calc(50% + var(--wm-dx, 0px));
@@ -3018,11 +2698,6 @@ html.intro-lock {
   }
 }
 
-/* v9: sheen (barra brilhante que varre a tela) removido por feedback
-   v12: barra de carregamento do topo removida por feedback (o site ja
-   tem a propria barra de progresso de scroll) */
-
-/* eco do contorno do texto (onda sonora tipografica) */
 .intro-echo {
   position: absolute;
   left: 50%;
@@ -3041,7 +2716,7 @@ html.intro-lock {
   fill: none !important;
   fill-opacity: 0 !important;
   stroke-opacity: 0.85 !important;
-  stroke-width: 1 !important; /* v9: eco mais fino junto */
+  stroke-width: 1 !important;
   filter: none !important;
   stroke-dashoffset: 0 !important;
 }
@@ -3063,12 +2738,11 @@ html.intro-lock {
   opacity: 0;
   stroke-linejoin: round;
   stroke-linecap: round;
-  stroke-width: 1.5; /* v9: linhas de contorno mais finas */
+  stroke-width: 1.5;
   stroke-dasharray: var(--len, 600);
   stroke-dashoffset: var(--len, 600);
 }
 
-/* frente invertida: desenha do fim do caminho para o inicio (final da palavra) */
 .trace--rev {
   stroke-dashoffset: var(--len-neg, -600);
 }
@@ -3092,13 +2766,12 @@ html.intro-lock {
   filter: drop-shadow(0 0 7px rgba(0, 255, 65, 0.45));
 }
 
-/* tracado do motto (vetorizado do hero-motto: colchetes muted, // neon) */
 .m-trace {
   fill-opacity: 0;
   opacity: 0;
   stroke-linejoin: round;
   stroke-linecap: round;
-  stroke-width: 6; /* v9: mais fino, acompanha o wordmark */
+  stroke-width: 6;
   stroke-dasharray: var(--len, 400);
   stroke-dashoffset: var(--len, 400);
 }
@@ -3120,10 +2793,6 @@ html.intro-lock {
   filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.45));
 }
 
-/* v12: o tracado do motto é a cascata do #intro.motto-go (fim do arquivo de regras
-   do intro) — nao existe mais tracado instantaneo escondido por decode */
-
-/* desenho das linhas (go adicionado via JS) */
 #intro.go .trace {
   opacity: 1;
   stroke-dashoffset: 0;
@@ -3132,7 +2801,6 @@ html.intro-lock {
     opacity 0.25s ease var(--delay, 0s);
 }
 
-/* preenchimento após o traço */
 #intro.filled .trace {
   fill-opacity: 1;
   stroke-opacity: 0;
@@ -3140,10 +2808,6 @@ html.intro-lock {
     fill-opacity 0.55s ease 0s,
     stroke-opacity 0.4s ease 0.3s;
 }
-
-/* v9: o glitch cromatico do fill agora é feito pelas camadas .intro-glitch
-   (mesmos keyframes glitch-before/glitch-after do hero) */
-
 
 .intro-skip {
   position: absolute;
@@ -3156,7 +2820,7 @@ html.intro-lock {
   background: transparent;
   border: 1px solid var(--line);
   padding: 7px 14px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   cursor: pointer;
   opacity: 0;
   transition: color 0.3s ease, border-color 0.3s ease, opacity 0.4s ease 1.1s;
@@ -3171,7 +2835,6 @@ html.intro-lock {
   border-color: rgba(0, 255, 65, 0.5);
 }
 
-/* ---------- 10. RootBot — blob líquido (estilo BSides) ---------- */
 #bot-goo {
   --bot-a: #00ff41;
   --bot-b: #00c232;
@@ -3310,8 +2973,6 @@ html.intro-lock {
   pointer-events: none;
 }
 
-
-/* Tip bubble */
 #bot-tip {
   position: fixed;
   z-index: 284;
@@ -3335,7 +2996,6 @@ html.intro-lock {
   transform: translateY(0);
 }
 
-/* Painel do chat */
 #bot-panel {
   position: fixed;
   top: 50%;
@@ -3682,9 +3342,7 @@ html.intro-lock {
 #bot-send svg {
   width: 16px;
   height: 16px;
-}
-
-@media (max-width: 620px) {
+}@media (max-width: 620px) {
   #bot-panel {
     right: 10px;
     left: 10px;
@@ -3694,7 +3352,7 @@ html.intro-lock {
     height: min(58vh, 520px);
     transform-origin: 50% 100%;
     transform: translateY(14px) scale(0.9);
-    /* v12: acompanha o teclado sem trancos (o JS atualiza --kb por frame) */
+
     transition: transform 0.46s cubic-bezier(.22, 1.35, .32, 1), opacity 0.24s ease,
       bottom 0.22s ease, height 0.22s ease;
   }
@@ -3708,16 +3366,11 @@ html.intro-lock {
     transform: none;
   }
 
-  /* v12: TECLADO ABERTO — o painel sobe acima do teclado e encolhe para
-     caber na area visivel (--kb e --vvh vem do JS via visualViewport);
-     as mensagens continuam scrollando: o texto nunca fica tampado */
   #bot-panel.kb-open {
     bottom: calc(var(--kb, 0px) + 8px);
     height: min(520px, calc(var(--vvh, 58vh) - 26px));
   }
 
-  /* v12: 16px no input evita o auto-zoom do iOS ao focar (o zoom
-     engrandava a pagina e tambem cobria o chat) */
   #bot-input {
     font-size: 16px;
   }
@@ -3728,11 +3381,7 @@ html.intro-lock {
     margin: -26px 0 0 -26px;
   }
 
-  /* goo permanece 480px em todas as telas (o JS centraliza por 240) */
-}
-
-/* ---------- 11. Acessibilidade: reduced motion ---------- */
-@media (prefers-reduced-motion: reduce) {
+}@media (prefers-reduced-motion: reduce) {
   #intro {
     display: none !important;
   }
@@ -3789,11 +3438,6 @@ html.intro-lock {
   }
 }
 
-/* =========================================================
-   ============  V2.1 — YOUTUBE + DISCORD LIVE  ============
-   ========================================================= */
-
-/* ---------- 12. Seção YouTube ---------- */
 .youtube-section::before {
   top: -140px;
   left: -150px;
@@ -3816,7 +3460,7 @@ html.intro-lock {
 .yt-facade {
   position: relative;
   display: block;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   overflow: hidden;
   border: 1px solid var(--line);
   background: #0a0a0a;
@@ -3859,7 +3503,7 @@ html.intro-lock {
   width: 64px;
   height: 64px;
   margin: -32px 0 0 -32px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: rgba(255, 0, 51, 0.92);
   color: #fff;
   display: flex;
@@ -3896,7 +3540,7 @@ html.intro-lock {
   background: rgba(5, 5, 5, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 5px 10px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   transition: opacity 0.3s ease;
@@ -3912,7 +3556,7 @@ html.intro-lock {
 .yt-avatar {
   width: 44px;
   height: 44px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   flex: 0 0 auto;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
@@ -3945,7 +3589,7 @@ html.intro-lock {
   position: relative;
   width: 100%;
   border: 1px solid rgba(0, 255, 65, 0.16);
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: rgba(10, 10, 10, 0.62);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -4010,7 +3654,7 @@ html.intro-lock {
 
 .yt-count-cell {
   border: 1px solid var(--line);
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: rgba(0, 255, 65, 0.03);
   padding: 10px 6px;
   display: flex;
@@ -4040,7 +3684,6 @@ html.intro-lock {
   margin-top: 6px;
 }
 
-/* v9: botoes um AO LADO do outro (feedback) — compactos para caber no card */
 .yt-event-ctas .cta-primary,
 .yt-event-ctas .cta-secondary {
   flex: 1 1 0;
@@ -4055,7 +3698,6 @@ html.intro-lock {
   min-width: 0;
 }
 
-/* ---------- 13. Card Discord ao vivo (design próprio #_4root) ---------- */
 .contact-grid {
   margin-top: 3rem;
   display: grid;
@@ -4067,7 +3709,7 @@ html.intro-lock {
 .discord-card {
   position: relative;
   border: 1px solid rgba(0, 255, 65, 0.18);
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: rgba(8, 9, 8, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -4082,7 +3724,6 @@ html.intro-lock {
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5), 0 0 34px rgba(0, 255, 65, 0.08);
 }
 
-/* Partículas subindo na base do card */
 .discord-particles {
   position: absolute;
   left: 0;
@@ -4108,7 +3749,7 @@ html.intro-lock {
   width: 52px;
   height: 52px;
   flex: 0 0 auto;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   background: linear-gradient(160deg, rgba(0, 255, 65, 0.16), rgba(0, 255, 65, 0.05));
   border: 1px solid rgba(0, 255, 65, 0.4);
   color: var(--neon);
@@ -4127,7 +3768,7 @@ html.intro-lock {
   content: "";
   position: absolute;
   inset: -1px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   border: 1px solid rgba(0, 255, 65, 0.35);
   animation: discord-ring 3s ease-out infinite;
 }
@@ -4275,7 +3916,7 @@ html.intro-lock {
   font-weight: 700;
   font-size: 0.88rem;
   padding: 12px 18px;
-  border-radius: 2px; /* v8: tema sem border-radius */
+  border-radius: 2px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
 }
 
@@ -4299,9 +3940,7 @@ html.intro-lock {
 
 .socials-grid--contact {
   grid-template-columns: repeat(3, 1fr);
-}
-
-@media (max-width: 1023px) {
+}@media (max-width: 1023px) {
 
   .yt-grid,
   .contact-grid {
@@ -4311,9 +3950,7 @@ html.intro-lock {
   .yt-event-card {
     padding: 1.35rem;
   }
-}
-
-@media (max-width: 720px) {
+}@media (max-width: 720px) {
   .footer-bottom {
     padding-bottom: 4.4rem;
   }
@@ -4343,9 +3980,7 @@ html.intro-lock {
   .footer-powered {
     font-size: 0.68rem;
   }
-}
-
-@media (max-width: 620px) {
+}@media (max-width: 620px) {
   .yt-count-cell strong {
     font-size: 1.1rem;
   }
@@ -4364,10 +3999,6 @@ html.intro-lock {
   }
 }
 
-/* =========================================
-   V8 — card de eventos como botao + modal do cronograma
-   ========================================= */
-
 .challenge-card--btn {
   font: inherit;
   text-align: left;
@@ -4381,7 +4012,6 @@ html.intro-lock {
   outline-offset: 2px;
 }
 
-/* modal: fundo escuro com blur, cantos retos (tema sem border-radius) */
 .sched-modal {
   position: fixed;
   inset: 0;
@@ -4484,25 +4114,23 @@ html.intro-lock {
   color: var(--muted);
   font-size: 0.85rem;
   margin: 0.35rem 0 0;
-}
-
-/* v15: selo do formato dos blocos (esqueleto do cronograma) */
-.sched-format {
-  display: inline-block;
-  margin-top: 0.8rem;
-  padding: 5px 10px;
-  border: 1px solid rgba(0, 255, 65, 0.25);
-  color: var(--neon);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 640px) {
-  .sched-format {
-    font-size: 0.56rem;
-    letter-spacing: 0.09em;
+}@media (max-width: 640px) {
+  .sched-time {
+    min-width: 50px;
+    padding-top: 2px;
   }
+}
+
+.sched-yt-link {
+  color: var(--neon);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(0, 255, 65, 0.45);
+  transition: border-color 0.25s ease;
+}
+
+.sched-yt-link:hover,
+.sched-yt-link:focus-visible {
+  border-bottom-color: var(--neon);
 }
 
 .sched-tabs {
@@ -4512,7 +4140,6 @@ html.intro-lock {
   padding: 18px 26px 0;
 }
 
-/* v9: indicador que desliza sob a aba ativa */
 .sched-indicator {
   position: absolute;
   bottom: 0;
@@ -4556,7 +4183,6 @@ html.intro-lock {
   background: rgba(0, 255, 65, 0.06);
 }
 
-/* v9: viewport com altura animada — transição suave entre os dias */
 .sched-viewport {
   position: relative;
   overflow: hidden;
@@ -4569,7 +4195,6 @@ html.intro-lock {
   padding: 14px 26px 4px;
 }
 
-/* entrada direcional do painel (JS decide o lado) */
 .sched-list.enter-from-right {
   animation: sched-in-right 0.42s cubic-bezier(.25, .9, .3, 1) both;
 }
@@ -4604,7 +4229,6 @@ html.intro-lock {
   }
 }
 
-/* itens entram em cascata junto com o painel */
 .sched-list.enter-from-right .sched-item,
 .sched-list.enter-from-left .sched-item {
   animation: sched-item-in 0.4s ease both;
@@ -4671,12 +4295,21 @@ html.intro-lock {
 }
 
 .sched-time {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   font-variant-numeric: tabular-nums;
   color: var(--neon);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
   padding-top: 2px;
-  min-width: 46px;
+  min-width: 58px;
+  white-space: nowrap;
+}
+
+.sched-time-end {
+  opacity: 0.55;
 }
 
 .sched-info {
@@ -4699,12 +4332,13 @@ html.intro-lock {
 .sched-tag {
   flex: 0 0 auto;
   font-size: 0.62rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 4px 8px;
   border: 1px solid;
   border-radius: 2px;
   margin-top: 2px;
+  white-space: nowrap;
 }
 
 .tag-talk {
@@ -4741,6 +4375,7 @@ html.intro-lock {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 12px;
   padding: 18px 26px 8px;
 }
@@ -4756,9 +4391,7 @@ html.intro-lock {
 html.sched-lock,
 html.sched-lock body {
   overflow: hidden;
-}
-
-@media (max-width: 620px) {
+}@media (max-width: 620px) {
   .sched-box {
     max-height: 92vh;
   }
@@ -4785,17 +4418,13 @@ html.sched-lock body {
     flex: 1 1 100%;
     justify-content: center;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
+}@media (prefers-reduced-motion: reduce) {
 
   .sched-modal,
   .sched-box {
     transition: none;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
+}@media (prefers-reduced-motion: reduce) {
 
   .intro-grain {
     animation: none !important;
@@ -4821,11 +4450,542 @@ html.sched-lock body {
     animation: none !important;
   }
 
-  #intro.motto-glitch .intro-motto-svg,
   #intro.motto-go .m-trace {
     animation: none !important;
     transition: none !important;
     opacity: 1;
     stroke-dashoffset: 0;
+  }
+}
+
+.mq {
+  position: relative;
+  overflow: hidden;
+  margin-top: 36px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
+}
+
+.mq-track {
+  display: flex;
+  width: max-content;
+  animation: mq-scroll 30s linear infinite;
+}
+
+.mq:hover .mq-track {
+  animation-play-state: paused;
+}
+
+@keyframes mq-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.mq-set {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 18px;
+}
+
+.mq-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 116px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(0, 255, 65, 0.03);
+  overflow: hidden;
+  transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mq-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) brightness(1.7);
+  opacity: 0.82;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.mq-card:hover,
+.mq-card:focus-visible {
+  border-color: rgba(0, 255, 65, 0.45);
+  background: rgba(0, 255, 65, 0.06);
+  box-shadow: 0 0 26px rgba(0, 255, 65, 0.12);
+  animation: glitch-skew 4s steps(1) infinite;
+}
+
+.mq-card:hover img,
+.mq-card:focus-visible img {
+  filter: none;
+  opacity: 1;
+}
+
+.mq-card::before,
+.mq-card::after {
+  content: attr(data-name);
+  position: absolute;
+  inset: 0;
+  background: var(--neon);
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0 10px;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.mq-card:hover::before,
+.mq-card:focus-visible::before {
+  opacity: 1;
+  text-shadow: 2px 0 #ff0040;
+  z-index: 2;
+  animation: glitch-before 4s steps(2, end) infinite;
+}
+
+.mq-card:hover::after,
+.mq-card:focus-visible::after {
+  opacity: 1;
+  text-shadow: -2px 0 #00e5ff;
+  z-index: 3;
+  animation: glitch-after 4s steps(2, end) infinite;
+}
+
+.mq-name {
+  display: none;
+  font-family: 'QB One', sans-serif;
+  color: var(--text);
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.mq-card.is-text img {
+  display: none;
+}
+
+.mq-card.is-text .mq-name {
+  display: block;
+}@media (max-width: 620px) {
+
+  .mq {
+    margin-top: 24px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
+  }
+
+  .mq-set {
+    gap: 12px;
+    padding-right: 12px;
+  }
+
+  .mq-card {
+    width: 158px;
+    height: 88px;
+    padding: 12px;
+  }
+}@media (prefers-reduced-motion: reduce) {
+
+  .mq {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mq-track,
+  .mq-card,
+  .mq-card::before,
+  .mq-card::after {
+    animation: none;
+  }
+}
+
+.sched-speaker {
+  position: relative;
+  flex: 0 0 auto;
+  width: 66px;
+  height: 88px;
+  padding: 0;
+  border: 1px solid rgba(0, 255, 65, 0.28);
+  border-radius: 2px;
+  background: rgba(0, 255, 65, 0.05);
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.sched-speaker img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.08);
+  transition: filter 0.3s ease;
+}
+
+.sched-speaker:hover,
+.sched-speaker:focus-visible {
+  border-color: var(--neon);
+  box-shadow: 0 0 16px rgba(0, 255, 65, 0.22);
+  transform: translateY(-2px);
+}
+
+.sched-speaker:hover img,
+.sched-speaker:focus-visible img {
+  filter: grayscale(0%) contrast(1);
+}
+
+.sched-speaker:focus-visible {
+  outline: 1px solid rgba(0, 255, 65, 0.5);
+  outline-offset: 2px;
+}
+
+.sched-speaker::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%2300ff41' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8.6' r='3.4'/%3E%3Cpath d='M5.4 19.2c1.5-3 4-4.6 6.6-4.6s5.1 1.6 6.6 4.6'/%3E%3C/g%3E%3C/svg%3E") center / 58% no-repeat;
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+  z-index: 0;
+}
+
+.sched-speaker.is-empty img {
+  display: none;
+}
+
+.sched-speaker.is-empty:hover::before,
+.sched-speaker:focus-visible::before {
+  opacity: 0.9;
+}
+
+.speaker-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 450;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.speaker-modal.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.speaker-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 4, 3, 0.82);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.speaker-box {
+  position: relative;
+  z-index: 1;
+  width: min(780px, 100%);
+  max-height: min(86vh, 760px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  background: linear-gradient(180deg, rgba(10, 12, 10, 0.97), rgba(5, 6, 5, 0.99));
+  border: 1px solid rgba(0, 255, 65, 0.22);
+  border-radius: 2px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.7), 0 0 60px rgba(0, 255, 65, 0.06);
+  transform: translateY(18px) scale(0.985);
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.speaker-modal.is-open .speaker-box {
+  transform: none;
+}
+
+.speaker-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  pointer-events: none;
+}
+
+.speaker-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 255, 65, 0.05);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.speaker-close:hover,
+.speaker-close:focus-visible {
+  color: var(--neon);
+  border-color: rgba(0, 255, 65, 0.4);
+}
+
+.speaker-layout {
+  display: grid;
+  grid-template-columns: 256px minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.speaker-photo {
+  position: relative;
+  width: 100%;
+  min-height: 260px;
+  border: 0;
+  border-right: 1px solid rgba(0, 255, 65, 0.2);
+  border-radius: 0;
+  background: rgba(0, 255, 65, 0.05);
+  overflow: hidden;
+}
+
+.speaker-photo img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.speaker-content {
+  min-width: 0;
+  padding: 26px 26px 0;
+}
+
+.speaker-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%2300ff41' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='8.6' r='3.4'/%3E%3Cpath d='M5.4 19.2c1.5-3 4-4.6 6.6-4.6s5.1 1.6 6.6 4.6'/%3E%3C/g%3E%3C/svg%3E") center / 42% no-repeat;
+  opacity: 0.55;
+  z-index: 0;
+}
+
+.speaker-photo.is-empty img {
+  display: none;
+}
+
+.speaker-id {
+  min-width: 0;
+  padding-right: 42px;
+}
+
+.speaker-code {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--neon);
+}
+
+.speaker-name {
+  font-family: 'QB One', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.25rem, 3.6vw, 1.6rem);
+  margin: 0.4rem 0 0;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.speaker-role {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0.35rem 0 0;
+}
+
+.speaker-block {
+  padding: 16px 0 0;
+}
+
+.speaker-block-label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--neon);
+  margin-bottom: 0.55rem;
+}
+
+.speaker-talk-title {
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.speaker-bio {
+  font-size: 0.86rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.speaker-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.speaker-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: rgba(0, 255, 65, 0.04);
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.speaker-link svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+.speaker-link:hover,
+.speaker-link:focus-visible {
+  color: var(--neon);
+  border-color: rgba(0, 255, 65, 0.45);
+  background: rgba(0, 255, 65, 0.08);
+  box-shadow: 0 0 16px rgba(0, 255, 65, 0.16);
+}
+
+.speaker-note {
+  padding: 16px 0 24px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
+  margin: 0;
+}@media (max-width: 720px) {
+
+  .speaker-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .speaker-photo {
+    position: relative;
+    width: min(64vw, 250px);
+    min-height: 0;
+    aspect-ratio: 3 / 4;
+    margin: 26px auto 0;
+    border: 1px solid rgba(0, 255, 65, 0.28);
+  }
+
+  .speaker-content {
+    padding: 22px 22px 0;
+  }
+
+  .speaker-id {
+    padding-right: 0;
+  }
+}@media (max-width: 620px) {
+
+  .sched-speaker {
+    width: 54px;
+    height: 72px;
+  }
+
+  .sched-item {
+    gap: 10px;
+  }
+
+  .sched-item .sched-info {
+    min-width: 0;
+  }
+}@media (prefers-reduced-motion: reduce) {
+
+  .speaker-modal,
+  .speaker-box,
+  .sched-speaker,
+  .sched-speaker img {
+    transition: none;
+  }
+}
+
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ff2b4e;
+  border: 1px solid rgba(255, 43, 78, 0.45);
+  background: rgba(255, 43, 78, 0.07);
+  padding: 5px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+  margin-left: 10px;
+}
+
+.live-badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff2b4e;
+  box-shadow: 0 0 8px rgba(255, 43, 78, 0.9);
+  animation: live-pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.75); }
+}
+
+.yt-event-head .live-badge {
+  margin-left: auto;
+}@media (max-width: 620px) {
+  .live-badge {
+    margin-left: 0;
+  }
+
+  .yt-event-head {
+    flex-wrap: wrap;
+  }
+}@media (prefers-reduced-motion: reduce) {
+  .live-badge::before {
+    animation: none;
   }
 }
