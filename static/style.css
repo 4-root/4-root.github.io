@@ -1437,7 +1437,6 @@ button {
 
 footer {
   position: relative;
-  margin-top: 6rem;
   border-top: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(0, 255, 65, 0.022), transparent 32%);
   overflow: hidden;
