@@ -841,13 +841,13 @@ document.addEventListener('selectstart', function (event) {
   const A_MOTTO = sig("Nosso lema é **[ break // learn // share ]**:\n- **break** — desmonta, faz engenharia reversa, entende como funciona por dentro\n- **learn** — absorve o conhecimento que existe abaixo da superfície\n- **share** — devolve pra comunidade em writeups, talks e mentorias\nÉ o espírito da raiz — e aparece no topo do site e no marquee.");
   const A_JOIN = sig("O coração da comunidade é o nosso **Discord** — o quartel-general: talks, mentorias, CTFs em grupo, **tickets de flag** e os avisos que não saem do servidor. Entra aqui: [discord.gg/Aw4F6qXS4N](" + U_DISC + "). É **grátis**, **todo nível é bem-vindo** e **sem hierarquia** — do iniciante ao veterano.");
   const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**, ao vivo no **YouTube**. A dinâmica: cada noite roda **3 talks de 30 minutos + 10 minutos de perguntas** com a comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + ") — e [ative o lembrete](" + U_YTSUB + ") pra não perder nada!");
-  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 30 minutos + 10 minutos de perguntas** (blocos das 19:30, 20:10 e 20:50). Títulos e palestrantes saem **em breve** — a grade completa está no site, na seção **Eventos**.");
+  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 30 minutos + 10 minutos de perguntas**. A grade atualizada:\n- **17/11 · 19:30** — **Em breve**\n- **17/11 · 20:10** — **Em breve**\n- **17/11 · 20:50** — **Em breve**\n- **18/11 · 19:30** — **Em breve**\n- **18/11 · 20:10** — **Pedro Tenório** (SERPRO) — \"Medindo a Soberania Digital\"\n- **18/11 · 20:50** — **Em breve**\nOs detalhes dos demais palestrantes serão divulgados em breve. Clica em um horário na seção **Eventos** para consultar as informações disponíveis.");
   const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas** — dentro da janela das **19:30 às 21:30**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
   const A_CTF = sig("Temos **CTFs públicos** na seção **Desafios** do site:\n- **CTF-001 · RAYX CTF** — criptografia e esteganografia · 100 pts · fácil\n- **CTF-002 · #_4ROOT+DARTH CTF** — engenharia reversa, stego e forense · 500 pts · difícil\n- **CTF-003 · OSINT CTF** — em breve · 300 pts · médio\nBaixa os arquivos clicando no card do desafio e resolve. **O submit da flag é só abrir um ticket no nosso Discord** — a equipe confere e pontua por lá. Detalhes? Pergunta 'como envio a flag'.");
   const A_FLAG = sig("**O submit de flag é só abrir um ticket no nosso Discord**: entra em [discord.gg/Aw4F6qXS4N](" + U_DISC + "), abre um **ticket** e manda a flag do desafio por lá. A equipe confere, pontua e responde no próprio ticket — sem formulário e sem e-mail. Vale pra todos os CTFs: **RAYX**, **#_4ROOT+DARTH** e os que vêm aí.");
   const A_MEMBERS = sig("Os **operadores ativos** da rede (4 nós):\n- **@Maarckz** — Threat Intelligence & Threat Research — [maarckz.github.io](https://maarckz.github.io)\n- **@4rch3on** — Threat Intelligence & OSINT — [LinkedIn](https://www.linkedin.com/in/alyson-dutra/)\n- **@4n0rak** — Network & Cyber Defense — [LinkedIn](https://www.linkedin.com/in/rfernandes72/)\n- **@N0xV3ct0R** — Crypto & Pwn — [LinkedIn](https://www.linkedin.com/in/lucas-diniz-980a1230a/)");
   const A_YT = sig("Todo o conteúdo da #_4root vive no **YouTube** — talks, lives e eventos: [youtube.com/@4rootcommunity](" + U_YT + "). Último vídeo: [#_4root: comunidade hacker em Brasília](" + U_VID + "). O **WebTalk2026 vai ao ar lá** — [se inscreve e ativa o lembrete](" + U_YTSUB + ") pra não perder nada!");
-  const A_PARTNERS = sig("Rede de parceiros e apoiadores — os logos passam no carrossel da seção **Networks**:\n- **Prodigium Academy** (parceiro) — [blog.prodigiumacademy.com](https://blog.prodigiumacademy.com/)\n- **RioCyberSec** (apoiador) — [riocybersec.com.br](https://www.riocybersec.com.br)\n- **Chapéu de Palha Hacker Club** (apoiador) — [Instagram](https://www.instagram.com/chapeudepalhahackerclub/)\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
+  const A_PARTNERS = sig("Patrocinadores e apoiadores passam em **dois carrosséis** na seção **Networks**:\n- **Patrocinadores** — Prodigium Academy, HexaCore Security, NullByte Labs, Sentinela Tech, VetorZero Cloud e BitWise Defense\n- **Apoiadores** — RioCyberSec, Chapéu de Palha Hacker Club, BSidesBSB, GYNSEC, Formming Hackers e TecSec\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
   const A_CONTACT = "Canais oficiais da **#_4root** — todas as redes:\n- **Discord** — [discord.gg/Aw4F6qXS4N](" + U_DISC + ")\n- **YouTube** — [@4rootcommunity](" + U_YT + ")\n- **LinkedIn** — [/company/4root](" + U_LI + ")\n- **Instagram** — [@4root_community](" + U_IG + ")\nEscolhe por onde falar com a gente e faz parte do coletivo!";
   const A_NAV = sig("O site tem 6 seções:\n- **Comunidade** — kernel manifest + membros\n- **Eventos** — WebTalk2026 + cronograma\n- **YouTube** — conteúdo e evento ao vivo\n- **Networks** — parceiros e apoiadores\n- **Desafios** — CTFs da comunidade\n- **Contato** — Discord + redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
   const A_MANIFESTO = sig("Nosso **Kernel manifest** tem 4 princípios:\n1. **Acesso Root** — não nos contentamos com a superfície: estudamos, desmontamos e reconstruímos tecnologias\n2. **Curiosidade Radical** — 'como isso funciona?' é o nosso ponto de partida\n3. **Ética do Hacker** — poder exige responsabilidade; aprendemos a atacar para saber defender\n4. **Coletivo > Ego** — writeups abertos, mentorias e CTFs em grupo: cada nó torna o próximo mais forte");
@@ -860,14 +860,14 @@ document.addEventListener('selectstart', function (event) {
 
   const RULES = [
     [/(flag|ticket|submit|submeter|entreg|onde envio|envio a flag|pontuac)/, A_FLAG],
-    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento|dinamica|como funciona o evento|duracao|quantos minutos|formato do evento)/, A_SCHED],
+    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento|dinamica|como funciona o evento|duracao|quantos minutos|formato do evento|pedro tenorio|serpro|soberania|nist|quem vai palestrar|quem sao os palestrantes|palestrantes confirmados|grade completa|marina|castellani|rafael|montenegro|bianca|ferraz|diego|sampaio|leticia|nogueira|phishing|zero trust|blue team|mitre|att ?ck|osint sem limites)/, A_SCHED],
     [/(palestrar|palestrante|apresentar|dar uma talk|minha talk|ser palestr|submeter palestra)/, A_SPEAK],
     [/(webtalk|proximo evento|prox evento|evento|palestra|talk|inscric|garantir vaga|vaga|quando acontece|quando vai ser)/, A_EVENT],
     [/(ctf|desafio|capture the flag|pwn|exploit|stego|steagan|forense|reverse|reversa|cripto|crypto|osint|pontos|rayx|darth)/, A_CTF],
     [/(youtube|video|canal|conteudo|aula|curso|gravac|inscrever|live)/, A_YT],
     [/(quem e voce|voce e um|voce e o|voce e real|e um bot|e robo|chatbot|seu nome|rootbot|quem e o bot|\bia\b|robo)/, A_BOT],
     [/(membro|equipe|quem sao os|operador|time|fundador|admin|maarckz|4rch3on|4n0rak|n0xv)/, A_MEMBERS],
-    [/(parceiro|patrocin|apoiador|apoiar|prodigium|rio ?cyber|chapeu de palha|network|doar|doacao|support)/, A_PARTNERS],
+    [/(parceiro|patrocin|apoiador|apoiar|prodigium|rio ?cyber|chapeu de palha|hexacore|nullbyte|sentinela|vetorzero|bitwise|network|doar|doacao|support)/, A_PARTNERS],
     [/(manifesto|kernel|etica|valor|principio|regra|acesso root|curiosidade|coletivo)/, A_MANIFESTO],
     [/(motto|lema|slogan|break\s+learn)/, A_MOTTO],
     [/(discord|entrar|participar|join|servidor|convite|invite|comunidade do discord)/, A_JOIN],
@@ -1406,8 +1406,7 @@ document.addEventListener('selectstart', function (event) {
           const img = document.createElement('img');
           img.src = m.avatar_url;
           img.alt = '';
-          img.loading = 'lazy';
-          li.appendChild(img);
+                li.appendChild(img);
         } else {
           const sp = document.createElement('span');
           sp.className = 'face';
@@ -1663,82 +1662,83 @@ document.addEventListener('selectstart', function (event) {
 
   const SPEAKERS = {
     'wt-d1-1': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 01',
+      name: 'Em breve',
+      role: 'Em breve',
       talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d1-1.jpg',
-      links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
-      ]
+      bio: 'Em breve',
+      photo: '',
+      links: []
     },
     'wt-d1-2': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 01',
+      name: 'Em breve',
+      role: 'Em breve',
       talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d1-2.jpg',
-      links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
-      ]
+      bio: 'Em breve',
+      photo: '',
+      links: []
     },
     'wt-d1-3': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 01',
+      name: 'Em breve',
+      role: 'Em breve',
       talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d1-3.jpg',
-      links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
-      ]
+      bio: 'Em breve',
+      photo: '',
+      links: []
     },
     'wt-d2-1': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 02',
+      name: 'Em breve',
+      role: 'Em breve',
       talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d2-1.jpg',
-      links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
-      ]
+      bio: 'Em breve',
+      photo: '',
+      links: []
     },
     'wt-d2-2': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 02',
-      talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d2-2.jpg',
+      name: 'Pedro Tenório',
+      role: 'Analista de TI — SERPRO · Divisão de Inovação em Tecnologia de Nuvem',
+      talk: 'Medindo a Soberania Digital: o Gradiente de Soberania do SERPRO e sua conexão com o NIST Cybersecurity 2.0',
+      bio: 'Analista de TI do SERPRO, onde atua na Divisão de Inovação em Tecnologia de Nuvem, dedicando-se à arquitetura de nuvem e à soberania digital. Na WebTalk2026, apresenta como o Gradiente de Soberania do SERPRO se conecta ao NIST Cybersecurity Framework 2.0.',
+      photo: 'talkers/wt-d2-2.jpg',
       links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
+        { type: 'instagram', url: 'https://www.instagram.com/profpedrotenorio' },
+        { type: 'site', url: 'https://www.serpro.gov.br', label: 'Serpro' }
       ]
     },
     'wt-d2-3': {
-      name: 'A confirmar',
-      role: 'Palestrante — WebTalk2026 · dia 02',
+      name: 'Em breve',
+      role: 'Em breve',
       talk: 'Em breve',
-      bio: 'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.',
-      photo: 'local-assets/images/speakers/wt-d2-3.jpg',
-      links: [
-        { type: 'linkedin', url: 'https://www.linkedin.com/company/4root' },
-        { type: 'instagram', url: 'https://www.instagram.com/4root_community' },
-        { type: 'site', url: 'https://4root.com.br' }
-      ]
+      bio: 'Em breve',
+      photo: '',
+      links: []
     }
   };
 
   const modal = document.getElementById('speaker-modal');
   if (!modal) return;
   const schedModal = document.getElementById('sched-modal');
+
+  Array.prototype.slice.call(document.querySelectorAll('.sched-speaker[data-speaker]')).forEach(function (btn) {
+    const sp = SPEAKERS[btn.getAttribute('data-speaker')];
+    if (!sp) return;
+    const info = btn.parentElement.querySelector('.sched-info');
+    if (!info) return;
+    const talkEl = info.querySelector('.sched-talk');
+    const whoEl = info.querySelector('.sched-who');
+    if (talkEl && sp.talk) talkEl.textContent = sp.talk;
+    if (whoEl && sp.name) whoEl.textContent = sp.name;
+  });
+
+  Array.prototype.slice.call(document.querySelectorAll('.sched-speaker[data-speaker]')).forEach(function (btn) {
+    const sp = SPEAKERS[btn.getAttribute('data-speaker')];
+    if (!sp) return;
+    const info = btn.parentElement.querySelector('.sched-info');
+    if (!info) return;
+    const talkEl = info.querySelector('.sched-talk');
+    const whoEl = info.querySelector('.sched-who');
+    if (talkEl && sp.talk) talkEl.textContent = sp.talk;
+    if (whoEl && sp.name) whoEl.textContent = sp.name;
+  });
 
   const el = {
     photoWrap: document.getElementById('speaker-photo-wrap'),
@@ -1864,19 +1864,23 @@ document.addEventListener('selectstart', function (event) {
 
 (function () {
   'use strict';
-  const mq = document.querySelector('.mq');
-  const track = mq ? mq.querySelector('.mq-track') : null;
-  const set = track ? track.querySelector('.mq-set') : null;
-  if (!mq || !track || !set) return;
+  // Modo MANUAL — os cards dos carrosséis vivem no index.html (.mq-set).
+  // Para incluir patrocinador/apoiador: 1) jogue a imagem em sponsors/ ou
+  // partners/ · 2) copie um bloco <a class="mq-card"> no index.html ·
+  // 3) escreva o texto (alt + span.mq-name). A ordem é a ordem dos blocos.
+  // Cor por card (opcional): data-bg="#0a0a0a" e data-fg="#fff" na tag <a>.
 
-  function fill() {
+  function fill(mq) {
+    var track = mq.querySelector('.mq-track');
+    var set = track ? track.querySelector('.mq-set') : null;
+    if (!track || !set) return;
     while (track.children.length > 1) track.removeChild(track.lastElementChild);
-    const w = Math.max(1, set.getBoundingClientRect().width);
-    let n = Math.ceil((mq.clientWidth * 2) / w) + 1;
+    var w = Math.max(1, set.getBoundingClientRect().width);
+    var n = Math.ceil((mq.clientWidth * 2) / w) + 1;
     if (n < 2) n = 2;
     if (n % 2) n++;
-    for (let i = 0; i < n - 1; i++) {
-      const c = set.cloneNode(true);
+    for (var i = 0; i < n - 1; i++) {
+      var c = set.cloneNode(true);
       c.setAttribute('aria-hidden', 'true');
       c.querySelectorAll('a').forEach(function (a) {
         a.setAttribute('tabindex', '-1');
@@ -1885,13 +1889,18 @@ document.addEventListener('selectstart', function (event) {
     }
   }
 
-  let t;
+  var groups = Array.prototype.slice.call(document.querySelectorAll('.mq'));
+  var t;
   window.addEventListener('resize', function () {
     clearTimeout(t);
-    t = setTimeout(fill, 150);
+    t = setTimeout(function () { groups.forEach(fill); }, 150);
   }, { passive: true });
-  window.addEventListener('load', fill);
-  fill();
+  window.addEventListener('load', function () { groups.forEach(fill); });
+  Array.prototype.slice.call(document.querySelectorAll('.mq-card[data-bg], .mq-card[data-fg]')).forEach(function (c) {
+    if (c.getAttribute('data-bg')) c.style.background = c.getAttribute('data-bg');
+    if (c.getAttribute('data-fg')) c.style.color = c.getAttribute('data-fg');
+  });
+  groups.forEach(fill);
 })();
 
 (function () {

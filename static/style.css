@@ -4458,10 +4458,32 @@ html.sched-lock body {
   }
 }
 
+.mq-group {
+  margin-top: 24px;
+}
+
+.mq-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+}
+
+.mq-title-mark {
+  color: var(--neon);
+}
+
 .mq {
   position: relative;
   overflow: hidden;
-  margin-top: 36px;
+  margin-top: -2px;
+  padding: 20px 0;
   -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
   mask-image: linear-gradient(90deg, transparent 0, #000 72px, #000 calc(100% - 72px), transparent 100%);
 }
@@ -4469,10 +4491,15 @@ html.sched-lock body {
 .mq-track {
   display: flex;
   width: max-content;
-  animation: mq-scroll 30s linear infinite;
+  animation: mq-scroll 60s linear infinite;
 }
 
-.mq:hover .mq-track {
+.mq--rev .mq-track {
+  animation-direction: reverse;
+}
+
+.mq:hover .mq-track,
+.mq--rev:hover .mq-track {
   animation-play-state: paused;
 }
 
@@ -4499,76 +4526,36 @@ html.sched-lock body {
   padding: 20px;
   border: 1px solid var(--line);
   border-radius: 2px;
-  background: rgba(0, 255, 65, 0.03);
-  overflow: hidden;
+  background: #fff;
   transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
 
 .mq-card img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 122%;
+  max-height: 153%;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.7);
-  opacity: 0.82;
-  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .mq-card:hover,
 .mq-card:focus-visible {
   border-color: rgba(0, 255, 65, 0.45);
-  background: rgba(0, 255, 65, 0.06);
-  box-shadow: 0 0 26px rgba(0, 255, 65, 0.12);
-  animation: glitch-skew 4s steps(1) infinite;
+  background: #fff;
+  box-shadow: 0 0 26px rgba(0, 255, 65, 0.2);
 }
 
-.mq-card:hover img,
-.mq-card:focus-visible img {
-  filter: none;
-  opacity: 1;
+.mq-card.is-text:hover,
+.mq-card.is-text:focus-visible {
+  background: var(--card);
 }
 
-.mq-card::before,
-.mq-card::after {
-  content: attr(data-name);
-  position: absolute;
-  inset: 0;
-  background: var(--neon);
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: 'Sora', system-ui, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  padding: 0 10px;
-  clip-path: inset(0 0 100% 0);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.mq-card:hover::before,
-.mq-card:focus-visible::before {
-  opacity: 1;
-  text-shadow: 2px 0 #ff0040;
-  z-index: 2;
-  animation: glitch-before 4s steps(2, end) infinite;
-}
-
-.mq-card:hover::after,
-.mq-card:focus-visible::after {
-  opacity: 1;
-  text-shadow: -2px 0 #00e5ff;
-  z-index: 3;
-  animation: glitch-after 4s steps(2, end) infinite;
+.mq-card.is-text {
+  background: var(--card);
 }
 
 .mq-name {
   display: none;
   font-family: 'QB One', sans-serif;
-  color: var(--text);
+  color: inherit;
   font-size: 1.1rem;
   letter-spacing: 0.04em;
   text-align: center;
@@ -4582,8 +4569,12 @@ html.sched-lock body {
   display: block;
 }@media (max-width: 620px) {
 
+  .mq-group {
+    margin-top: 14px;
+  }
+
   .mq {
-    margin-top: 24px;
+    margin-top: -6px;
     -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
     mask-image: linear-gradient(90deg, transparent 0, #000 36px, #000 calc(100% - 36px), transparent 100%);
   }
@@ -4605,10 +4596,7 @@ html.sched-lock body {
     -webkit-overflow-scrolling: touch;
   }
 
-  .mq-track,
-  .mq-card,
-  .mq-card::before,
-  .mq-card::after {
+  .mq-track {
     animation: none;
   }
 }
@@ -4930,6 +4918,7 @@ html.sched-lock body {
   }
 
   .sched-item .sched-info {
+    flex: 1 1 100%;
     min-width: 0;
   }
 }@media (prefers-reduced-motion: reduce) {
