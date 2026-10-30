@@ -4524,7 +4524,7 @@ html.sched-lock body {
   height: 116px;
   padding: 20px;
   border: 1px solid var(--line);
-  border-radius: 2px;
+  border-radius: 10px;
   background: #fff;
   transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
@@ -4540,6 +4540,7 @@ html.sched-lock body {
   border-color: rgba(0, 255, 65, 0.45);
   background: #fff;
   box-shadow: 0 0 26px rgba(0, 255, 65, 0.2);
+  border-radius: 10px;
 }
 
 .mq-card.is-text:hover,
