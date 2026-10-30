@@ -841,7 +841,9 @@ document.addEventListener('selectstart', function (event) {
   const A_MOTTO = sig("Nosso lema é **[ break // learn // share ]**:\n- **break** — desmonta, faz engenharia reversa, entende como funciona por dentro\n- **learn** — absorve o conhecimento que existe abaixo da superfície\n- **share** — devolve pra comunidade em writeups, talks e mentorias\nÉ o espírito da raiz — e aparece no topo do site e no marquee.");
   const A_JOIN = sig("O coração da comunidade é o nosso **Discord** — o quartel-general: talks, mentorias, CTFs em grupo, **tickets de flag** e os avisos que não saem do servidor. Entra aqui: [discord.gg/Aw4F6qXS4N](" + U_DISC + "). É **grátis**, **todo nível é bem-vindo** e **sem hierarquia** — do iniciante ao veterano.");
   const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**, ao vivo no **YouTube**. A dinâmica: cada noite roda **3 talks de 30 minutos + 10 minutos de perguntas** com a comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + ") — e [ative o lembrete](" + U_YTSUB + ") pra não perder nada!");
-  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 30 minutos + 10 minutos de perguntas**. A grade atualizada:\n- **17/11 · 19:30** — **Em breve**\n- **17/11 · 20:10** — **Em breve**\n- **17/11 · 20:50** — **Em breve**\n- **18/11 · 19:30** — **Em breve**\n- **18/11 · 20:10** — **Pedro Tenório** (SERPRO) — \"Medindo a Soberania Digital\"\n- **18/11 · 20:50** — **Em breve**\nOs detalhes dos demais palestrantes serão divulgados em breve. Clica em um horário na seção **Eventos** para consultar as informações disponíveis.");
+  
+  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 30 minutos + 10 minutos de perguntas**. A grade atualizada:\n- **17/11 · 19:30** — **Em breve**\n- **17/11 · 20:10** — **Thiago** — \"Boas intenções, riscos reais\"\n- **17/11 · 20:50** — **Em breve**\n- **18/11 · 19:30** — **Smith Braz** — \"Atividades sob Controle\"\n- **18/11 · 20:10** — **Pedro Tenório** (SERPRO) — \"Medindo a Soberania Digital\"\n- **18/11 · 20:50** — **Em breve**\nOs detalhes dos demais palestrantes serão divulgados em breve. Clica em um horário na seção **Eventos** para consultar as informações disponíveis.");
+  
   const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas** — dentro da janela das **19:30 às 21:30**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
   const A_CTF = sig("Temos **CTFs públicos** na seção **Desafios** do site:\n- **CTF-001 · RAYX CTF** — criptografia e esteganografia · 100 pts · fácil\n- **CTF-002 · #_4ROOT+DARTH CTF** — engenharia reversa, stego e forense · 500 pts · difícil\n- **CTF-003 · OSINT CTF** — em breve · 300 pts · médio\nBaixa os arquivos clicando no card do desafio e resolve. **O submit da flag é só abrir um ticket no nosso Discord** — a equipe confere e pontua por lá. Detalhes? Pergunta 'como envio a flag'.");
   const A_FLAG = sig("**O submit de flag é só abrir um ticket no nosso Discord**: entra em [discord.gg/Aw4F6qXS4N](" + U_DISC + "), abre um **ticket** e manda a flag do desafio por lá. A equipe confere, pontua e responde no próprio ticket — sem formulário e sem e-mail. Vale pra todos os CTFs: **RAYX**, **#_4ROOT+DARTH** e os que vêm aí.");
@@ -1670,12 +1672,15 @@ document.addEventListener('selectstart', function (event) {
       links: []
     },
     'wt-d1-2': {
-      name: 'Em breve',
-      role: 'Em breve',
-      talk: 'Em breve',
-      bio: 'Em breve',
+      name: 'Thiago',
+      role: 'Profissional de cibersegurança | @protecaonaweb e @riocybersec',
+      talk: 'Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque.',
+      bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Mantém o projeto @protecaonaweb e é co-fundador da comunidade @riocybersec.\n\nObjetivo: Demonstrar, por meio de um caso real de exposição de dados, como recursos desenvolvidos com boas intenções podem se transformar em vetores críticos de ataque.\n\nO cibercrime não começa quando a vítima recebe uma mensagem suspeita: o caminho começa muito antes, na coleta e no reconhecimento. Nesta palestra, vamos desconstruir um caso real em que uma funcionalidade web colaborativa, criada com a melhor das intenções, acabou expondo milhares de dados pessoais de toda uma comunidade. Uma conversa prática e necessária para plantar a semente da proteção de dados tanto no profissional de TI quanto no usuário comum.',
       photo: '',
-      links: []
+      links: [
+        { type: 'instagram', url: 'https://instagram.com/protecaonaweb', label: '@protecaonaweb' },
+        { type: 'instagram', url: 'https://instagram.com/riocybersec', label: '@riocybersec' }
+      ]
     },
     'wt-d1-3': {
       name: 'Em breve',
@@ -1686,11 +1691,11 @@ document.addEventListener('selectstart', function (event) {
       links: []
     },
     'wt-d2-1': {
-      name: 'Em breve',
-      role: 'Em breve',
-      talk: 'Em breve',
-      bio: 'Em breve',
-      photo: '',
+      name: 'Smith Braz',
+      role: 'Red Team, Professor na RedScan Academy e ADINT School',
+      talk: 'Atividades sob Controle: Como manter a observabilidade em um panorama macro das ações durante uma operação de Red Team',
+      bio: 'Red Team, Professor na RedScan Academy e ADINT School. Com mais de 25 anos de experiência profissional, detentor de algumas certificações internacionais de relevância no mercado, dentre elas OSEP, OSCP+ e OSWP da Offensive Security.\n\nObjetivo: Compreender o papel do Comando e Controle (C2) em operações de Red Team, reconhecendo sua importância para a coordenação, monitoramento e observabilidade das atividades conduzidas durante uma campanha.\n\nDescrição: Esta palestra apresenta o conceito de Comando e Controle (C2) como o elemento central para coordenação, monitoramento e observabilidade em operações de Red Team. Serão abordados sua função estratégica, sua importância para manter o controle das atividades, os principais atores envolvidos e os componentes que formam uma infraestrutura de C2. Ao longo da apresentação, os participantes compreenderão como pessoas, processos e tecnologia se integram para fornecer uma visão consolidada e segura das ações executadas durante uma operação.',
+      photo: 'https://raw.githubusercontent.com/thiagosmith/Smith/main/IMG_20251202_173544578_HDR.jpg',
       links: []
     },
     'wt-d2-2': {
