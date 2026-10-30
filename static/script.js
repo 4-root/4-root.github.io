@@ -1675,7 +1675,7 @@ document.addEventListener('selectstart', function (event) {
       name: 'Thiago',
       role: 'Profissional de cibersegurança | @protecaonaweb e @riocybersec',
       talk: 'Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque.',
-      bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Mantém o projeto @protecaonaweb e é co-fundador da comunidade @riocybersec.\n\nObjetivo: Demonstrar, por meio de um caso real de exposição de dados, como recursos desenvolvidos com boas intenções podem se transformar em vetores críticos de ataque.\n\nO cibercrime não começa quando a vítima recebe uma mensagem suspeita: o caminho começa muito antes, na coleta e no reconhecimento. Nesta palestra, vamos desconstruir um caso real em que uma funcionalidade web colaborativa, criada com a melhor das intenções, acabou expondo milhares de dados pessoais de toda uma comunidade. Uma conversa prática e necessária para plantar a semente da proteção de dados tanto no profissional de TI quanto no usuário comum.',
+      bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Mantém o projeto @protecaonaweb e é co-fundador da comunidade @riocybersec.',
       photo: '',
       links: [
         { type: 'instagram', url: 'https://instagram.com/protecaonaweb', label: '@protecaonaweb' },
