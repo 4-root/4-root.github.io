@@ -1676,7 +1676,7 @@ document.addEventListener('selectstart', function (event) {
       role: 'Profissional de cibersegurança | @protecaonaweb e @riocybersec',
       talk: 'Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque.',
       bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Mantém o projeto @protecaonaweb e é co-fundador da comunidade @riocybersec.',
-      photo: '',
+      photo: 'talkers/wt-d1-2.jpg',
       links: [
         { type: 'instagram', url: 'https://instagram.com/protecaonaweb', label: '@protecaonaweb' },
         { type: 'instagram', url: 'https://instagram.com/riocybersec', label: '@riocybersec' }
