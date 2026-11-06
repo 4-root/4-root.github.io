@@ -1686,7 +1686,7 @@ document.addEventListener('selectstart', function (event) {
       ]
     },
     'wt-d1-3': {
-      name: 'Felício e Raugi',
+      name: 'Allan Felício e Rafael Raugi',
       role: 'Caramelo Storm',
       talk: 'Tempestade de Vulns: Dissecando WP2Shell e PHP2Shell sob a visão do Atacante',
       bio: 'Dupla de palestrantes ligada ao projeto Caramelo Storm. Na WebTalk2026, dissecam as cadeias de exploração WP2Shell e PHP2Shell sob a visão do atacante.',
@@ -1721,7 +1721,7 @@ document.addEventListener('selectstart', function (event) {
       ]
     },
     'wt-d2-3': {
-      name: 'Joabe Fenrir',
+      name: 'Joabe "Fenrir" Kautnick',
       role: '',
       talk: 'OSINMULATOR: Um Simulador Educativo de Inteligência em Fontes Abertas',
       bio: 'O OSINMULATOR é um simulador educativo de OSINT (inteligência em fontes abertas) que mostra, na prática, como postagens comuns em redes sociais, quando somadas, montam um dossiê sobre uma pessoa. Na palestra, a plateia acompanha uma investigação fictícia e descobre como cada pista isolada pode revelar muito mais do que parece.',
