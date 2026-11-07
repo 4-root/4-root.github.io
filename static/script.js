@@ -1675,12 +1675,12 @@ document.addEventListener('selectstart', function (event) {
     },
     'wt-d1-2': {
       name: 'Thiago Castro',
-      role: 'Profissional de cibersegurança | @thcastro89 e @riocybersec',
+      role: 'Profissional de cibersegurança | @protecaonaweb e @riocybersec',
       talk: 'Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque.',
       bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Co-fundador da comunidade @riocybersec.',
       photo: 'talkers/wt-d1-2.jpg',
       links: [
-        { type: 'instagram', url: 'https://www.instagram.com/thcastro89/', label: '@thcastro89' },
+        { type: 'instagram', url: 'https://www.instagram.com/protecaonaweb/', label: '@protecaonaweb' },
         { type: 'instagram', url: 'https://www.instagram.com/riocybersec', label: '@riocybersec' },
         { type: 'site', url: 'https://thcastro.com/', label: 'thcastro.com' }
       ]
