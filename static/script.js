@@ -1682,6 +1682,7 @@ document.addEventListener('selectstart', function (event) {
       links: [
         { type: 'instagram', url: 'https://www.instagram.com/protecaonaweb/', label: '@protecaonaweb' },
         { type: 'instagram', url: 'https://www.instagram.com/riocybersec', label: '@riocybersec' },
+        { type: 'linkedin', url: 'https://www.linkedin.com/in/othiagocastro/', label: 'LinkedIn' },
         { type: 'site', url: 'https://thcastro.com/', label: 'thcastro.com' }
       ]
     },
