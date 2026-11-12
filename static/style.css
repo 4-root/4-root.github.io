@@ -36,7 +36,7 @@ html {
   -webkit-text-size-adjust: 100%;
   font-feature-settings: normal;
   -webkit-tap-highlight-color: transparent;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 70px;
 
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -4063,9 +4063,11 @@ html.intro-lock {
   position: relative;
   z-index: 1;
   width: min(680px, 100%);
-  max-height: min(86vh, 800px);
+  max-height: min(94vh, 920px);
   overflow: auto;
   overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background: linear-gradient(180deg, rgba(10, 12, 10, 0.97), rgba(5, 6, 5, 0.99));
   border: 1px solid rgba(0, 255, 65, 0.22);
   border-radius: 2px;
@@ -4074,24 +4076,47 @@ html.intro-lock {
   transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.25, 1);
 }
 
+.sched-box::-webkit-scrollbar,
+.speaker-box::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 .sched-modal.is-open .sched-box {
   transform: none;
 }
 
-.sched-box::before {
-  content: "";
-  position: absolute;
+@property --scroll-pct {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+/* Barra de progresso no topo — substitui a barra de rolagem nativa
+   (oculta acima) nos modais e no chat, igual à #scroll-progress do site. */
+.modal-progress {
+  position: sticky;
   top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  flex: 0 0 2px;
+  margin-bottom: -2px;
+  z-index: 6;
   pointer-events: none;
+  background: linear-gradient(to right,
+    rgba(0, 255, 65, 0.9) 0%,
+    rgba(0, 255, 65, 0.9) var(--scroll-pct, 0%),
+    rgba(0, 255, 65, 0.10) var(--scroll-pct, 0%),
+    rgba(0, 255, 65, 0.10) 100%);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.35);
+  transition: --scroll-pct 0.12s linear;
 }
 
 .sched-close {
   position: absolute;
-  top: 14px;
+  top: 20px;
   right: 14px;
   width: 38px;
   height: 38px;
@@ -4448,8 +4473,70 @@ html.intro-lock {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   padding: 18px 26px 8px;
+}
+
+.sched-share {
+  position: relative;
+  z-index: 7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 2px;
+  border: 1px dashed rgba(0, 255, 65, 0.28);
+  background: rgba(0, 255, 65, 0.04);
+  font-family: 'Sora', system-ui, sans-serif;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.sched-share svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+/* tooltip "Link copiado!" — escondido por padrão, aparece acima do ícone */
+.sched-share span {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 255, 65, 0.5);
+  background: rgba(0, 255, 65, 0.14);
+  color: var(--neon);
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.sched-share:hover,
+.sched-share:focus-visible {
+  color: var(--neon);
+  border-color: rgba(0, 255, 65, 0.5);
+  background: rgba(0, 255, 65, 0.08);
+}
+
+.sched-share.is-copied {
+  color: var(--neon);
+  border-color: rgba(0, 255, 65, 0.6);
+  background: rgba(0, 255, 65, 0.12);
+}
+
+.sched-share.is-copied span {
+  opacity: 1;
 }
 
 .sched-note {
@@ -4480,6 +4567,11 @@ html.sched-lock body {
   .sched-foot .cta-secondary {
     flex: 1 1 100%;
     justify-content: center;
+  }
+
+  /* no mobile o ícone Compartilhar fica compacto, ao lado do rodapé */
+  .sched-share {
+    flex: 0 0 38px;
   }
 }@media (prefers-reduced-motion: reduce) {
 
@@ -4816,6 +4908,8 @@ html.sched-lock body {
   max-height: min(86vh, 760px);
   overflow: auto;
   overscroll-behavior: contain;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   background: linear-gradient(180deg, rgba(10, 12, 10, 0.97), rgba(5, 6, 5, 0.99));
   border: 1px solid rgba(0, 255, 65, 0.22);
   border-radius: 2px;
@@ -4828,16 +4922,7 @@ html.sched-lock body {
   transform: none;
 }
 
-.speaker-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon), transparent);
-  pointer-events: none;
-}
+/* topo do speaker-box agora tem a .modal-progress (barra de rolagem no topo) */
 
 .speaker-close {
   position: absolute;

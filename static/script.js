@@ -1670,6 +1670,7 @@ document.addEventListener('selectstart', function (event) {
       bio: '',
       photo: 'talkers/wt-d1-1.jpg',
       links: [
+        { type: 'instagram', url: 'https://www.instagram.com/thais.brandao/', label: '@thais.brandao' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/thais-pinheiro-brandao/', label: 'LinkedIn' }
       ]
     },
@@ -1966,4 +1967,162 @@ document.addEventListener('selectstart', function (event) {
   }
 
   if (inWindow(Date.now())) showBadge();
+})();
+
+/* ------------------------------------------------------------------
+ * Barra de progresso no topo dos modais (sched + speaker)
+ * Substitui a barra de rolagem nativa (oculta no CSS) pelo mesmo
+ * estilo da #scroll-progress do site. --scroll-pct é atualizado a
+ * cada scroll e quando o conteúdo muda (ex.: troca de dia).
+ * ------------------------------------------------------------------ */
+(function () {
+  'use strict';
+
+  function update(box) {
+    const bar = box.querySelector('.modal-progress');
+    if (!bar) return;
+    const max = box.scrollHeight - box.clientHeight;
+    const pct = max > 0 ? (box.scrollTop / max) * 100 : 0;
+    bar.style.setProperty('--scroll-pct', pct.toFixed(2) + '%');
+  }
+
+  function bind(box) {
+    if (!box) return;
+    box.addEventListener('scroll', function () { update(box); }, { passive: true });
+    update(box);
+    if ('MutationObserver' in window) {
+      const obs = new MutationObserver(function () { update(box); });
+      obs.observe(box, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        attributeFilter: ['hidden', 'class', 'src']
+      });
+    }
+  }
+
+  const boxes = document.querySelectorAll('.sched-box, .speaker-box');
+  Array.prototype.forEach.call(boxes, bind);
+
+  let rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () {
+      Array.prototype.forEach.call(boxes, update);
+    }, 150);
+  }, { passive: true });
+})();
+
+/* ------------------------------------------------------------------
+ * Compartilhamento do modal de eventos (EVT-001)
+ *  - Botão "Compartilhar" no rodapé do cronograma.
+ *  - No mobile usa o painel nativo (navigator.share); no desktop
+ *    copia o link para a área de transferência.
+ *  - Link direto: https://4root.com.br/?event=cronograma  (abre o
+ *    modal automaticamente ao carregar a página).
+ * ------------------------------------------------------------------ */
+(function () {
+  'use strict';
+
+  const btn = document.getElementById('sched-share');
+  if (!btn) return;
+
+  const labelEl = btn.querySelector('span');
+  const defaultLabel = labelEl ? labelEl.textContent : 'Compartilhar';
+
+  function shareUrl() {
+    let base;
+    try {
+      const u = new URL(location.origin + location.pathname);
+      u.searchParams.set('event', 'cronograma');
+      base = u.toString();
+    } catch (e) {
+      base = location.origin + location.pathname + '?event=cronograma';
+    }
+    return base;
+  }
+
+  function flash(msg) {
+    btn.classList.add('is-copied');
+    if (labelEl) labelEl.textContent = msg;
+    setTimeout(function () {
+      btn.classList.remove('is-copied');
+      if (labelEl) labelEl.textContent = defaultLabel;
+    }, 1800);
+  }
+
+  async function onClick() {
+    const url = shareUrl();
+    const data = {
+      title: '#_4root WebTalk2026 — Cronograma',
+      text: 'Confira o cronograma do #_4root WebTalk2026 — 17 e 18 de novembro, ao vivo no YouTube.',
+      url: url
+    };
+    if (navigator.share) {
+      // mobile/nativo: abre o painel de compartilhamento do dispositivo
+      try { await navigator.share(data); }
+      catch (e) { /* usuário cancelou */ }
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      // desktop: copia o link
+      try { await navigator.clipboard.writeText(url); flash('Link copiado!'); }
+      catch (e) { window.prompt('Copie o link do cronograma:', url); }
+    } else {
+      window.prompt('Copie o link do cronograma:', url);
+    }
+  }
+
+  btn.addEventListener('click', onClick);
+})();
+
+/* ------------------------------------------------------------------
+ * Abrir o modal de eventos diretamente via link
+ * Suporta  ?event=cronograma  e  #cronograma
+ * Após abrir, limpa o parâmetro da URL (history.replaceState) para
+ * não reabrir a cada refresh — o link de compartilhamento continua
+ * disponível pelo botão "Compartilhar" dentro do modal.
+ * ------------------------------------------------------------------ */
+(function () {
+  'use strict';
+
+  function wantsOpen() {
+    try {
+      const p = new URLSearchParams(location.search).get('event');
+      if (p === 'cronograma') return true;
+    } catch (e) {}
+    return location.hash === '#cronograma';
+  }
+
+  if (!wantsOpen()) return;
+
+  let opened = false;
+  function openSched() {
+    if (opened) return;
+    const modal = document.getElementById('sched-modal');
+    if (modal && modal.classList.contains('is-open')) { opened = true; return; }
+    const card = document.getElementById('event-card');
+    if (!card) return;
+    opened = true;
+    card.click();
+    // limpa o ?event= mantendo o hash (não reabre a cada refresh)
+    try {
+      history.replaceState(null, '', location.origin + location.pathname + location.hash);
+    } catch (e) {}
+  }
+
+  // Abre assim que o site estiver revelado (intro concluído). Tenta pelo
+  // evento 4root:ready e por polling da classe site-in — robusto
+  // independente de como o intro termina (skip, reduce-motion, etc.).
+  document.addEventListener('4root:ready', function () { setTimeout(openSched, 250); });
+
+  let tries = 0;
+  const iv = setInterval(function () {
+    if (document.documentElement.classList.contains('site-in')) {
+      clearInterval(iv);
+      setTimeout(openSched, 250);
+      return;
+    }
+    if (++tries > 20) clearInterval(iv); // até ~10s
+  }, 500);
+
+  setTimeout(openSched, 6000); // fallback absoluto
 })();
