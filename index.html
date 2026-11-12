@@ -985,6 +985,7 @@
   <div class="sched-modal" id="sched-modal" aria-hidden="true">
     <div class="sched-backdrop" data-sched-close></div>
     <div class="sched-box" role="dialog" aria-modal="true" aria-labelledby="sched-title">
+      <div class="modal-progress" aria-hidden="true"></div>
       <button type="button" class="sched-close" data-sched-close aria-label="Fechar cronograma">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
              stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -1153,6 +1154,19 @@
            rel="noopener noreferrer">garantir minha vaga</a>
         <a class="cta-secondary" href="https://forms.gle/DvirpKtr2vg2cM9h8" target="_blank"
            rel="noopener noreferrer">Gostaria de palestrar?</a>
+        <button type="button" class="sched-share" id="sched-share"
+                aria-label="Compartilhar o cronograma do WebTalk2026"
+                title="Compartilhar cronograma">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.42" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+          <span>Compartilhar</span>
+        </button>
       </div>
       <p class="sched-note"></p>
     </div>
@@ -1161,6 +1175,7 @@
   <div class="speaker-modal" id="speaker-modal" aria-hidden="true">
     <div class="speaker-backdrop" data-speaker-close></div>
     <div class="speaker-box" role="dialog" aria-modal="true" aria-labelledby="speaker-name">
+      <div class="modal-progress" aria-hidden="true"></div>
       <button type="button" class="speaker-close" data-speaker-close
               aria-label="Fechar perfil do palestrante">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
