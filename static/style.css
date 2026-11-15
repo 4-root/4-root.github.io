@@ -1520,8 +1520,16 @@ footer::before {
     font-size: 1.5rem;
   }
 
+  /* 768–1199px: 3 por linha, sobra centralizada (3+2) — evita card isolado */
   .members-grid {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .member-card {
+    width: calc((100% - 2rem) / 3);
   }
 
   .challenges-grid {
@@ -1538,6 +1546,17 @@ footer::before {
 
   .footer-bottom-inner {
     padding: 0 2.5rem;
+  }
+}@media (min-width: 1200px) {
+  /* desktop: os 5 operadores na mesma linha */
+  .members-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+
+  .member-card {
+    width: auto;
   }
 }@media (min-width: 1024px) {
   .challenges-grid {
@@ -2155,6 +2174,10 @@ body {
 .socials-grid > :nth-child(4),
 .members-grid > :nth-child(4) {
   --rd: 0.24s;
+}
+
+.members-grid > :nth-child(5) {
+  --rd: 0.32s;
 }
 
 .marquee {
@@ -5061,6 +5084,7 @@ html.sched-lock body {
   color: var(--muted);
   line-height: 1.65;
   margin: 0;
+  white-space: pre-line;
 }
 
 .speaker-links {
