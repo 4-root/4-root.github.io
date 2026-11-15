@@ -1,1 +1,4 @@
-User-agent: * \n Allow: /
+User-agent: *
+Allow: /
+
+Sitemap: https://4root.com.br/sitemap.xml
