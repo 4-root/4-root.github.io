@@ -1723,7 +1723,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'Analista de TI do SERPRO, onde atua na Divisão de Inovação em Tecnologia de Nuvem, dedicando-se à arquitetura de nuvem e à soberania digital. Na WebTalk2026, apresenta como o Gradiente de Soberania do SERPRO se conecta ao NIST Cybersecurity Framework 2.0.',
       photo: 'talkers/wt-d2-2.jpg',
       links: [
-        { type: 'instagram', url: 'https://www.instagram.com/professorpedrotenorio', label: '@professorpedrotenorio' },
+        { type: 'instagram', url: 'https://www.instagram.com/profpedrotenorio', label: '@professorpedrotenorio' },
         { type: 'site', url: 'https://www.serpro.gov.br', label: 'Serpro' }
       ]
     },
