@@ -5079,6 +5079,47 @@ html.sched-lock body {
   margin: 0;
 }
 
+/* Botão de slides (PDF) dentro do perfil do palestrante */
+.speaker-slides {
+  padding-top: 14px;
+}
+
+.speaker-slides[hidden] {
+  display: none;
+}
+
+.speaker-slides-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--neon);
+  border-radius: 2px;
+  background: var(--neon);
+  font-family: 'Sora', system-ui, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.speaker-slides-btn svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
+
+.speaker-slides-btn:hover,
+.speaker-slides-btn:focus-visible {
+  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
+}
+
 .speaker-bio {
   font-size: 0.86rem;
   color: var(--muted);

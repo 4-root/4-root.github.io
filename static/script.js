@@ -830,8 +830,7 @@ document.addEventListener('selectstart', function (event) {
   const U_YTSUB = "https://www.youtube.com/@4root_community?sub_confirmation=1";
   const U_LI    = "https://www.linkedin.com/company/4root";
   const U_IG    = "https://www.instagram.com/4root_community";
-  const U_FORM_VAGA = "https://forms.gle/RoVxXp863fwdH1tx6";
-  const U_FORM_TALK = "https://forms.gle/DvirpKtr2vg2cM9h8";
+  const U_DRIVE = "https://drive.google.com/drive/folders/1-G3_XfkIAfvxLbrunWlvwsd2ZYrzP7WM";
   const U_VID   = "https://www.youtube.com/watch?v=ULNX2MVzY8w";
 
   const SIG = "\n\n**redes oficiais da #_4root:** [Discord](" + U_DISC + ") · [YouTube](" + U_YT + ") · [LinkedIn](" + U_LI + ") · [Instagram](" + U_IG + ")";
@@ -840,34 +839,37 @@ document.addEventListener('selectstart', function (event) {
   const A_ABOUT = sig("A **#_4root** é uma comunidade de **cibersegurança e hacking** voltada à troca de conhecimento, pesquisa e desenvolvimento técnico. Conectamos profissionais, estudantes e entusiastas por meio de **talks, eventos, CTFs** e iniciativas colaborativas em **segurança ofensiva, CTI e OSINT**. Nosso lema: **break // learn // share**. Site: [4root.com.br](https://4root.com.br/)");
   const A_MOTTO = sig("Nosso lema é **[ break // learn // share ]**:\n- **break** — desmonta, faz engenharia reversa, entende como funciona por dentro\n- **learn** — absorve o conhecimento que existe abaixo da superfície\n- **share** — devolve pra comunidade em writeups, talks e mentorias\nÉ o espírito da raiz — e aparece no topo do site e no marquee.");
   const A_JOIN = sig("O coração da comunidade é o nosso **Discord** — o quartel-general: talks, mentorias, CTFs em grupo, **tickets de flag** e os avisos que não saem do servidor. Entra aqui: [discord.gg/Aw4F6qXS4N](" + U_DISC + "). É **grátis**, **todo nível é bem-vindo** e **sem hierarquia** — do iniciante ao veterano.");
-  const A_EVENT = sig("O próximo evento é o **#_4root WebTalk2026** — dias **17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, **online e gratuito**, ao vivo no **YouTube**. A dinâmica: cada noite roda **3 talks de 30 minutos + 10 minutos de perguntas** com a comunidade. Garanta sua vaga: [formulário de inscrição](" + U_FORM_VAGA + ") — e [ative o lembrete](" + U_YTSUB + ") pra não perder nada!");
+  const A_EVENT = sig("O primeiro evento da #_4root — **WebTalk2026** — foi **realizado nos dias 17 e 18/11/2026, das 19:30 às 21:30 (Brasília)**, online e gratuito, no **YouTube** da comunidade, com **6 talks** sobre hacking e cibersegurança. **Não precisa de inscrição** — o evento já aconteceu. Os **slides das palestras** estão abertos: [materiais no Google Drive](" + U_DRIVE + "). Os próximos eventos da #_4root e de comunidades parceiras aparecem na seção **Eventos** do site!");
   
-  const A_SCHED = sig("O **WebTalk2026** acontece em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — ao vivo no **YouTube** da #_4root. Cada noite tem **3 talks de 40 minutos** (30 de talk + 10 de perguntas). Grade completa:\n- **17/11 · 19:30** — **Thais Brandão** — \"Confiança é uma vulnerabilidade? O que o Zero Trust nos ensina sobre segurança\"\n- **17/11 · 20:10** — **Thiago Castro** (RioCyberSec) — \"Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque\"\n- **17/11 · 20:50** — **Allan Felício e Rafael Raugi** (Caramelo Storm) — \"Tempestade de Vulns: Dissecando WP2Shell e PHP2Shell sob a visão do Atacante\"\n- **18/11 · 19:30** — **Smith Braz** (RedScan Academy / ADINT School) — \"Atividades sob Controle\" — observabilidade em operações de Red Team\n- **18/11 · 20:10** — **Pedro Tenório** (SERPRO) — \"Medindo a Soberania Digital\" — Gradiente de Soberania e NIST CSF 2.0\n- **18/11 · 20:50** — **Joabe \"Fenrir\" Kautnick** — \"OSINMULATOR\" — simulador educativo de OSINT\nClica em qualquer card do cronograma na seção **Eventos** pra abrir o perfil completo do palestrante.");
+  const A_SCHED = sig("O **WebTalk2026** aconteceu em **duas noites** — 17 e 18/11, sempre das **19:30 às 21:30 (Brasília)** — no **YouTube** da #_4root. Cada noite teve **3 talks de 40 minutos** (30 de talk + 10 de perguntas). Grade completa:\n- **17/11 · 19:30** — **Thais Brandão** — \"Confiança é uma vulnerabilidade? O que o Zero Trust nos ensina sobre segurança\"\n- **17/11 · 20:10** — **Thiago Castro** (RioCyberSec) — \"Boas intenções, riscos reais: Quando funcionalidades criam vetores de ataque\"\n- **17/11 · 20:50** — **Allan Felício e Rafael Raugi** (Caramelo Storm) — \"Tempestade de Vulns: Dissecando WP2Shell e PHP2Shell sob a visão do Atacante\"\n- **18/11 · 19:30** — **Smith Braz** (RedScan Academy / ADINT School) — \"Atividades sob Controle\" — observabilidade em operações de Red Team\n- **18/11 · 20:10** — **Pedro Tenório** (SERPRO) — \"Medindo a Soberania Digital\" — Gradiente de Soberania e NIST CSF 2.0\n- **18/11 · 20:50** — **Joabe \"Fenrir\" Kautnick** — \"OSINMULATOR\" — simulador educativo de OSINT\nClica em qualquer card do cronograma na seção **Eventos** pra abrir o perfil completo do palestrante — o botão **Ver slides da talk (PDF)** está lá dentro, e a pasta completa fica em [materiais no Google Drive](" + U_DRIVE + ").");
+
+  const A_SLIDES = sig("Os **slides das 6 talks do WebTalk2026** estão liberados! É só abrir o **cronograma** na seção **Eventos** do site, clicar em cima do palestrante e apertar o botão **Ver slides da talk (PDF)** dentro do perfil — o PDF abre direto no Google Drive. Prefere a pasta completa? [materiais no Drive](" + U_DRIVE + "). Tem slide da **Thais Brandão** (Zero Trust), **Thiago Castro**, **Felício e Raugi** (WP2Shell/PHP2Shell), **Smith Braz**, **Pedro Tenório** (SERPRO) e **Joabe \"Fenrir\"** (OSINMULATOR). Downloads liberados — estuda e compartilha!");
   
-  const A_SPEAK = sig("Quer **palestrar** no WebTalk2026 (ou nos próximos eventos)? Manda sua proposta no formulário: [Gostaria de palestrar?](" + U_FORM_TALK + "). Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas** — dentro da janela das **19:30 às 21:30**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
+  const A_SPEAK = sig("Quer **palestrar** nos próximos eventos da #_4root? O formulário de propostas do WebTalk2026 foi encerrado junto com o evento — a chamada para os próximos será divulgada no **Discord** e nas redes oficiais. Fica de olho! Cada talk ocupa um bloco de **40 min — 30 de talk + 10 de perguntas**. Talks sobre hacking, cibersegurança, OSINT, CTI, red/blue team: **todo nível é bem-vindo**.");
   const A_CTF = sig("Temos **CTFs públicos** na seção **Desafios** do site:\n- **CTF-001 · RAYX CTF** — criptografia e esteganografia · 100 pts · fácil\n- **CTF-002 · #_4ROOT+DARTH CTF** — engenharia reversa, stego e forense · 500 pts · difícil\n- **CTF-003 · OSINT CTF** — em breve · 300 pts · médio\nBaixa os arquivos clicando no card do desafio e resolve. **O submit da flag é só abrir um ticket no nosso Discord** — a equipe confere e pontua por lá. Detalhes? Pergunta 'como envio a flag'.");
   const A_FLAG = sig("**O submit de flag é só abrir um ticket no nosso Discord**: entra em [discord.gg/Aw4F6qXS4N](" + U_DISC + "), abre um **ticket** e manda a flag do desafio por lá. A equipe confere, pontua e responde no próprio ticket — sem formulário e sem e-mail. Vale pra todos os CTFs: **RAYX**, **#_4ROOT+DARTH** e os que vêm aí.");
   const A_MEMBERS = sig("Os **operadores ativos** da rede (5 nós):\n- **@Maarckz** — Threat Intelligence & Threat Research — [maarckz.github.io](https://maarckz.github.io)\n- **@4rch3on** — Threat Intelligence & OSINT — [LinkedIn](https://www.linkedin.com/in/alyson-dutra/)\n- **@4n0rak** — Network & Cyber Defense — [LinkedIn](https://www.linkedin.com/in/rfernandes72/)\n- **@N0xV3ct0R** — Crypto & Pwn — [LinkedIn](https://www.linkedin.com/in/lucas-diniz-980a1230a/)\n- **@C4P1V4R4** — Vuln Research, AppSec, LLM & MCP e Red Team — [LinkedIn](https://www.linkedin.com/in/fernanduviana/)");
-  const A_YT = sig("Todo o conteúdo da #_4root vive no **YouTube** — talks, lives e eventos: [youtube.com/@4root_community](" + U_YT + "). Último vídeo: [#_4root: comunidade hacker em Brasília](" + U_VID + "). O **WebTalk2026 vai ao ar lá** — [se inscreve e ativa o lembrete](" + U_YTSUB + ") pra não perder nada!");
+  const A_YT = sig("Todo o conteúdo da #_4root vive no **YouTube** — talks, lives e eventos: [youtube.com/@4root_community](" + U_YT + "). Último vídeo: [#_4root: comunidade hacker em Brasília](" + U_VID + "). O **WebTalk2026 foi transmitido por lá** — [se inscreve no canal](" + U_YTSUB + ") pra ficar por dentro das gravações e dos próximos conteúdos!");
   const A_PARTNERS = sig("Na seção **Networks** tem o grid **Apoiadores** com **9 comunidades e projetos parceiros**:\n- **BSidesBSB** e **BSidesCWB** — Security BSides de Brasília e Curitiba\n- **SOLYD** — educação em cibersegurança\n- **TecSec**, **GYNSEC** e **RioCyberSec** — comunidades e eventos de segurança\n- **Chapéu de Palha Hacker Club** e **Formming Hackers** — coletivos hacker\n- **Prodigium Academy** — formação em segurança\nQuer apoiar ou patrocinar o projeto? Chama a gente no **Discord**!");
   const A_CONTACT = "Canais oficiais da **#_4root** — todas as redes:\n- **Discord** — [discord.gg/Aw4F6qXS4N](" + U_DISC + ")\n- **YouTube** — [@4root_community](" + U_YT + ")\n- **LinkedIn** — [/company/4root](" + U_LI + ")\n- **Instagram** — [@4root_community](" + U_IG + ")\nEscolhe por onde falar com a gente e faz parte do coletivo!";
-  const A_NAV = sig("O menu tem 8 entradas:\n- **Home** — intro da comunidade\n- **Comunidade** — kernel manifest + membros\n- **Eventos** — WebTalk2026 + cronograma clicável\n- **YouTube** — conteúdo e evento ao vivo\n- **Networks** — apoiadores e parceiros\n- **Desafios** — CTFs da comunidade\n- **Produtos** — **Academy**, **News** e **CTI | CVE**\n- **Contato** — redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
+  const A_NAV = sig("O menu tem 8 entradas:\n- **Home** — intro da comunidade\n- **Comunidade** — kernel manifest + membros\n- **Eventos** — WebTalk2026, cronograma, **materiais das talks** e eventos parceiros\n- **YouTube** — conteúdo do canal\n- **Networks** — apoiadores e parceiros\n- **Desafios** — CTFs da comunidade\n- **Produtos** — **Academy**, **News** e **CTI | CVE**\n- **Contato** — redes oficiais\nNavega pelo menu do topo — ou me pergunta sobre qualquer seção!");
   const A_MANIFESTO = sig("Nosso **Kernel manifest** tem 4 princípios:\n1. **Acesso Root** — não nos contentamos com a superfície: estudamos, desmontamos e reconstruímos tecnologias\n2. **Curiosidade Radical** — 'como isso funciona?' é o nosso ponto de partida\n3. **Ética do Hacker** — poder exige responsabilidade; aprendemos a atacar para saber defender\n4. **Coletivo > Ego** — writeups abertos, mentorias e CTFs em grupo: cada nó torna o próximo mais forte");
   const A_BOT = "Eu sou o **RootBot**, guia oficial do site da **#_4root**. Não sou uma IA de verdade — rodo 100% no seu navegador e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **evento e cronograma**, **CTFs e envio de flag**, **YouTube**, **parceiros**, **redes** e **contato**.";
-  const A_HELP = "Posso falar sobre **tudo que está no site**:\n- **a comunidade** e o **kernel manifest**\n- **membros** (operadores ativos)\n- **evento** WebTalk2026 e o **cronograma**\n- **CTFs** e **como enviar a flag** (ticket no Discord)\n- **YouTube** e conteúdo\n- **parceiros** e como **apoiar**\n- **palestrar** em um evento\n- **redes oficiais** e **contato**\nTambém aceito um 'oi' ou uma piada. ;)";
-  const A_FALL = "Essa eu não sei ainda. Tenta perguntar sobre: **comunidade**, **manifesto**, **membros**, **evento/cronograma**, **CTFs**, **envio de flag**, **YouTube**, **parceiros**, **palestrar** ou **contato/redes**!" + SIG;
+  const A_HELP = "Posso falar sobre **tudo que está no site**:\n- **a comunidade** e o **kernel manifest**\n- **membros** (operadores ativos)\n- **evento** WebTalk2026, o **cronograma** e os **materiais/slides**\n- **próximos eventos** parceiros (BHack, GHC)\n- **CTFs** e **como enviar a flag** (ticket no Discord)\n- **YouTube** e conteúdo\n- **parceiros** e como **apoiar**\n- **palestrar** nos próximos eventos\n- **redes oficiais** e **contato**\nTambém aceito um 'oi' ou uma piada. ;)";
+  const A_FALL = "Essa eu não sei ainda. Tenta perguntar sobre: **comunidade**, **manifesto**, **membros**, **evento/cronograma**, **slides/materiais**, **próximos eventos**, **CTFs**, **envio de flag**, **YouTube**, **parceiros**, **palestrar** ou **contato/redes**!" + SIG;
   const A_JOKE = "Clássica da área: existem **10 tipos de pessoas** — as que entendem binário e as que não entendem. E as que entendem ternário: as que não entendem binário e as que não entendem ternário. ;)";
   const A_THX = "Por nada! Não esquece: **break // learn // share**. Nos vemos na rede." + SIG;
-  const A_HI = "Salve! Bem-vindo à raiz. Quer saber sobre a **comunidade**, o **WebTalk2026** (e o **cronograma**), os **CTFs** — e **como enviar a flag** — ou as **redes oficiais**?";
-  const A_THAIS = sig("**Thais Brandão** abre o **WebTalk2026** no dia **17/11 às 19:30** com a talk **\"Confiança é uma vulnerabilidade? O que o Zero Trust nos ensina sobre segurança\"**.\n\n**Quem é ela:** Engenheira de Redes e Cibersegurança com mais de 10 anos de experiência em TI, atuação em ambientes de missão crítica e foco em Arquitetura de Redes e Segurança Cibernética. É professora, mentora e palestrante — instrutora na **Academia Brasileira de Redes** e participante dos projetos educacionais da ONG **Mente Binária** e da **InfraDelas**. Integra a comunidade **Latam Women in Cybersecurity (WOMCY)** e foi reconhecida entre as **Top 20 Women to Follow 2026** pelo Instituto Daryus.\n\n**Redes da Thais:** [@thais.brandao](https://www.instagram.com/thais.brandao/) no Instagram · [LinkedIn](https://www.linkedin.com/in/thais-pinheiro-brandao/)");
+  const A_HI = "Salve! Bem-vindo à raiz. Quer saber sobre a **comunidade**, o **WebTalk2026** (cronograma e **slides das palestras**), os **próximos eventos**, os **CTFs** — e **como enviar a flag** — ou as **redes oficiais**?";
+  const A_THAIS = sig("**Thais Brandão** abriu o **WebTalk2026** no dia **17/11 às 19:30** com a talk **\"Confiança é uma vulnerabilidade? O que o Zero Trust nos ensina sobre segurança\"** — o **PDF dos slides** está no botão dentro do perfil dela no cronograma do site.\n\n**Quem é ela:** Engenheira de Redes e Cibersegurança com mais de 10 anos de experiência em TI, atuação em ambientes de missão crítica e foco em Arquitetura de Redes e Segurança Cibernética. É professora, mentora e palestrante — instrutora na **Academia Brasileira de Redes** e participante dos projetos educacionais da ONG **Mente Binária** e da **InfraDelas**. Integra a comunidade **Latam Women in Cybersecurity (WOMCY)** e foi reconhecida entre as **Top 20 Women to Follow 2026** pelo Instituto Daryus.\n\n**Redes da Thais:** [@thais.brandao](https://www.instagram.com/thais.brandao/) no Instagram · [LinkedIn](https://www.linkedin.com/in/thais-pinheiro-brandao/)");
 
-  const A_GHC = sig("Depois do WebTalk2026, rola o **GHC — Gyn Hacker Conference 2027**, evento parceiro **presencial**: dia **17/04/2027**, **8hrs**, em **Goiânia — GO** (o local será divulgado posteriormente). Mais infos e inscrições no [site oficial](https://hubconnecteventos.com.br/evento/ghc2027). E o WebTalk2026 da #_4root continua em **17 e 18/11/2026, online e gratuito**!");
+  const A_GHC = sig("Depois do WebTalk2026, tem **mais eventos no radar**:\n- **BHack Conference 2026** — 16ª edição, **28 e 29/11/2026** (treinamentos em 27/11), **MinasCentro, Belo Horizonte** — parceiro oficial da **Formming Hackers**: [bhack.com.br](https://www.bhack.com.br)\n- **GHC — Gyn Hacker Conference 2027** (GYNSEC) — evento parceiro **presencial**: dia **17/04/2027**, **8hrs**, em **Goiânia — GO** (local a divulgar): [site oficial](https://hubconnecteventos.com.br/evento/ghc2027)\nE o **WebTalk2026** da #_4root foi realizado em **17 e 18/11/2026** — os **slides** estão no perfil de cada palestrante no cronograma ou em [materiais no Drive](" + U_DRIVE + ")!");
 
   const RULES = [
     [/(flag|ticket|submit|submeter|entreg|onde envio|envio a flag|pontuac)/, A_FLAG],
     [/(thais|brandao|zero ?trust|confianca e uma vulnerabilidade)/, A_THAIS],
-    [/(ghc|gyn hacker|hacker conference|hubconnect)/, A_GHC],
-    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento|dinamica|como funciona o evento|duracao|quantos minutos|formato do evento|thiago|castro|felicio|raugi|caramelo|smith|braz|tenorio|pedro|joabe|fenrir|osinmulator|wp2shell|php2shell|red team|serpro|soberania|nist|quem vai palestrar|quem sao os palestrantes|palestrantes confirmados|grade completa)/, A_SCHED],
+    [/(slides|materia|material|pdf|download|apresentac|deck)/, A_SLIDES],
+    [/(ghc|gyn hacker|hacker conference|hubconnect|bhack|minascentro)/, A_GHC],
+    [/(cronograma|agenda|grade|horario|programacao|dia 17|dia 18|17 de novembro|18 de novembro|o que vai ter no evento|o que teve no evento|dinamica|como funciona o evento|como funcionou o evento|duracao|quantos minutos|formato do evento|thiago|castro|felicio|raugi|caramelo|smith|braz|tenorio|pedro|joabe|fenrir|osinmulator|wp2shell|php2shell|red team|serpro|soberania|nist|quem vai palestrar|quem sao os palestrantes|palestrantes confirmados|grade completa)/, A_SCHED],
     [/(palestrar|palestrante|apresentar|dar uma talk|minha talk|ser palestr|submeter palestra)/, A_SPEAK],
     [/(webtalk|proximo evento|prox evento|evento|palestra|talk|inscric|garantir vaga|vaga|quando acontece|quando vai ser)/, A_EVENT],
     [/(ctf|desafio|capture the flag|pwn|exploit|stego|steagan|forense|reverse|reversa|cripto|crypto|osint|pontos|rayx|darth)/, A_CTF],
@@ -1038,7 +1040,7 @@ document.addEventListener('selectstart', function (event) {
   function renderChips() {
     if (!chipsEl) return;
     chipsEl.innerHTML = '';
-    ["O que é a #_4root?", "Como entro no Discord?", "Próximo evento?", "Cronograma completo", "Quem é a Thais Brandão?", "Como envio a flag do CTF?", "Onde tem conteúdo?", "Quero palestrar!", "Redes oficiais"].forEach(function (c) {
+    ["O que é a #_4root?", "Como entro no Discord?", "WebTalk2026", "Cronograma completo", "Onde estão os slides?", "Quem é a Thais Brandão?", "Como envio a flag do CTF?", "Próximos eventos", "Redes oficiais"].forEach(function (c) {
       const b = document.createElement('button');
       b.type = 'button';
       b.className = 'bot-chip';
@@ -1097,7 +1099,7 @@ document.addEventListener('selectstart', function (event) {
           addMsg(m.role === 'user' ? 'msg--user' : 'msg--bot', m.role === 'user' ? '' : renderRich(m.content), m.content);
         });
       } else {
-        const w = "Olá! Eu sou o **RootBot**, guia da comunidade — e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **WebTalk2026** (dias, horários e a **dinâmica das talks**), **CTFs** (e **como enviar a flag**: ticket no Discord), **YouTube**, **parceiros** e **redes/contato**. O que você quer saber?";
+        const w = "Olá! Eu sou o **RootBot**, guia da comunidade — e conheço **todo o conteúdo do site**: comunidade, manifesto, membros, **WebTalk2026** (cronograma e os **slides das palestras**), **próximos eventos**, **CTFs** (e **como enviar a flag**: ticket no Discord), **YouTube**, **parceiros** e **redes/contato**. O que você quer saber?";
         addMsg('msg--bot', renderRich(w));
         history.push({ role: 'bot', content: w });
         saveHist();
@@ -1308,35 +1310,6 @@ document.addEventListener('selectstart', function (event) {
       facade.classList.add('playing');
     });
   }
-
-  const dd = document.getElementById('yt-dd');
-  const hh = document.getElementById('yt-hh');
-  const mm = document.getElementById('yt-mm');
-  const ss = document.getElementById('yt-ss');
-  const target = new Date('2026-11-17T19:30:00-03:00').getTime();
-
-  function pad(n) { return (n < 10 ? '0' : '') + n; }
-
-  function tickCount() {
-    if (!dd) return;
-    const diff = target - Date.now();
-    if (diff <= 0) {
-      dd.textContent = '00';
-      if (hh) hh.textContent = '00';
-      if (mm) mm.textContent = '00';
-      if (ss) ss.textContent = '00';
-      const lbl = document.querySelector('.yt-event-label');
-      if (lbl) lbl.textContent = 'ao ar agora no youtube';
-      return;
-    }
-    const s = Math.floor(diff / 1000);
-    dd.textContent = pad(Math.floor(s / 86400));
-    if (hh) hh.textContent = pad(Math.floor((s % 86400) / 3600));
-    if (mm) mm.textContent = pad(Math.floor((s % 3600) / 60));
-    if (ss) ss.textContent = pad(s % 60);
-    setTimeout(tickCount, 1000);
-  }
-  tickCount();
 
   const ytFacade = document.querySelector('.yt-facade');
   const ytEventCard = document.querySelector('.yt-event-card');
@@ -1675,6 +1648,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'Thais Brandão é Engenheira de Redes e Cibersegurança, com mais de 10 anos de experiência em Tecnologia da Informação. Possui sólida atuação em ambientes de missão crítica, infraestruturas complexas e projetos estratégicos de grande porte, com foco em Arquitetura de Redes e Segurança Cibernética.\n',
       photo: 'talkers/wt-d1-1.jpg',
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/1oiia9VNwVahz9bwhb4wEpyAh2apCuZ3T/view', label: 'Slides da talk (PDF)' },
         { type: 'instagram', url: 'https://www.instagram.com/thais.brandao/', label: '@thais.brandao' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/thais-pinheiro-brandao/', label: 'LinkedIn' }
       ]
@@ -1686,6 +1660,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'Profissional de cibersegurança com atuação em times de resposta a incidentes, busca de ameaças e conscientização de segurança. Co-fundador da comunidade @riocybersec.',
       photo: 'talkers/wt-d1-2.jpg',
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/16VesmQydmfvjgWotYiOKtj3KlwYHspgt/view', label: 'Slides da talk (PDF)' },
         { type: 'instagram', url: 'https://www.instagram.com/protecaonaweb/', label: '@protecaonaweb' },
         { type: 'instagram', url: 'https://www.instagram.com/riocybersec', label: '@riocybersec' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/othiagocastro/', label: 'LinkedIn' },
@@ -1700,6 +1675,7 @@ document.addEventListener('selectstart', function (event) {
       photo: 'talkers/wt-d1-3-1.jpg',
       photos: ['talkers/wt-d1-3-1.jpg', 'talkers/wt-d1-3-2.jpg'],
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/1I91vjcnAN6ym-uypWxVOUco14Y3Xav9g/view', label: 'Slides da talk (PDF)' },
         { type: 'linkedin', url: 'https://www.linkedin.com/company/caramelo-storm/home/', label: 'Caramelo Storm' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/allan-felicio/', label: 'Allan Felício' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/rafael-raugi/', label: 'Rafael Raugi' }
@@ -1712,6 +1688,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'Red Team, Professor na RedScan Academy e ADINT School. Com mais de 25 anos de experiência profissional, detentor de algumas certificações internacionais de relevância no mercado, dentre elas OSEP, OSCP+ e OSWP da Offensive Security.\n\nObjetivo: Compreender o papel do Comando e Controle (C2) em operações de Red Team, reconhecendo sua importância para a coordenação, monitoramento e observabilidade das atividades conduzidas durante uma campanha.',
       photo: 'talkers/wt-d2-1.jpg',
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/1lps_t7Hvi8DVRrfE7U-Uz0NQhC5HtR0n/view', label: 'Slides da talk (PDF)' },
         { type: 'instagram', url: 'https://www.instagram.com/smiththiago/', label: '@smiththiago' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/smith-braz/', label: 'LinkedIn' }
       ]
@@ -1723,6 +1700,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'Analista de TI do SERPRO, onde atua na Divisão de Inovação em Tecnologia de Nuvem, dedicando-se à arquitetura de nuvem e à soberania digital. Na WebTalk2026, apresenta como o Gradiente de Soberania do SERPRO se conecta ao NIST Cybersecurity Framework 2.0.',
       photo: 'talkers/wt-d2-2.jpg',
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/1a4g-E9ZfDT_XunnqM6L3hxq7mRNvVlyf/view', label: 'Slides da talk (PDF)' },
         { type: 'instagram', url: 'https://www.instagram.com/profpedrotenorio', label: '@professorpedrotenorio' },
         { type: 'site', url: 'https://www.serpro.gov.br', label: 'Serpro' }
       ]
@@ -1734,6 +1712,7 @@ document.addEventListener('selectstart', function (event) {
       bio: 'O OSINMULATOR é um simulador educativo de OSINT (inteligência em fontes abertas) que mostra, na prática, como postagens comuns em redes sociais, quando somadas, montam um dossiê sobre uma pessoa. Na palestra, a plateia acompanha uma investigação fictícia e descobre como cada pista isolada pode revelar muito mais do que parece.',
       photo: 'talkers/wt-d2-3.jpg',
       links: [
+        { type: 'slides', url: 'https://drive.google.com/file/d/1geCtobEx77cmmU5uf46yTcFkN9Zm_PaC/view', label: 'Slides da talk (PDF)' },
         { type: 'linkedin', url: 'https://www.linkedin.com/in/joabeenkautnick/', label: 'LinkedIn' }
       ]
     }
@@ -1762,6 +1741,7 @@ document.addEventListener('selectstart', function (event) {
     name: document.getElementById('speaker-name'),
     role: document.getElementById('speaker-role'),
     talk: document.getElementById('speaker-talk'),
+    slides: document.getElementById('speaker-slides'),
     bio: document.getElementById('speaker-bio'),
     links: document.getElementById('speaker-links'),
     note: document.getElementById('speaker-note')
@@ -1770,6 +1750,7 @@ document.addEventListener('selectstart', function (event) {
   const ICONS = {
     site: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
     email: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+    slides: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>',
     linkedin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>',
     instagram: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>',
     github: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>',
@@ -1780,6 +1761,7 @@ document.addEventListener('selectstart', function (event) {
   const LABELS = {
     site: 'Site',
     email: 'E-mail',
+    slides: 'Slides (PDF)',
     linkedin: 'LinkedIn',
     instagram: 'Instagram',
     github: 'GitHub',
@@ -1814,7 +1796,9 @@ document.addEventListener('selectstart', function (event) {
 
   function renderLinks(links) {
     el.links.innerHTML = '';
-    const list = Array.isArray(links) ? links : [];
+    const list = (Array.isArray(links) ? links : []).filter(function (l) {
+      return l && l.url && l.type !== 'slides';
+    });
     if (!list.length) return;
     list.forEach(function (l) {
       if (!l || !l.url) return;
@@ -1829,6 +1813,29 @@ document.addEventListener('selectstart', function (event) {
     });
   }
 
+  function renderSlides(links) {
+    if (!el.slides) return;
+    el.slides.innerHTML = '';
+    const list = (Array.isArray(links) ? links : []).filter(function (l) {
+      return l && l.type === 'slides' && l.url;
+    });
+    if (!list.length) {
+      el.slides.hidden = true;
+      return;
+    }
+    el.slides.hidden = false;
+    list.forEach(function (l) {
+      const a = document.createElement('a');
+      a.className = 'speaker-slides-btn';
+      a.href = l.url;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.title = l.label || 'Abrir os slides da talk (PDF) no Google Drive';
+      a.innerHTML = ICONS.slides + '<span>Ver slides da talk (PDF)</span>';
+      el.slides.appendChild(a);
+    });
+  }
+
   function fill(id) {
     const sp = SPEAKERS[id] || null;
 
@@ -1840,9 +1847,10 @@ document.addEventListener('selectstart', function (event) {
       'Perfil em breve. Assim que a talk for confirmada, este espaço recebe a bio, os contatos e as redes sociais do palestrante.';
 
     setPhoto(sp && sp.photo ? sp.photo : '', sp && sp.name ? sp.name : 'Foto do palestrante', sp && sp.photos);
+    renderSlides(sp ? sp.links : []);
     renderLinks(sp ? sp.links : []);
 
-    const hasLinks = sp && Array.isArray(sp.links) && sp.links.some(function (l) { return l && l.url; });
+    const hasLinks = sp && Array.isArray(sp.links) && sp.links.some(function (l) { return l && l.url && l.type !== 'slides'; });
     el.note.textContent = hasLinks ? '' : 'Contatos e redes sociais serão publicados junto com a confirmação da talk.';
   }
 
@@ -1941,39 +1949,6 @@ document.addEventListener('selectstart', function (event) {
   groups.forEach(fill);
 })();
 
-(function () {
-  'use strict';
-
-  const LIVE_WINDOWS = [
-    ['2026-11-17T19:30:00-03:00', '2026-11-17T21:30:00-03:00'],
-    ['2026-11-18T19:30:00-03:00', '2026-11-18T21:30:00-03:00']
-  ];
-
-  function inWindow(now) {
-    return LIVE_WINDOWS.some(function (w) {
-      return now >= new Date(w[0]).getTime() && now <= new Date(w[1]).getTime();
-    });
-  }
-
-  function showBadge() {
-    if (document.body.classList.contains('is-live')) return;
-    document.body.classList.add('is-live');
-
-    const badge = document.createElement('span');
-    badge.className = 'live-badge';
-    badge.setAttribute('role', 'status');
-    badge.textContent = 'ao vivo agora';
-
-    const ytHead = document.querySelector('.yt-event-head');
-    if (ytHead) ytHead.appendChild(badge.cloneNode(true));
-
-    const evtHead = document.querySelector('#event-card .challenge-header');
-    if (evtHead) evtHead.appendChild(badge.cloneNode(true));
-  }
-
-  if (inWindow(Date.now())) showBadge();
-})();
-
 /* ------------------------------------------------------------------
  * Barra de progresso no topo dos modais (sched + speaker)
  * Substitui a barra de rolagem nativa (oculta no CSS) pelo mesmo
@@ -2060,7 +2035,7 @@ document.addEventListener('selectstart', function (event) {
     const url = shareUrl();
     const data = {
       title: '#_4root WebTalk2026 — Cronograma',
-      text: 'Confira o cronograma do #_4root WebTalk2026 — 17 e 18 de novembro, ao vivo no YouTube.',
+      text: 'Confira o cronograma do #_4root WebTalk2026 — 17 e 18 de novembro de 2026, no YouTube da comunidade. Slides das talks disponíveis no Google Drive.',
       url: url
     };
     if (navigator.share) {
